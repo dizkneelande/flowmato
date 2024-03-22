@@ -1,8 +1,64 @@
-# The-Percolators
-Assignment development repo
+# Who are the Percolators?
 
-hello i am nell the percolators r cool
+* Nathaniel Mason - **Project Manager**
 
-hello i am jake the percolators are super cool
+  > Hello Nat test :)
 
-Hello Nat test :)
+* Jacob Gee - **Team Leader**
+
+  > hello i am jake the percolators are super cool
+
+* Maanvi Gharge - **Agile coach**
+
+  > 
+
+* Nell Yi - **Developer**
+
+  > i use arch linux btw
+
+* Jozef Kowalski - **Developer**
+
+  > 
+
+## Important stuff
+
+* [Github repo](https://github.com/nat-mason/The-Percolators) 
+* [Trello board](https://trello.com/b/HSAntZDo/the-percolators) (thank you nat)
+* [Team Contract] ?
+* cats
+
+## Inspiration: Pomodoro Technique
+
+[Wikipedia](https://en.wikipedia.org/wiki/Pomodoro_Technique)
+
+The **Pomodoro Technique** is a [time management](https://en.wikipedia.org/wiki/Time_management) method developed by Francesco Cirillo in the late 1980s. It uses a [kitchen timer](https://en.wikipedia.org/wiki/Kitchen_timer) to break work into intervals, typically 25 minutes in length, separated by short breaks. Each interval is known as a *pomodoro*, from the Italian word for tomato, after the tomato-shaped kitchen timer Cirillo used as a university student.
+
+![https://upload.wikimedia.org/wikipedia/commons/3/34/Il_pomodoro.jpg](https://upload.wikimedia.org/wikipedia/commons/3/34/Il_pomodoro.jpg)
+
+[Apps](https://en.wikipedia.org/wiki/Application_software) and websites providing timers and instructions have widely popularized the technique. Closely related to concepts such as [timeboxing](https://en.wikipedia.org/wiki/Timeboxing) and [iterative and incremental development](https://en.wikipedia.org/wiki/Iterative_and_incremental_development) used in software design, the method has been adopted in [pair programming](https://en.wikipedia.org/wiki/Pair_programming) contexts.
+
+## Description
+
+**The original technique has six steps**:
+
+1. Decide on the task to be done.
+2. Set the Pomodoro timer (typically for 25 minutes).
+3. Work on the task.
+4. End work when the timer rings and take a short break (typically 5–10 minutes).
+5. Go back to Step 2 and repeat until you complete four pomodoros.
+6. After four pomodoros are done, take a long break (typically 20 to 30 minutes) instead of a short break. Once the long break is finished,  return to step 2.
+
+For the purposes of the technique, a *pomodoro* is an interval of work time.
+
+Regular breaks are taken, aiding [assimilation](https://en.wikipedia.org/wiki/Constructivism_(philosophy_of_education)#Individual). A 5-minute break separates consecutive pomodoros. Four pomodoros form a set. There is a longer 20–30-minute break between sets.
+
+A goal of the technique is to reduce the effect of internal and external interruptions on [focus](https://en.wikipedia.org/wiki/Focus_(cognitive_process)) and [flow](https://en.wikipedia.org/wiki/Flow_(psychology)). A pomodoro is indivisible; when interrupted during a Pomodoro, either  the other activity must be recorded and postponed (using the *inform – negotiate – schedule – call back* strategy) or the pomodoro must be abandoned.
+
+After task completion in a Pomodoro, any remaining time should be devoted to activities, for example:
+
+1. Review your work just completed (optional)
+2. Review the activities from a learning point of view (ex: What  learning objective did you accomplish? What learning outcome did you  accomplish? Did you fulfill your learning target, objective, or outcome  for the task?)
+3. Review the list of upcoming tasks for the next planned pomodoro time blocks, and start reflecting on or updating them.
+
+
+
