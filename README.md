@@ -60,5 +60,10 @@ After task completion in a Pomodoro, any remaining time should be devoted to act
 2. Review the activities from a learning point of view (ex: What  learning objective did you accomplish? What learning outcome did you  accomplish? Did you fulfill your learning target, objective, or outcome  for the task?)
 3. Review the list of upcoming tasks for the next planned pomodoro time blocks, and start reflecting on or updating them.
 
+## App name ideas
 
+* flowmato
+* flomato
 
+* fl![🍅](https://discord.com/assets/59f9ec5ccb450846b810.svg) mat![🍅](https://discord.com/assets/59f9ec5ccb450846b810.svg)
+* this is v good documentation
