@@ -64,6 +64,5 @@ After task completion in a Pomodoro, any remaining time should be devoted to act
 
 * flowmato
 * flomato
-
-* fl![🍅](https://discord.com/assets/59f9ec5ccb450846b810.svg) mat![🍅](https://discord.com/assets/59f9ec5ccb450846b810.svg)
+* fl🍅wmat🍅
 * this is v good documentation
