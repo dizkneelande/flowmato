@@ -1,22 +1,22 @@
 # Who are the Percolators?
 
-* Nathaniel Mason - **Project Manager**
+* **Nathaniel Mason** - *Project Manager*
 
   > Hello Nat test :)
 
-* Jacob Gee - **Team Leader**
+* **Jacob Gee** - *Team Leader*
 
   > hello i am jake the percolators are super cool
 
-* Maanvi Gharge - **Agile coach**
+* **Maanvi Gharge** - *Agile coach*
 
   > 
 
-* Nell Yi - **Developer**
+* **Nell Yi** - *Developer*
 
   > i use arch linux btw
 
-* Jozef Kowalski - **Developer**
+* **Jozef Kowalski** - *Developer*
 
   > 
 
