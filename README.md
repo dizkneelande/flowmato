@@ -12,7 +12,7 @@
 
   > 
 
-* **Nell Yi** - *Developer*
+* **Nell Yi** - *Developer* - *all time GOAT*
 
   > i use arch linux btw
 
