@@ -68,6 +68,7 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Enhance Productivity**: Utilise the Pomodoro technique to help users focus on tasks in short bursts, leading to increased productivity.
 - **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
 - **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
+- **Tomatoes**: For maximum efficiency.
 - 
 
 ## App name ideas
