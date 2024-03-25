@@ -60,9 +60,19 @@ After task completion in a Pomodoro, any remaining time should be devoted to act
 2. Review the activities from a learning point of view (ex: What  learning objective did you accomplish? What learning outcome did you  accomplish? Did you fulfill your learning target, objective, or outcome  for the task?)
 3. Review the list of upcoming tasks for the next planned pomodoro time blocks, and start reflecting on or updating them.
 
+# Preliminary Project Brief
+
+Effectively managing time and maintaining focus are challenges that resonate with almost everyone. From students grappling with study schedules, to industry professionals juggling multiple projects at once, even everyday tasks can be a struggle for many people. The need for a structured approach to time management is universal. Recognising this need, we introduce *Flowmato*, a project that adopts the Pomodoro technique and augments it with more functionality, elevating it into a more versatile and effective time management tool.
+
+## Objectives of Flowmato
+- **Enhance Productivity**: Utilise the Pomodoro technique to help users focus on tasks in short bursts, leading to increased productivity.
+- **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
+- **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
+- 
+
 ## App name ideas
 
-* flowmato
+* *flowmato*
 * flomato
 * fl🍅wmat🍅
-* this is v good documentation
+* this is v good documentation (i agree)
