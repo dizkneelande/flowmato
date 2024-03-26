@@ -18,7 +18,7 @@
 
 * **Jozef Kowalski** - *Developer*
 
-  > 
+  > [object Object]
 
 ## Important stuff
 
