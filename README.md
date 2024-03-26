@@ -10,7 +10,7 @@
 
 * **Maanvi Gharge** - *Agile coach*
 
-  > 
+  > Hey I'm Maanvi! We're one crazy team but the best!
 
 * **Nell Yi** - *Developer* - *all time GOAT*
 
