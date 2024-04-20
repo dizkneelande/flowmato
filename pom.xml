@@ -7,7 +7,7 @@
   <groupId>com.example</groupId>
   <artifactId>address-book</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>address-book</name>
+  <name>flowmato</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

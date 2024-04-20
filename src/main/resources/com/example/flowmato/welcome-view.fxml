@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.flowmato.controller.WelcomeController">
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.WelcomeController">
     <padding>
-        <Insets top="50" right="20" bottom="20" left="20"/>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-
-    <Label text="welcome to flowmato yhyhyh drink water fool" style="-fx-font-size: 20pt;"/>
-
-    <VBox spacing="10">
-        <Label text="Username:"/>
-        <TextField fx:id="usernameField" promptText="Enter your username"/>
-
-        <Label text="Password:"/>
-        <TextField fx:id="passwordField" promptText="Enter your password" />
-
-        <Button text="Create Profile" onAction="#createProfile"/>
-        <Button text="Select Profile" onAction="#selectProfile"/>
-    </VBox>
+    <Label text="Welcome to Flowmato!">
+      <font>
+         <Font size="40.0" />
+      </font></Label>
+    <Button onAction="#GetStarted" style="-fx-font-size: 14pt;" text="Get Started" />
 </VBox>
