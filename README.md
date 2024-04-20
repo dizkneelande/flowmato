@@ -8,7 +8,7 @@
 
   > hello i am jake the percolators are super cool
 
-* **Maanvi Gharge** - *Agile coach*
+* **Maanvi Gharge** - *Lead Designer*
 
   > Hey I'm Maanvi! We're one crazy team but the best!
 
