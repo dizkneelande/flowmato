@@ -3,64 +3,41 @@ package com.example.flowmato.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SqliteProfileDAO {
-    private Connection connection;
+    private final String url = "jdbc:sqlite:profiles.db";
 
-    public SqliteProfileDAO() {
-        connection = SqliteConnection.getInstance();
-        createProfileTable();
+    private Connection connect() {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
     }
 
-    private void createProfileTable() {
-        try {
-            Statement statement = connection.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS profiles ("
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "username VARCHAR NOT NULL,"
-                    + "password VARCHAR NOT NULL"
-                    + ")";
-            statement.execute(query);
+    public void initialiseDatabase() {
+        String sql = "CREATE TABLE IF NOT EXISTS profiles (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL, preferred_name TEXT);";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
-    public void createProfile(Profile profile) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO profiles (username, password) VALUES (?, ?)");
-            statement.setString(1, profile.getUsername());
-            statement.setString(2, profile.getPassword());
-            statement.executeUpdate();
+    public void saveNewProfile(Profile profile) {
+        String sql = "INSERT INTO profiles(email, password, preferred_name) VALUES(?,?,?)";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, profile.getEmail());
+            pstmt.setString(2, profile.getPassword());
+            pstmt.setString(3, profile.getPreferredName());
+            pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-
-    public Profile selectProfile(String username, String password) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM profiles WHERE username = ? AND password = ?");
-            statement.setString(1, username);
-            statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String storedUsername = resultSet.getString("username");
-                String storedPassword = resultSet.getString("password");
-                return new Profile(id, storedUsername, storedPassword);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    // TODO: implement updateProfile and deleteProfile
-    // TODO: close connection when in main view i guess
-
 }

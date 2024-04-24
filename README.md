@@ -6,9 +6,9 @@
 
 * **Jacob Gee** - *Team Leader*
 
-  > hello i am jake the percolators are super cool
+  > Hello I am Jake, the percolators are super cool!
 
-* **Maanvi Gharge** - *Agile coach*
+* **Maanvi Gharge** - *Lead Designer*
 
   > Hey I'm Maanvi! We're one crazy team but the best!
 
@@ -23,9 +23,7 @@
 ## Important stuff
 
 * [Github repo](https://github.com/nat-mason/The-Percolators) 
-* [Trello board](https://trello.com/b/HSAntZDo/the-percolators) (thank you nat)
-* [Team Contract] ?
-* cats
+* [Trello board](https://trello.com/b/HSAntZDo/the-percolators)
 
 ## Inspiration: Pomodoro Technique
 
@@ -69,12 +67,9 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
 - **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
 - **Tomatoes**: For maximum efficiency.
-- 
 
 ## App name ideas
 
 * *flowmato*
 * flomato
-* fl🍅wmat🍅
-* this is v good documentation (i agree)
-* Very cool Markdown
+

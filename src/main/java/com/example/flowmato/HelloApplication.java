@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.example.flowmato.model.SqliteProfileDAO;
 
 import java.io.IOException;
 
@@ -20,6 +21,8 @@ public class HelloApplication extends Application {
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();
+        SqliteProfileDAO dao = new SqliteProfileDAO();
+        dao.initialiseDatabase();
     }
 
     public static void main(String[] args) {

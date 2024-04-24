@@ -1,30 +1,27 @@
 package com.example.flowmato.model;
 
+/**
+ * profile class - leaving extendability for more fields (like achievements and such)
+ */
 public class Profile {
-    private int id;
-    private String username;
+    private String email;
     private String password;
+    private String preferredName;
 
-    public Profile(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
+    // Constructor
+    public Profile(String email, String password, String preferredName) {
+        this.email = email;
         this.password = password;
+        this.preferredName = preferredName;
     }
 
-    public int getId() {
-        return id;
+    // Getters and Setters
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -34,4 +31,14 @@ public class Profile {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getPreferredName() {
+        return preferredName;
+    }
+
+    public void setPreferredName(String preferredName) {
+        this.preferredName = preferredName;
+    }
+
+    //more stuff to come
 }

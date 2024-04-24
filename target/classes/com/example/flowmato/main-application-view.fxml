@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.MainApplicationController">
+    <Label text="main app stuff goes here">
+        <font>
+            <Font size="40.0" />
+        </font></Label>
+</StackPane>

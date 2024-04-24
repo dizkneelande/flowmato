@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.SignUpController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <Label text="gimme ur info">
+        <font>
+            <Font size="40.0" />
+        </font></Label>
+    <TextField fx:id="emailField" promptText="Email address"/>
+    <TextField fx:id="passwordField" promptText="Password"/>
+    <TextField fx:id="preferredNameField" promptText="What can I call you?"/>
+    <Button text="Submit" onAction="#SignUpSubmit"/>
+    <Button text="Back" onAction="#Back"/>
+</VBox>
