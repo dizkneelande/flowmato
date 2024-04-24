@@ -1,8 +1,9 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.model.Profile;
+import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +12,6 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 public class SignUpController {
-
     @FXML
     private TextField emailField;
     @FXML
@@ -23,10 +23,8 @@ public class SignUpController {
 
     @FXML
     protected void SignUpSubmit(ActionEvent event) {
-        String email = emailField.getText();
-        String password = passwordField.getText();
-        String preferredName = preferredNameField.getText();
-        profileDAO.saveNewProfile(email, password, preferredName);
+        Profile newProfile = new Profile(emailField.getText(), passwordField.getText(), preferredNameField.getText());
+        profileDAO.saveNewProfile(newProfile);
     }
 
     @FXML

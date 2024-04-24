@@ -6,9 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class SqliteProfileDAO {
-
     private final String url = "jdbc:sqlite:profiles.db";
-    //connect to profiles.db
+
     private Connection connect() {
         Connection conn = null;
         try {
@@ -19,14 +18,8 @@ public class SqliteProfileDAO {
         return conn;
     }
 
-    //initialise database with email/pw/name for now
     public void initialiseDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS profiles (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "email TEXT NOT NULL," +
-                "password TEXT NOT NULL," +
-                "preferred_name TEXT);";
-
+        String sql = "CREATE TABLE IF NOT EXISTS profiles (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL, preferred_name TEXT);";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.execute();
@@ -35,14 +28,13 @@ public class SqliteProfileDAO {
         }
     }
 
-    //save new profile to db
-    public void saveNewProfile(String email, String password, String preferredName) {
+    public void saveNewProfile(Profile profile) {
         String sql = "INSERT INTO profiles(email, password, preferred_name) VALUES(?,?,?)";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, email);
-            pstmt.setString(2, password);
-            pstmt.setString(3, preferredName);
+            pstmt.setString(1, profile.getEmail());
+            pstmt.setString(2, profile.getPassword());
+            pstmt.setString(3, profile.getPreferredName());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
