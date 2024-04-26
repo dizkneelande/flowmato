@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.LoginController">
+<VBox alignment="CENTER" spacing="10" prefWidth="640" prefHeight="360" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.LoginController">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
@@ -12,8 +12,9 @@
         <font>
             <Font size="40.0" />
         </font></Label>
-    <TextField fx:id="emailField" promptText="Email"/>
-    <PasswordField fx:id="passwordField" promptText="Password"/>
+    <TextField fx:id="emailField" promptText="Email" onKeyTyped="#clearErrorMessage"/>
+    <PasswordField fx:id="passwordField" promptText="Password" onKeyTyped="#clearErrorMessage"/>
     <Button text="Login" onAction="#Login"/>
     <Button text="Back" onAction="#Back"/>
+    <Label fx:id="errorLabel" text="Invalid credentials, please try again." layoutX="100" layoutY="250" visible="false" textFill="red"/>
 </VBox>

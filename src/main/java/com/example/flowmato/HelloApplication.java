@@ -9,15 +9,13 @@ import com.example.flowmato.model.SqliteProfileDAO;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    //Constants defining the window title and size
+    //constants defining the window title and size
     public static final String TITLE = "Flowmato";
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 360;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("welcome-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 360);
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();

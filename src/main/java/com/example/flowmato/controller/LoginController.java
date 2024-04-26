@@ -4,6 +4,7 @@ import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.Label;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +19,8 @@ public class LoginController {
     private TextField emailField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label errorLabel;
 
     @FXML
     protected void Login(ActionEvent event) {
@@ -25,7 +28,7 @@ public class LoginController {
         boolean isValid = profileDAO.validateLogin(emailField.getText(), passwordField.getText());
 
         if (isValid) {
-            System.out.println("login successful!");
+            //System.out.println("login successful");
             try {
                 Parent mainAppRoot = FXMLLoader.load(getClass().getResource("/com/example/flowmato/main-application-view.fxml"));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -35,11 +38,15 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("invalid credentials");
-            //ui should show error message
+            // System.out.println("invalid credentials");
+            errorLabel.setText("Invalid credentials, please try again.");
+            errorLabel.setVisible(true);
         }
     }
-
+    @FXML
+    private void clearErrorMessage() {
+        errorLabel.setVisible(false);
+    }
 
     @FXML
     protected void Back(ActionEvent event) {

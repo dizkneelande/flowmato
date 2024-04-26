@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Font?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.MainApplicationController">
+<StackPane prefWidth="640" prefHeight="360" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.MainApplicationController">
     <Label text="main app stuff goes here">
         <font>
             <Font size="40.0" />
