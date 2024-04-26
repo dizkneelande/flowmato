@@ -1,9 +1,6 @@
 package com.example.flowmato.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles.db";
@@ -40,4 +37,21 @@ public class SqliteProfileDAO {
             System.out.println(e.getMessage());
         }
     }
+
+    public boolean validateLogin(String email, String password) {
+        String sql = "SELECT id FROM profiles WHERE email = ? AND password = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            //if rs not empty then login successful
+            return rs.next();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
 }
