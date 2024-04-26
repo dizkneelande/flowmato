@@ -1,4 +1,6 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/profiles.db
+
+# Ignore SQLite DB
+../profiles.db
