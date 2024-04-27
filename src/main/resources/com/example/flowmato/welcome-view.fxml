@@ -3,15 +3,17 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20" prefWidth="640" prefHeight="360" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.WelcomeController">
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.WelcomeController"
+      style="-fx-background-color: linear-gradient(to bottom, #99bbbb 65%, #ffffff);"> <!-- Balanced gradient transition -->
+
     <padding>
-        <Insets bottom="20" left="20" right="20" top="20" />
+        <Insets top="50" bottom="20" left="20" right="20"/>
     </padding>
-    <Label text="Welcome to Flowmato!">
-      <font>
-         <Font size="40.0" />
-      </font></Label>
-    <Button onAction="#GetStarted" style="-fx-font-size: 14pt;" text="Get Started" />
+
+    <!-- Welcome text with white font -->
+    <Label text="Welcome to Flowmato!" style="-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <!-- "Get Started" button with rounded corners -->
+    <Button text="Get Started" onAction="#GetStarted" style="-fx-background-radius: 20; -fx-font-size: 14pt; -fx-background-color: white; -fx-border-radius: 20;"/>
 </VBox>
