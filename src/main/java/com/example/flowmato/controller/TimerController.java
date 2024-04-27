@@ -12,6 +12,8 @@ public class TimerController {
     int longBreakDuration;
     int currentStage;
     int shortBreaksTaken;
+    int longBreaksTaken;
+    int breaksTaken;
     boolean isPaused;
     private int timeElapsed;
     private Timer timer;
@@ -21,10 +23,11 @@ public class TimerController {
 
     public TimerController() {
         sessionDuration = 150;
-        shortBreakDuration = 600;
-        longBreakDuration = 1800;
-        currentStage = 0;
+        shortBreakDuration = 200; //600;
+        longBreakDuration = 250; //1800;
+        currentStage = 1;
         timeElapsed = 0;
+        breaksTaken = 0;
         timerDuration = sessionDuration;
 
         timer = new Timer();
@@ -35,7 +38,10 @@ public class TimerController {
     public void Stop() {
         Reset();
 
-        currentStage = 0;
+        currentStage = 1;
+        breaksTaken = 0;
+        shortBreaksTaken = 0;
+        longBreaksTaken = 0;
     }
 
     private void Reset() {
@@ -130,11 +136,12 @@ public class TimerController {
         Reset();
 
         currentStage++;
-        System.out.println(currentStage);
 
-        if (currentStage % 2 != 0) {
-            if (shortBreaksTaken % 4 == 0) {
+        if (currentStage % 2 == 0) {
+            breaksTaken++;
+            if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
+                longBreaksTaken++;
             } else {
                 timerDuration = shortBreakDuration;
                 shortBreaksTaken++;
