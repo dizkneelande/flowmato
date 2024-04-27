@@ -4,7 +4,7 @@
 
   > Hello Nat test :)
 
-* **Jacob Gee** - *Team Leader*
+* **Jacob Gee** - *Team Leader/Documentation*
 
   > Hello I am Jake, the percolators are super cool!
 
@@ -12,7 +12,7 @@
 
   > Hey I'm Maanvi! We're one crazy team but the best!
 
-* **Nell Yi** - *Developer* - *all time GOAT*
+* **Nell Yi** - *Developer*
 
   > i use arch linux btw
 
@@ -20,10 +20,10 @@
 
   > [object Object]
 
-## Important stuff
+## Important Links
 
-* [Github repo](https://github.com/nat-mason/The-Percolators) 
-* [Trello board](https://trello.com/b/HSAntZDo/the-percolators)
+* [Github Repo](https://github.com/nat-mason/The-Percolators) 
+* [Trello Board](https://trello.com/b/HSAntZDo/the-percolators)
 
 ## Inspiration: Pomodoro Technique
 
@@ -67,9 +67,4 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
 - **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
 - **Tomatoes**: For maximum efficiency.
-
-## App name ideas
-
-* *flowmato*
-* flomato
 
