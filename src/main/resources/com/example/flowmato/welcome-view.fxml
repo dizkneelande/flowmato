@@ -5,12 +5,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 65%, #ffffff);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.WelcomeController"> <!-- Balanced gradient transition -->
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 70%, #ffffff);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.WelcomeController"> <!-- Balanced gradient transition -->
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="50" />
     </padding>
-   <ImageView fx:id="flowmatoImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
+   <ImageView fx:id="flowmatoImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateY="-25.0">
       <image>
          <Image url="@../../../images/Flowmato.png" />
       </image>
