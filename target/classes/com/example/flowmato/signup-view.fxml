@@ -5,49 +5,56 @@
 <?import javafx.scene.layout.*?>
 
 <!-- HBox for split-screen effect with fixed size -->
+<HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
 
-<HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
-
+    <!-- Left section with 40% width and light blue background -->
     <VBox alignment="CENTER" prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
+        <!-- Multiple ImageViews with adjusted positions -->
         <ImageView fitHeight="71.0" fitWidth="71.0" preserveRatio="true" translateX="50.0" translateY="70.0">
             <image>
                 <Image url="@../../../images/Flowmato.png" />
             </image>
         </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0" translateY="-65.0">
-         <image>
-            <Image url="@../../../images/Flowmato.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0" translateY="-10.0">
-         <image>
-            <Image url="@../../../images/Flowmato.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" translateX="45.0" translateY="-30.0">
-         <image>
-            <Image url="@../../../images/Flowmato.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" translateX="-55.0" translateY="-35.0">
-         <image>
-            <Image url="@../../../images/Flowmato.png" />
-         </image>
-      </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" preserveRatio="true" translateX="-35.0" translateY="-65.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" preserveRatio="true" translateX="-45.0" translateY="-10.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="189.0" preserveRatio="true" translateX="45.0" translateY="-30.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="115.0" preserveRatio="true" translateX="-55.0" translateY="-35.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
     </VBox>
 
-    <!-- Right section with 60% width and white background -->
-    <VBox prefHeight="360.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-pref-width: 450;">
-        <Label prefHeight="55.0" prefWidth="398.0" style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!" />
+    <!-- Right section with white background and form elements -->
+    <VBox prefHeight="360.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20;">
+        <Label style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!" />
 
         <Label style="-fx-font-size: 14; -fx-text-fill: black;" text="I'm here to help you stay focused and productive!" />
 
-        <TextField fx:id="emailField" promptText="Email address" />
-        <PasswordField fx:id="passwordField" promptText="Password" />
-        <TextField fx:id="preferredNameField" promptText="What can I call you?" />
+        <!-- TextFields with #8FBCBB outlines and rounded corners -->
+        <TextField fx:id="emailField" promptText="Email address" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+        <PasswordField fx:id="passwordField" promptText="Password" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+        <TextField fx:id="preferredNameField" promptText="What can I call you?" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
 
-        <Button onAction="#SignUpSubmit" style="-fx-font-size: 14;" text="Sign Up" />
-        <Button onAction="#Back" style="-fx-font-size: 14;" text="Back" />
+        <!-- Buttons with #8FBCBB background and more rounded corners -->
+        <Button onAction="#SignUpSubmit" style="-fx-background-color: #8FBCBB; -fx-border-radius: 20; -fx-font-size: 14;" text="Sign Up" />
+        <Button onAction="#Back" style="-fx-background-color: #8FBCBB; -fx-border-radius: 20; -fx-font-size: 14;" text="Back" />
     </VBox>
 
 </HBox>
