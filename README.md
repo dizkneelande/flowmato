@@ -1,22 +1,22 @@
 # Who are the Percolators?
 
-* **Nathaniel Mason** - *Project Manager*
+* **Nathaniel Mason** - *Project Manager* - nat-mason
 
   > Hello Nat test :)
 
-* **Jacob Gee** - *Team Leader/Documentation*
+* **Jacob Gee** - *Team Leader/Documentation* - Voltadox
 
   > Hello I am Jake, the percolators are super cool!
 
-* **Maanvi Gharge** - *Lead Designer*
+* **Maanvi Gharge** - *Lead Designer* - Maanvigharge
 
   > Hey I'm Maanvi! We're one crazy team but the best!
 
-* **Nell Yi** - *Developer*
+* **Nell Yi** - *Developer* - dizkneelande
 
   > i use arch linux btw
 
-* **Jozef Kowalski** - *Developer*
+* **Jozef Kowalski** - *Developer* - Pirateness
 
   > [object Object]
 
