@@ -9,15 +9,35 @@
 <HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
 
     <VBox alignment="CENTER" prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
-        <ImageView fitHeight="77.0" fitWidth="61.0" preserveRatio="true">
+        <ImageView fitHeight="71.0" fitWidth="71.0" preserveRatio="true" translateX="50.0" translateY="70.0">
             <image>
                 <Image url="@../../../images/Flowmato.png" />
             </image>
         </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0" translateY="-65.0">
+         <image>
+            <Image url="@../../../images/Flowmato.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0" translateY="-10.0">
+         <image>
+            <Image url="@../../../images/Flowmato.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" translateX="45.0" translateY="-30.0">
+         <image>
+            <Image url="@../../../images/Flowmato.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" translateX="-55.0" translateY="-35.0">
+         <image>
+            <Image url="@../../../images/Flowmato.png" />
+         </image>
+      </ImageView>
     </VBox>
 
     <!-- Right section with 60% width and white background -->
-    <VBox prefHeight="360.0" prefWidth="446.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-pref-width: 450;">
+    <VBox prefHeight="360.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-pref-width: 450;">
         <Label prefHeight="55.0" prefWidth="398.0" style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!" />
 
         <Label style="-fx-font-size: 14; -fx-text-fill: black;" text="I'm here to help you stay focused and productive!" />
