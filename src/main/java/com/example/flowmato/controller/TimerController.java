@@ -5,6 +5,9 @@ import java.time.Instant;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * A controller class that controls a timer.
+ */
 public class TimerController {
     int timerDuration;
     int sessionDuration;
@@ -21,6 +24,9 @@ public class TimerController {
     private Instant startTime;
     private Instant pauseTime;
 
+    /**
+     * A method that initialises the TimerController variables.
+     */
     public TimerController() {
         sessionDuration = 150;
         shortBreakDuration = 200; //600;
@@ -35,6 +41,9 @@ public class TimerController {
         isPaused = true;
     }
 
+    /**
+     * A method that stops and resets the TimerController back to default values.
+     */
     public void Stop() {
         Reset();
 
@@ -44,6 +53,9 @@ public class TimerController {
         longBreaksTaken = 0;
     }
 
+    /**
+     * A method that resets the timer back to its initialisation values, but does not modify the stage or break progress
+     */
     private void Reset() {
         isPaused = true;
 
@@ -55,6 +67,9 @@ public class TimerController {
         timerDuration = sessionDuration;
     }
 
+    /**
+     * A method that pauses the active timer.
+     */
     public void Pause() {
         if (isPaused) {
             return;
@@ -67,6 +82,11 @@ public class TimerController {
         task.cancel();
     }
 
+    /**
+     * A method that sets the duration of a long break.
+     * @param sessionDuration The duration to set the session duration (working stage of the Pomodoro) to
+     * @return true if the duration was successfully modified, false if it wasn't modified
+     */
     public boolean setSessionDuration(int sessionDuration) {
         if (!isPaused) {
             return false;
@@ -76,6 +96,11 @@ public class TimerController {
         return true;
     }
 
+    /**
+     * A method that sets the duration of a long break.
+     * @param shortBreakDuration The duration to set the short break to
+     * @return true if the duration was successfully modified, false if it wasn't modified
+     */
     public boolean setShortBreakDuration(int shortBreakDuration) {
         if (!isPaused) {
             return false;
@@ -85,6 +110,11 @@ public class TimerController {
         return true;
     }
 
+    /**
+     * A method that sets the duration of a long break.
+     * @param longBreakDuration The duration to set the long break to
+     * @return true if the duration was successfully modified, false if it wasn't modified
+     */
     public boolean setLongBreakDuration(int longBreakDuration) {
         if (!isPaused) {
             return false;
@@ -94,6 +124,10 @@ public class TimerController {
         return true;
     }
 
+    /**
+     * A simple model class representing a contact with a first name, last name, email, and phone number.
+     * @return a metric of how much time has elapsed since the timer started.
+     */
     public int getTimeElapsed() {
         if (startTime == null) {
             return 0;
@@ -110,6 +144,9 @@ public class TimerController {
         }
     }
 
+    /**
+     * A method to resume/start the timer.
+     */
     public void Resume() {
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
@@ -136,6 +173,10 @@ public class TimerController {
         isPaused = false;
     }
 
+    /**
+     * A method that transitions the timer to the next "stage"; a stage is a discrete period of time that represents either
+     * the work stage, the short rest stage or the long rest stage.
+     */
     public void nextStage() {
         Reset();
 
