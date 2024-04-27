@@ -15,7 +15,7 @@
          <Image url="@../../../images/Flowmato.png" />
       </image>
    </ImageView>
-    <Label text="gimme ur info">
+    <Label text="Hey I'm Flowmato">
         <font>
             <Font size="40.0" />
         </font></Label>
