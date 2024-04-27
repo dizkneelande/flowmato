@@ -5,11 +5,10 @@
 <?import javafx.scene.text.*?>
 
 <StackPane prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.MainApplicationController">
-    <Label text="main app stuff goes here">
+    <Label fx:id="currentTime" text="main app stuff goes here">
         <font>
             <Font size="40.0" />
         </font></Label>
-    <Button onAction="#GetTime" prefHeight="76.0" prefWidth="124.0" text="GetTime" StackPane.alignment="TOP_RIGHT" />
     <Button onAction="#StartTimer" prefHeight="71.0" prefWidth="118.0" text="StartTimer" StackPane.alignment="TOP_LEFT" />
     <Button onAction="#StopTimer" prefHeight="71.0" prefWidth="118.0" text="StopTimer" StackPane.alignment="BOTTOM_LEFT" />
     <Button onAction="#PauseTimer" prefHeight="71.0" prefWidth="118.0" text="PauseTimer" StackPane.alignment="BOTTOM_RIGHT" />

@@ -56,6 +56,10 @@ public class TimerController {
     }
 
     public void Pause() {
+        if (isPaused) {
+            return;
+        }
+
         isPaused = true;
 
         pauseTime = Instant.now();
