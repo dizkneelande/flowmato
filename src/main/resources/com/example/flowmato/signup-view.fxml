@@ -10,7 +10,7 @@
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <ImageView fitHeight="144.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="144.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5" translateX="-39.0">
       <image>
          <Image url="@../../../images/Flowmato.png" />
       </image>
