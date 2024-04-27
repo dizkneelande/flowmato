@@ -4,8 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-<HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
+<HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
 
     <VBox alignment="CENTER" prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
         <ImageView fitHeight="71.0" fitWidth="71.0" preserveRatio="true" translateX="50.0" translateY="70.0">
@@ -41,6 +40,7 @@
 
 
     <VBox prefHeight="360.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20;">
+        <Button onAction="#Back" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20; -fx-font-size: 14;" text="Back" />
         <Label style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!" />
 
         <Label style="-fx-font-size: 14; -fx-text-fill: black;" text="I'm here to help you stay focused and productive!" />
@@ -51,7 +51,6 @@
 
 
         <Button onAction="#SignUpSubmit" style="-fx-background-color: #8FBCBB; -fx-border-radius: 20; -fx-font-size: 14;" text="Sign Up" />
-        <Button onAction="#Back" style="-fx-background-color: #8FBCBB; -fx-border-radius: 20; -fx-font-size: 14;" text="Back" />
     </VBox>
 
 </HBox>
