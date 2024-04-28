@@ -17,6 +17,7 @@ public class TimerController {
     int shortBreaksTaken;
     int longBreaksTaken;
     int breaksTaken;
+    int pomodorosCompleted;
     boolean isPaused;
     private int timeElapsed;
     private Timer timer;
@@ -42,7 +43,7 @@ public class TimerController {
     }
 
     /**
-     * A method that stops and resets the TimerController back to default values.
+     * Stops and resets the TimerController back to default values.
      */
     public void Stop() {
         Reset();
@@ -51,15 +52,17 @@ public class TimerController {
         breaksTaken = 0;
         shortBreaksTaken = 0;
         longBreaksTaken = 0;
+        pomodorosCompleted = 0;
     }
 
     /**
-     * A method that resets the timer back to its initialisation values, but does not modify the stage or break progress
+     * Resets the timer back to its initialisation values, but does not modify the stage or break progress
      */
     private void Reset() {
         isPaused = true;
 
         task.cancel();
+        task = null;
         timeElapsed = 0;
 
         startTime = null;
@@ -68,7 +71,7 @@ public class TimerController {
     }
 
     /**
-     * A method that pauses the active timer.
+     * Pauses the active timer.
      */
     public void Pause() {
         if (isPaused) {
@@ -83,9 +86,9 @@ public class TimerController {
     }
 
     /**
-     * A method that sets the duration of a long break.
+     * Sets the duration of a Pomodoro session.
      * @param sessionDuration The duration to set the session duration (working stage of the Pomodoro) to
-     * @return true if the duration was successfully modified, false if it wasn't modified
+     * @return <b>true</b> if the duration was successfully modified, <b>false</b> if it wasn't modified
      */
     public boolean setSessionDuration(int sessionDuration) {
         if (!isPaused) {
@@ -97,9 +100,9 @@ public class TimerController {
     }
 
     /**
-     * A method that sets the duration of a long break.
+     * Sets the duration of a short break.
      * @param shortBreakDuration The duration to set the short break to
-     * @return true if the duration was successfully modified, false if it wasn't modified
+     * @return <b>true</b> if the duration was successfully modified, <b>false</b> if it wasn't modified
      */
     public boolean setShortBreakDuration(int shortBreakDuration) {
         if (!isPaused) {
@@ -111,9 +114,9 @@ public class TimerController {
     }
 
     /**
-     * A method that sets the duration of a long break.
+     * Sets the duration of a long break.
      * @param longBreakDuration The duration to set the long break to
-     * @return true if the duration was successfully modified, false if it wasn't modified
+     * @return <b>true</b> if the duration was successfully modified, <b>false</b> if it wasn't modified
      */
     public boolean setLongBreakDuration(int longBreakDuration) {
         if (!isPaused) {
@@ -125,7 +128,7 @@ public class TimerController {
     }
 
     /**
-     * A simple model class representing a contact with a first name, last name, email, and phone number.
+     * Gets the amount of time elapsed since the timer was started.
      * @return a metric of how much time has elapsed since the timer started.
      */
     public int getTimeElapsed() {
@@ -145,9 +148,14 @@ public class TimerController {
     }
 
     /**
-     * A method to resume/start the timer.
+     * Resumes/starts the timer.
+     * @return <b>true</b> if the timer was started successfully, <b>false</b> if it wasn't started.
      */
-    public void Resume() {
+    public boolean Resume() {
+        if (task != null && !isPaused) {
+            return false;
+        }
+
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
             startTime = Instant.now();
@@ -159,25 +167,21 @@ public class TimerController {
         task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("Timer finished!");
                 nextStage();
             }
         };
 
-        System.out.println("TIME LEFT:");
-        System.out.println((timerDuration * 60) - timeElapsed);
-        System.out.println("TIMER START:");
-        System.out.println(startTime);
         timer.schedule(task, (timerDuration * 60L) - timeElapsed);
 
         isPaused = false;
+        return true;
     }
 
     /**
-     * A method that transitions the timer to the next "stage"; a stage is a discrete period of time that represents either
+     * Transitions the timer to the next "stage"; a stage is a discrete period of time that represents either
      * the work stage, the short rest stage or the long rest stage.
      */
-    public void nextStage() {
+    private void nextStage() {
         Reset();
 
         currentStage++;
@@ -192,6 +196,7 @@ public class TimerController {
                 shortBreaksTaken++;
             }
         } else {
+            pomodorosCompleted++;
             timerDuration = sessionDuration;
         }
 

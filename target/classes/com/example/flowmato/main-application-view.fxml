@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <StackPane prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.MainApplicationController">
-    <Label fx:id="currentTime" text="main app stuff goes here">
+    <Label fx:id="currentTime" text="00:00:000">
         <font>
             <Font size="40.0" />
         </font></Label>
-    <Button onAction="#StartTimer" prefHeight="71.0" prefWidth="118.0" text="StartTimer" StackPane.alignment="TOP_LEFT" />
-    <Button onAction="#StopTimer" prefHeight="71.0" prefWidth="118.0" text="StopTimer" StackPane.alignment="BOTTOM_LEFT" />
-    <Button onAction="#PauseTimer" prefHeight="71.0" prefWidth="118.0" text="PauseTimer" StackPane.alignment="BOTTOM_RIGHT" />
+    <Button onAction="#StopTimer" prefHeight="71.0" prefWidth="118.0" text="Stop Timer" StackPane.alignment="BOTTOM_RIGHT" />
+    <Button fx:id="TimerButton" onAction="#ToggleTimer" prefHeight="71.0" prefWidth="118.0" text="Start Timer" StackPane.alignment="BOTTOM_LEFT" />
+    <Label fx:id="pomodorosCompleted" alignment="CENTER" contentDisplay="TOP" prefHeight="20.0" prefWidth="175.0" text="Pomodoros Completed: 0" StackPane.alignment="BOTTOM_CENTER">
+        <StackPane.margin>
+            <Insets bottom="75.0" />
+        </StackPane.margin></Label>
+    <Label fx:id="shortBreaksTaken" alignment="CENTER" contentDisplay="TOP" prefHeight="20.0" prefWidth="175.0" text="Short Breaks Taken: 0" StackPane.alignment="BOTTOM_CENTER">
+      <StackPane.margin>
+         <Insets bottom="50.0" />
+      </StackPane.margin></Label>
+    <Label fx:id="longBreaksTaken" alignment="CENTER" contentDisplay="TOP" prefHeight="20.0" prefWidth="175.0" text="Long Breaks Taken: 0" StackPane.alignment="BOTTOM_CENTER">
+      <StackPane.margin>
+         <Insets bottom="25.0" />
+      </StackPane.margin></Label>
 </StackPane>
