@@ -38,4 +38,16 @@ public class SignUpController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    protected void ToSignIn(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/flowmato/login-view.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
