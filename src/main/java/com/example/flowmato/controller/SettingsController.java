@@ -37,6 +37,7 @@ public class SettingsController {
      * Closes the Settings tab.
      */
     @FXML protected void goBack() {
+        timer.stop();
         timer.setSessionDuration((Integer) sessionDurationSpinner.getValue() * 60);
         timer.setShortBreakDuration((Integer) shortBreakDurationSpinner.getValue() * 60);
         timer.setLongBreakDuration((Integer) longBreakDurationSpinner.getValue() * 60);
