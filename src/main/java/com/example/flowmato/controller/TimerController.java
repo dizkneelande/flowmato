@@ -47,8 +47,8 @@ public class TimerController {
     /**
      * Stops and resets the TimerController back to default values.
      */
-    public void Stop() {
-        Reset();
+    public void stop() {
+        reset();
 
         currentStage = 1;
         breaksTaken = 0;
@@ -60,7 +60,7 @@ public class TimerController {
     /**
      * Resets the timer back to its initialisation values, but does not modify the stage or break progress
      */
-    private void Reset() {
+    private void reset() {
         isPaused = true;
 
         if (this.task != null) {
@@ -78,7 +78,7 @@ public class TimerController {
     /**
      * Pauses the active timer.
      */
-    public void Pause() {
+    public void pause() {
         if (isPaused) {
             return;
         }
@@ -102,7 +102,7 @@ public class TimerController {
 
         this.sessionDuration = sessionDuration;
         this.timerDuration = sessionDuration;
-        System.out.println(sessionDuration);
+        reset();
         return true;
     }
 
@@ -117,6 +117,7 @@ public class TimerController {
         }
 
         this.shortBreakDuration = shortBreakDuration;
+        reset();
         return true;
     }
 
@@ -131,6 +132,7 @@ public class TimerController {
         }
 
         this.longBreakDuration = longBreakDuration;
+        reset();
         return true;
     }
 
@@ -158,7 +160,7 @@ public class TimerController {
      * Resumes/starts the timer.
      * @return <b>true</b> if the timer was started successfully, <b>false</b> if it wasn't started.
      */
-    public boolean Resume() {
+    public boolean resume() {
         if (task != null && !isPaused) {
             return false;
         }
@@ -189,7 +191,7 @@ public class TimerController {
      * the work stage, the short rest stage or the long rest stage.
      */
     private void nextStage() {
-        Reset();
+        reset();
 
         currentStage++;
 
@@ -207,6 +209,6 @@ public class TimerController {
             timerDuration = sessionDuration;
         }
 
-        Resume();
+        resume();
     }
 }

@@ -3,6 +3,7 @@ package com.example.flowmato.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 
 public class SettingsController {
@@ -16,15 +17,29 @@ public class SettingsController {
 
     private TimerController timer;
 
-    public void setMainPageTimer(TimerController timer) {
+    /**
+     * Initialises the Settings page with properties from the provided timer.
+     * @param timer The timer object of the settings to modify.
+     */
+    public void setupSettings(TimerController timer) {
         this.timer = timer;
+
+        int sessionDuration = timer.sessionDuration / 60;
+        int shortBreakDuration = timer.shortBreakDuration / 60;
+        int longBreakDuration = timer.longBreakDuration / 60;
+
+        sessionDurationSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, sessionDuration));
+        shortBreakDurationSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, shortBreakDuration));
+        longBreakDurationSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, longBreakDuration));
     }
 
-    @FXML protected void GoBack() {
+    /**
+     * Closes the Settings tab.
+     */
+    @FXML protected void goBack() {
         timer.setSessionDuration((Integer) sessionDurationSpinner.getValue() * 60);
         timer.setShortBreakDuration((Integer) shortBreakDurationSpinner.getValue() * 60);
         timer.setLongBreakDuration((Integer) longBreakDurationSpinner.getValue() * 60);
-        //timer.Refresh();
 
         Stage stage = (Stage) GoBackButton.getScene().getWindow();
         stage.close();

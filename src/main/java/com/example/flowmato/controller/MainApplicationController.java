@@ -2,8 +2,10 @@ package com.example.flowmato.controller;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,13 +34,24 @@ public class MainApplicationController {
     @FXML
     private Button TimerButton;
 
-    @FXML protected void OpenSettings() {
+    @FXML protected void switchAccount(ActionEvent event) {
+        try {
+            Parent mainAppRoot = FXMLLoader.load(getClass().getResource("/com/example/flowmato/login-view.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(mainAppRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML protected void openSettings() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/settings-view.fxml"));
             Parent settingsRoot = loader.load();
 
             SettingsController settingsController = loader.getController();
-            settingsController.setMainPageTimer(timer);
+            settingsController.setupSettings(timer);
 
             Stage settingsStage = new Stage();
             settingsStage.setScene(new Scene(settingsRoot));
@@ -48,8 +61,8 @@ public class MainApplicationController {
         }
     }
 
-    private void StartTimer() {
-        boolean timerStarted = timer.Resume();
+    private void startTimer() {
+        boolean timerStarted = timer.resume();
         if (timerStarted) {
             System.out.println("Timer Started/Resumed");
         } else {
@@ -58,29 +71,29 @@ public class MainApplicationController {
     }
 
     @FXML
-    protected int GetTime() {
+    protected int getTime() {
         return ((timer.timerDuration * 1000) - timer.getTimeElapsed()) / 1000;
     }
 
     @FXML
-    protected void ToggleTimer() {
+    protected void toggleTimer() {
         if (timer.isPaused) {
-            StartTimer();
+            startTimer();
             TimerButton.setText("Pause Timer");
         } else {
-            timer.Pause();
+            timer.pause();
             TimerButton.setText("Start Timer");
         }
     }
 
     @FXML
-    protected void StopTimer() {
-        timer.Stop();
+    protected void stopTimer() {
+        timer.stop();
         TimerButton.setText("Start Timer");
     }
 
     protected void updateTime() {
-        int seconds = GetTime();
+        int seconds = getTime();
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;
 
