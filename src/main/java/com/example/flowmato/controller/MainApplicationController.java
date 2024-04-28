@@ -34,7 +34,12 @@ public class MainApplicationController {
     @FXML
     private Button TimerButton;
 
+    /**
+     * Switches the users account.
+     * @param event The component's event of the user's action
+     */
     @FXML protected void switchAccount(ActionEvent event) {
+        // This currently just goes back to the login screen, no additional logic for "signing out" at this stage.
         try {
             Parent mainAppRoot = FXMLLoader.load(getClass().getResource("/com/example/flowmato/login-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -45,6 +50,9 @@ public class MainApplicationController {
         }
     }
 
+    /**
+     * Opens the Settings panel.
+     */
     @FXML protected void openSettings() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/settings-view.fxml"));
@@ -61,20 +69,28 @@ public class MainApplicationController {
         }
     }
 
+    /**
+     * Starts the Pomodoro timer.
+     */
     private void startTimer() {
         boolean timerStarted = timer.resume();
-        if (timerStarted) {
-            System.out.println("Timer Started/Resumed");
-        } else {
+        if (!timerStarted) {
             System.out.println("Timer already running");
         }
     }
 
+    /**
+     * Switches the users account
+     * @return the timers current time elapsed converted to seconds.
+     */
     @FXML
     protected int getTime() {
         return ((timer.timerDuration * 1000) - timer.getTimeElapsed()) / 1000;
     }
 
+    /**
+     * Toggles the timer between paused/running.
+     */
     @FXML
     protected void toggleTimer() {
         if (timer.isPaused) {
@@ -86,12 +102,18 @@ public class MainApplicationController {
         }
     }
 
+    /**
+     * Stops the timer (i.e. cancels it and resets it back to initialisation values)
+     */
     @FXML
     protected void stopTimer() {
         timer.stop();
         TimerButton.setText("Start Timer");
     }
 
+    /**
+     * Updates the FXML component that displays the time remaining.
+     */
     protected void updateTime() {
         int seconds = getTime();
         int minutes = seconds / 60;
@@ -103,12 +125,18 @@ public class MainApplicationController {
         currentTime.setText(minutesString + ":" + secondsString);
     }
 
+    /**
+     * Updates the FXML components that display the statistics for the current Pomodoro session.
+     */
     public void updateStats() {
         shortBreaksTaken.setText("Short Breaks Taken: " + timer.shortBreaksTaken);
         longBreaksTaken.setText("Long Breaks Taken: " + timer.longBreaksTaken);
         pomodorosCompleted.setText("Pomodoros Completed: " + timer.pomodorosCompleted);
     }
 
+    /**
+     * Calls the methods necessary to facilitate refreshing the user interface.
+     */
     private void refreshUI() {
         updateTime();
         updateStats();
@@ -116,15 +144,12 @@ public class MainApplicationController {
 
     @FXML
     public void initialize() {
+        timer = new TimerController();
+
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
-    }
-
-    public MainApplicationController() {
-        System.out.println("Initialising timer");
-        timer = new TimerController();
     }
 }

@@ -43,5 +43,5 @@
          <Insets top="130.0" />
       </StackPane.margin>
    </StackPane>
-    <Button fx:id="GoBackButton" onAction="#GoBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
+    <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
 </StackPane>
