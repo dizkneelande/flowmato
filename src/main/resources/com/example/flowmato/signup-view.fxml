@@ -75,7 +75,7 @@
          <VBox.margin>
             <Insets left="50.0" top="10.0" />
          </VBox.margin></Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-font-size: 12;" text="Already have an account? Sign In here">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-font-size: 12; -fx-text-fill: #2C73EB;" text="Already have an account? Sign In here">
          <VBox.margin>
             <Insets left="92.0" />
          </VBox.margin>
