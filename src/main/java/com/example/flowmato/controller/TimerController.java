@@ -29,9 +29,11 @@ public class TimerController {
      * A method that initialises the TimerController variables.
      */
     public TimerController() {
-        sessionDuration = 150;
-        shortBreakDuration = 200; //600;
-        longBreakDuration = 250; //1800;
+        // The following values should be removed once user settings persistency has been added
+        sessionDuration = 1500;
+        shortBreakDuration = 300;
+        longBreakDuration = 1200;
+        // =================== //
         currentStage = 1;
         timeElapsed = 0;
         breaksTaken = 0;
@@ -61,7 +63,10 @@ public class TimerController {
     private void Reset() {
         isPaused = true;
 
-        task.cancel();
+        if (this.task != null) {
+            task.cancel();
+        }
+
         task = null;
         timeElapsed = 0;
 
@@ -96,6 +101,8 @@ public class TimerController {
         }
 
         this.sessionDuration = sessionDuration;
+        this.timerDuration = sessionDuration;
+        System.out.println(sessionDuration);
         return true;
     }
 
@@ -129,7 +136,7 @@ public class TimerController {
 
     /**
      * Gets the amount of time elapsed since the timer was started.
-     * @return a metric of how much time has elapsed since the timer started.
+     * @return a metric of how much time has elapsed since the timer started (in milliseconds).
      */
     public int getTimeElapsed() {
         if (startTime == null) {
@@ -171,7 +178,7 @@ public class TimerController {
             }
         };
 
-        timer.schedule(task, (timerDuration * 60L) - timeElapsed);
+        timer.schedule(task, (timerDuration * 1000L) - timeElapsed);
 
         isPaused = false;
         return true;

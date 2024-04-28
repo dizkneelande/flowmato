@@ -3,9 +3,15 @@ package com.example.flowmato.controller;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
 
 public class MainApplicationController {
 
@@ -26,6 +32,22 @@ public class MainApplicationController {
     @FXML
     private Button TimerButton;
 
+    @FXML protected void OpenSettings() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/settings-view.fxml"));
+            Parent settingsRoot = loader.load();
+
+            SettingsController settingsController = loader.getController();
+            settingsController.setMainPageTimer(timer);
+
+            Stage settingsStage = new Stage();
+            settingsStage.setScene(new Scene(settingsRoot));
+            settingsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void StartTimer() {
         boolean timerStarted = timer.Resume();
         if (timerStarted) {
@@ -37,7 +59,7 @@ public class MainApplicationController {
 
     @FXML
     protected int GetTime() {
-        return timer.timerDuration * 60 - timer.getTimeElapsed();
+        return ((timer.timerDuration * 1000) - timer.getTimeElapsed()) / 1000;
     }
 
     @FXML
@@ -58,13 +80,14 @@ public class MainApplicationController {
     }
 
     protected void updateTime() {
-        float timeInSeconds = (float) GetTime() / 1000;
-        int minutes = (int) (timeInSeconds / 60);
-        int seconds = (int) (timeInSeconds % 60);
-        int milliseconds = (int) ((timeInSeconds * 1000) % 1000);
+        int seconds = GetTime();
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
 
-        String roundedValue = String.format("%02d:%02d:%03d", minutes, seconds, milliseconds);
-        currentTime.setText(roundedValue);
+        String minutesString = String.format("%02d", minutes);
+        String secondsString = String.format("%02d", remainingSeconds);
+
+        currentTime.setText(minutesString + ":" + secondsString);
     }
 
     public void updateStats() {
@@ -91,6 +114,4 @@ public class MainApplicationController {
         System.out.println("Initialising timer");
         timer = new TimerController();
     }
-
-    //main app stuff goes here
 }

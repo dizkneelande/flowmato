@@ -11,6 +11,7 @@
             <Font size="40.0" />
         </font></Label>
     <Button onAction="#StopTimer" prefHeight="71.0" prefWidth="118.0" text="Stop Timer" StackPane.alignment="BOTTOM_RIGHT" />
+    <Button onAction="#OpenSettings" prefHeight="71.0" prefWidth="118.0" text="Settings" StackPane.alignment="TOP_RIGHT" />
     <Button fx:id="TimerButton" onAction="#ToggleTimer" prefHeight="71.0" prefWidth="118.0" text="Start Timer" StackPane.alignment="BOTTOM_LEFT" />
     <Label fx:id="pomodorosCompleted" alignment="CENTER" contentDisplay="TOP" prefHeight="20.0" prefWidth="175.0" text="Pomodoros Completed: 0" StackPane.alignment="BOTTOM_CENTER">
         <StackPane.margin>

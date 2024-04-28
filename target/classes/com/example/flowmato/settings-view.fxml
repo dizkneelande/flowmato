@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
+    <Button fx:id="GoBackButton" onAction="#GoBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
+    <Spinner fx:id="sessionDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT" >
+        <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="60" initialValue="25"/>
+        </valueFactory>
+    </Spinner>
+    <Spinner fx:id="shortBreakDurationSpinner" editable="true" StackPane.alignment="TOP_RIGHT" >
+        <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="60" initialValue="5"/>
+        </valueFactory>
+    </Spinner>
+    <Spinner fx:id="longBreakDurationSpinner" editable="true" StackPane.alignment="BOTTOM_LEFT" >
+        <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="60" initialValue="20"/>
+        </valueFactory>
+    </Spinner>
+</StackPane>
