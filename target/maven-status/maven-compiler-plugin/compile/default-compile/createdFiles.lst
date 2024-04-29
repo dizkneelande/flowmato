@@ -1,6 +1,6 @@
+com\example\flowmato\HelloApplication.class
+com\example\flowmato\model\Profile.class
 com\example\flowmato\model\SqliteConnection.class
 module-info.class
 com\example\flowmato\model\SqliteProfileDAO.class
-com\example\flowmato\HelloApplication.class
-com\example\flowmato\model\Profile.class
 com\example\flowmato\controller\WelcomeController.class
