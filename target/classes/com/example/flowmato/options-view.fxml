@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Font?>
-<VBox alignment="CENTER" spacing="10" prefWidth="640" prefHeight="360" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.OptionsController">
+<VBox alignment="CENTER" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" spacing="20" style="-fx-background-color: linear-gradient(to top, #ffffff 30%, #8FBCBB 70%);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.OptionsController">
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets bottom="20" left="20" right="20" top="50" />
     </padding>
-    <Label text="wotcha wanna do?">
-        <font>
-            <Font size="40.0" />
-        </font></Label>
-    <Button text="Create New Profile" onAction="#CreateNewProfile" style="-fx-font-size: 14pt;"/>
-    <Button text="Log In" onAction="#LogIn" style="-fx-font-size: 14pt;"/>
+    <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../images/Flowmato.png" />
+        </image>
+    </ImageView>
+
+    <Label style="-fx-font-size: 36; -fx-text-fill: #333333; -fx-font-weight: bold;" text="Have we met before?" translateY="-20.0" />
+
+    <Button onAction="#CreateNewProfile" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" text="Create New Profile" translateY="-30.0" />
+    <Button onAction="#LogIn" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" text="Log In" translateY="-30.0" />
 </VBox>
