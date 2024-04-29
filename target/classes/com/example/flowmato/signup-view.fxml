@@ -45,9 +45,9 @@
     </VBox>
 
 
-    <VBox prefHeight="342.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20;">
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-fill-width: 100%;">
         <Button onAction="#Back" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20; -fx-font-size: 11.5;" text="&lt; Back" />
-        <Label contentDisplay="CENTER" style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!">
+        <Label contentDisplay="CENTER" style="-fx-font-size: 27; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!">
          <VBox.margin>
             <Insets left="40.0" />
          </VBox.margin></Label>
@@ -75,7 +75,7 @@
          <VBox.margin>
             <Insets left="50.0" top="10.0" />
          </VBox.margin></Button>
-      <Button onAction="#ToSignIn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-font-size: 12; -fx-text-fill: #2C73EB;" text="Already have an account? Sign In here">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ToSignIn" style="-fx-background-color: #ffffff; -fx-font-size: 12; -fx-text-fill: #2C73EB;" text="Already have an account? Sign In here">
          <VBox.margin>
             <Insets left="92.0" />
          </VBox.margin>
