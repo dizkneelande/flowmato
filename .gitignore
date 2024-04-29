@@ -1,4 +1,5 @@
 # Add all custom .gitignore's here, NOT in the .idea/.gitignore file
 
 # Ignore SQLite DB
+/profiles.db
 /profiles_v*.db
