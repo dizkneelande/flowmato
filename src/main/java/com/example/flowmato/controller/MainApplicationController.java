@@ -80,7 +80,7 @@ public class MainApplicationController {
     }
 
     /**
-     * Switches the users account
+     * Gets the current time of the timer.
      * @return the timers current time elapsed converted to seconds.
      */
     @FXML

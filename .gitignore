@@ -2,6 +2,7 @@
 
 # Ignore SQLite DB
 /profiles.db
+/profiles_v*.db
 
 
 # ignore .attach_pidXXXXX
