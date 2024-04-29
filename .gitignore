@@ -2,3 +2,5 @@
 
 # Ignore SQLite DB
 /profiles.db
+
+/target/
