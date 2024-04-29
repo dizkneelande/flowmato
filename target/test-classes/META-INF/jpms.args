@@ -1,0 +1,4 @@
+--patch-module
+com.example.addressbook=_
+--add-reads
+com.example.addressbook=ALL-UNNAMED
