@@ -10,9 +10,9 @@ import java.sql.*;
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles_";
     private final String db_version = "v1.0.0";
-    Integer raw_old_db_version;
     Integer raw_db_version;
     String old_db_version;
+    Integer raw_old_db_version;
     File old_db;
 
     private Connection connect() {
@@ -25,6 +25,9 @@ public class SqliteProfileDAO {
         return conn;
     }
 
+    /**
+     * Checks and informs the user if their database version is the one required by this version of the app.
+     */
     private void checkVersion() {
         Path directory = Paths.get("");
 
