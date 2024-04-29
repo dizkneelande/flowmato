@@ -14,6 +14,7 @@ public class SqliteProfileDAO {
     String old_db_version;
     Integer raw_old_db_version;
     File old_db;
+    Boolean developerMode = true;
 
     private Connection connect() {
         Connection conn = null;
@@ -36,7 +37,7 @@ public class SqliteProfileDAO {
                     .forEach(path -> {
                         if (path.getFileName() != null) {
                             String fileName = String.valueOf(path.getFileName());
-                            if (fileName.equals("profiles_" + db_version)) {
+                            if (fileName.equals("profiles_" + db_version + ".db")) {
                                 return;
                             }
                             if (fileName.startsWith("profiles_")) {
