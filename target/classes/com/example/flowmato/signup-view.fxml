@@ -1,20 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="10" prefWidth="640" prefHeight="360" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.flowmato.controller.SignUpController">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-    <Label text="gimme ur info">
-        <font>
-            <Font size="40.0" />
-        </font></Label>
-    <TextField fx:id="emailField" promptText="Email address"/>
-    <TextField fx:id="passwordField" promptText="Password"/>
-    <TextField fx:id="preferredNameField" promptText="What can I call you?"/>
-    <Button text="Submit" onAction="#SignUpSubmit"/>
-    <Button text="Back" onAction="#Back"/>
-</VBox>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController"> <!-- Fixing width and height -->
+
+    <VBox alignment="CENTER" prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
+        <ImageView fitHeight="71.0" fitWidth="71.0" preserveRatio="true" translateX="50.0" translateY="70.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" preserveRatio="true" translateX="-35.0" translateY="-65.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" preserveRatio="true" translateX="-45.0" translateY="-10.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="189.0" preserveRatio="true" translateX="45.0" translateY="-30.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="80.0" layoutY="115.0" preserveRatio="true" translateX="-55.0" translateY="-35.0">
+            <image>
+                <Image url="@../../../images/Flowmato.png" />
+            </image>
+        </ImageView>
+    </VBox>
+
+
+    <VBox prefHeight="360.0" prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20;">
+        <Button onAction="#Back" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20; -fx-font-size: 14;" text="Back" />
+        <Label style="-fx-font-size: 29; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!" />
+
+        <Label style="-fx-font-size: 14; -fx-text-fill: black;" text="I'm here to help you stay focused and productive!" />
+
+        <TextField fx:id="emailField" promptText="Email address" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+        <PasswordField fx:id="passwordField" promptText="Password" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+        <TextField fx:id="preferredNameField" promptText="What can I call you?" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" />
+
+
+        <Button onAction="#SignUpSubmit" style="-fx-background-color: #8FBCBB; -fx-border-radius: 20; -fx-font-size: 14;" text="Sign Up" />
+    </VBox>
+
+</HBox>

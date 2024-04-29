@@ -3,5 +3,9 @@
 # Ignore SQLite DB
 /profiles.db
 
+
 # ignore .attach_pidXXXXX
 /.attach_pid*
+
+# ignore /target/
+/target/

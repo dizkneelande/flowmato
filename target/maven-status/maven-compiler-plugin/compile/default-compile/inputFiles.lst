@@ -1,3 +1,4 @@
+
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/com/example/flowmato/model/SqliteProfileDAO.java
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/com/example/flowmato/controller/SignUpController.java
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/com/example/flowmato/controller/TimerController.java
@@ -10,3 +11,4 @@
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/com/example/flowmato/controller/LoginController.java
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/module-info.java
 /home/nell/Dropbox/uni/cab302/dev/flowmato/src/main/java/com/example/flowmato/controller/MainApplicationController.java
+

@@ -30,7 +30,7 @@ public class SignUpController {
     @FXML
     protected void Back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/flowmato/welcome-view.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/flowmato/options-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
