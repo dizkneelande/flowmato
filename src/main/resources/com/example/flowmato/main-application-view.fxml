@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
@@ -92,8 +93,17 @@
          </children>
       </StackPane>
         <HBox alignment="CENTER" spacing="15">
-            <Button fx:id="TimerButton" onAction="#toggleTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Start Timer" />
-            <Button onAction="#stopTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Stop Timer" />
+            <Button fx:id="TimerButton" onAction="#toggleTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Start Timer">
+            <padding>
+               <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            </padding>
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin></Button>
+            <Button onAction="#stopTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Stop Timer">
+            <padding>
+               <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            </padding></Button>
         </HBox>
     </VBox>
 
