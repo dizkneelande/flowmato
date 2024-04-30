@@ -73,7 +73,7 @@
             </VBox.margin>
          </TextField>
             <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0" />
-            <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-font-size: 12pt;" text="Login" translateY="-32.0">
+            <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-font-size: 12pt;" text="Sign In" translateY="-32.0">
             <VBox.margin>
                <Insets top="14.0" />
             </VBox.margin></Button>
