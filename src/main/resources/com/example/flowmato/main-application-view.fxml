@@ -24,11 +24,12 @@
     <!-- Hamburger icon to toggle the sidebar -->
     <Button fx:id="hamburgerButton" onAction="#toggleSidebar" style="-fx-font-size: 20pt; -fx-background-radius: 0; -fx-background-color: transparent; -fx-text-fill: #d3d3d3;" text="☰" StackPane.alignment="TOP_LEFT" />
 
-    <VBox fx:id="sidebar" alignment="TOP_LEFT" spacing="10" style="-fx-background-color: white; -fx-padding: 20;"
-          StackPane.alignment="TOP_LEFT" translateX="-160" minWidth="160" maxWidth="160">
-        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14pt;" text="✖" />
-        <Pane prefHeight="50" />
-        <Label style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
+    <VBox fx:id="sidebar" alignment="TOP_LEFT" maxWidth="160" minWidth="160" spacing="10" style="-fx-background-color: white; -fx-padding: 20;" translateX="-160" StackPane.alignment="TOP_LEFT">
+        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14pt;" text="✖" translateX="-10.0" translateY="-10.0" />
+        <Pane prefHeight="50">
+         <children>
+              <Label layoutY="-3.0" style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
+         </children></Pane>
         <Pane prefHeight="20" />
         <!-- Menu items -->
         <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
