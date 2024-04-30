@@ -17,6 +17,6 @@
 
     <Label style="-fx-font-size: 36; -fx-text-fill: #333333; -fx-font-weight: bold;" text="Have we met before?" translateY="-20.0" />
 
-    <Button onAction="#CreateNewProfile" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" text="Create New Profile" translateY="-30.0" />
-    <Button onAction="#LogIn" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" text="Log In" translateY="-30.0" />
+    <Button onAction="#CreateNewProfile" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30;" text="Create New Profile" translateY="-22.0" />
+    <Button onAction="#LogIn" style="-fx-background-color: #8FBCBB; -fx-font-size: 16pt; -fx-text-fill: white; -fx-background-radius: 30;" text="Log In" translateY="-30.0" />
 </VBox>
