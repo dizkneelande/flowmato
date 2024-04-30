@@ -4,7 +4,7 @@
 
   > Hello Nat test :)
 
-* **Jacob Gee** - *Team Leader/Documentation* - Voltadox
+* **Jacob Gee** - *Team Leader/Designer* - Voltadox
 
   > Hello I am Jake, the percolators are super cool!
 
