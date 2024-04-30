@@ -11,7 +11,7 @@ public class TimerTest {
         // start the timer
         timerController.resume();
         try{
-            Thread.sleep(1000);
+            Thread.sleep(1);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
