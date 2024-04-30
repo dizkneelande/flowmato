@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -33,6 +34,9 @@ public class MainApplicationController {
 
     @FXML
     private Button TimerButton;
+
+    @FXML
+    private VBox sidebar;
 
     /**
      * Switches the users account.
@@ -152,4 +156,19 @@ public class MainApplicationController {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
+
+    /**
+     * Calls the methods necessary to open sidebar in main app
+     */
+
+    @FXML
+    private void toggleSidebar() {
+        // Calculate new position of the sidebar
+        double sidebarWidth = sidebar.getWidth();
+        double currentTranslateX = sidebar.getTranslateX();
+        double newTranslateX = currentTranslateX == 0 ? -sidebarWidth : 0;
+
+        sidebar.setTranslateX(newTranslateX);
+    }
+
 }

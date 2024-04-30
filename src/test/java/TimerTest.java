@@ -19,4 +19,23 @@ public class TimerTest {
         // Assert that timer has started
         assertTrue(timerController.getTimeElapsed() > 0);
     }
+
+    @Test
+    public void testStopTimer(){
+        TimerController timerController = new TimerController();
+
+        // start the timer
+        timerController.resume();
+        // let it run
+        try{
+            Thread.sleep(1);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        // test the stop function
+        timerController.stop();
+
+        assertEquals(0, timerController.getTimeElapsed());
+
+    }
 }
