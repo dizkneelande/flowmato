@@ -12,13 +12,13 @@
 
 <BorderPane maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.LoginController">
     <left>
-        <Pane prefHeight="360.0" prefWidth="196.0" style="-fx-background-color: #8FBCBB;" />
+        <Pane prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;" />
     </left>
     <center>
         <VBox alignment="CENTER" spacing="20" style="-fx-padding: 50 20 20 20;">
             <Pane prefHeight="100">
             <children>
-                  <Button alignment="TOP_LEFT" layoutY="-17.0" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: black; -fx-background-radius: 20; -fx-font-size: 10pt;" text="&lt; Back" translateX="-8.0" translateY="-40.0" />
+                  <Button alignment="TOP_LEFT" layoutY="-17.0" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: black; -fx-background-radius: 20; -fx-font-size: 10pt;" text="&lt; Back" translateX="-8.0" translateY="-26.0" />
                   <Label layoutX="56.0" layoutY="14.0" style="-fx-font-size: 24pt; -fx-text-fill: black;" text="Welcome back friend!">
                       <font>
                           <Font name="System Bold" size="24.0" />
@@ -27,10 +27,11 @@
             </children></Pane>
             <TextField fx:id="emailField" prefHeight="28.0" prefWidth="249.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-30.0" />
             <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-30.0" />
-            <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-font-size: 14pt;" text="Login" translateY="-40.0">
+            <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-font-size: 12pt;" text="Login" translateY="-40.0">
             <VBox.margin>
                <Insets top="14.0" />
             </VBox.margin></Button>
+         <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-text-fill: #2C73EB; -fx-font-size: 10pt;" text="Don't have an account? Sign Up here" translateY="-41.0" />
         </VBox>
     </center>
 </BorderPane>
