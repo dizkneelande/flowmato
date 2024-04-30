@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -12,7 +14,19 @@
 
 <BorderPane maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.LoginController">
     <left>
-        <Pane prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;" />
+        <Pane prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
+         <children>
+            <VBox prefHeight="360.0" prefWidth="218.0">
+               <children>
+                  <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="36.0" translateY="8.0">
+                     <image>
+                        <Image url="@../../../images/Flowmato.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
     </left>
     <center>
         <VBox alignment="CENTER" spacing="20" style="-fx-padding: 50 20 20 20;">
