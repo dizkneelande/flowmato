@@ -45,39 +45,39 @@
     </VBox>
 
 
-    <VBox maxHeight="360.0" minHeight="360.0" prefWidth="427.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-fill-width: true;">
+    <VBox maxHeight="360.0" minHeight="360.0" prefWidth="427.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-fill-width: 100%;">
         <Button onAction="#Back" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20; -fx-font-size: 11.5;" text="&lt; Back" />
         <Label contentDisplay="CENTER" style="-fx-font-size: 27; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!">
          <VBox.margin>
-            <Insets left="40.0" />
+            <Insets left="38.0" />
          </VBox.margin></Label>
 
         <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 14; -fx-text-fill: black;" text="I'm here to help you stay focused and productive!">
          <VBox.margin>
-            <Insets left="55.0" />
+            <Insets left="38.0" />
          </VBox.margin></Label>
 
-        <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email address" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
+        <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="325.0" promptText="Email address" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
          <VBox.margin>
-            <Insets left="48.0" top="10.0" />
+            <Insets left="38.0" top="10.0" />
          </VBox.margin></TextField>
-        <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Password" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
+        <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="325.0" promptText="Password" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
          <VBox.margin>
-            <Insets left="48.0" top="5.0" />
+            <Insets left="38.0" top="5.0" />
          </VBox.margin></PasswordField>
-        <TextField fx:id="preferredNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="What can I call you?" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
+        <TextField fx:id="preferredNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="325.0" promptText="What can I call you?" style="-fx-border-color: #8FBCBB; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 10;">
          <VBox.margin>
-            <Insets left="48.0" top="5.0" />
+            <Insets left="38.0" top="5.0" />
          </VBox.margin></TextField>
 
 
-        <Button alignment="CENTER" contentDisplay="CENTER" onAction="#SignUpSubmit" prefHeight="27.0" prefWidth="296.0" style="-fx-background-color: #AECFCE; -fx-border-radius: 20; -fx-font-size: 14; -fx-alignment: center;" text="Sign Up">
+        <Button alignment="CENTER" contentDisplay="CENTER" onAction="#SignUpSubmit" prefHeight="27.0" prefWidth="325.0" style="-fx-background-color: #AECFCE; -fx-border-radius: 20; -fx-font-size: 14; -fx-alignment: center;" text="Sign Up">
          <VBox.margin>
-            <Insets left="50.0" top="10.0" />
+            <Insets left="36.0" top="10.0" />
          </VBox.margin></Button>
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ToSignIn" style="-fx-background-color: #ffffff; -fx-font-size: 12; -fx-text-fill: #2C73EB;" text="Already have an account? Sign In here">
          <VBox.margin>
-            <Insets left="92.0" />
+            <Insets left="99.0" />
          </VBox.margin>
       </Button>
     </VBox>
