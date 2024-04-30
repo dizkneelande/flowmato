@@ -45,7 +45,7 @@
             <VBox.margin>
                <Insets top="14.0" />
             </VBox.margin></Button>
-         <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-text-fill: #2C73EB; -fx-font-size: 10pt;" text="Don't have an account? Sign Up here" translateY="-41.0" />
+         <Button onAction="#Back" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-text-fill: #2C73EB; -fx-font-size: 10pt;" text="Don't have an account? Sign Up here" translateY="-41.0" />
         </VBox>
     </center>
 </BorderPane>
