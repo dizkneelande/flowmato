@@ -8,5 +8,5 @@
 # ignore some other IDEA specific junk
 /.attach_pid*
 /target/
-/.idea/
+## /.idea/
 /*.iml
