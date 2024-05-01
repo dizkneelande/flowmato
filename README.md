@@ -1,4 +1,4 @@
-![Flowmato-17145331557172](/home/nell/Dropbox/uni/cab302/dev/flowmato/capture/Flowmato-17145331557172.png)
+![https://raw.githubusercontent.com/The-Percolators/flowmato/main/src/main/resources/images/Flowmato.png?token=GHSAT0AAAAAACQRRBWG5O2X6Z4AFFGO7WIQZRRWNMA](https://raw.githubusercontent.com/The-Percolators/flowmato/main/src/main/resources/images/Flowmato.png?token=GHSAT0AAAAAACQRRBWG5O2X6Z4AFFGO7WIQZRRWNMA)
 
 # Introducing Flowmato
 
