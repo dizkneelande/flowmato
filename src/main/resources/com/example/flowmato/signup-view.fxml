@@ -45,7 +45,7 @@
     </VBox>
 
 
-    <VBox maxHeight="360.0" minHeight="360.0" prefWidth="427.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-fill-width: 100%;">
+    <VBox maxHeight="360.0" minHeight="360.0" prefWidth="427.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; ">
         <Button onAction="#Back" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20; -fx-font-size: 11.5;" text="&lt; Back" />
         <Label contentDisplay="CENTER" style="-fx-font-size: 27; -fx-font-weight: bold; -fx-text-fill: black;" text="Hello there! I'm Flowmato!">
          <VBox.margin>
