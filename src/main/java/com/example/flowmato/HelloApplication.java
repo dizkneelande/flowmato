@@ -9,7 +9,6 @@ import com.example.flowmato.model.SqliteProfileDAO;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    //constants defining the window title and size
     public static final String TITLE = "Flowmato";
 
     @Override
