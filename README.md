@@ -1,4 +1,4 @@
-![https://raw.githubusercontent.com/The-Percolators/flowmato/main/src/main/resources/images/Flowmato.png?token=GHSAT0AAAAAACQRRBWG5O2X6Z4AFFGO7WIQZRRWNMA](https://raw.githubusercontent.com/The-Percolators/flowmato/main/src/main/resources/images/Flowmato.png?token=GHSAT0AAAAAACQRRBWG5O2X6Z4AFFGO7WIQZRRWNMA)
+![image](https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e)
 
 # Introducing Flowmato
 
