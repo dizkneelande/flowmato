@@ -1,3 +1,14 @@
+<br>
+
+![Badge Workflow] 
+[![Badge License]][License] 
+![Badge Language] 
+[![Badge Pull Requests]][Pull Requests] 
+[![Badge Issues]][Issues] 
+![Badge Hi Mom]<br>
+
+<br>
+
 # Who are the Percolators?
 
 * **Nathaniel Mason** - *Project Manager* - nat-mason
