@@ -1,3 +1,7 @@
+<div align = center>
+
+<img src="https://github.com/The-Percolators/flowmato/blob/main/src/main/resources/images/Flowmato.png" width="750" height="300" alt="banner">
+
 <br>
 
 ![Badge Workflow] 
@@ -8,6 +12,8 @@
 ![Badge Hi Mom]<br>
 
 <br>
+
+</div>
 
 # Who are the Percolators?
 
