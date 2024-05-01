@@ -89,6 +89,12 @@ public class TimerController {
 
         task.cancel();
     }
+    /**
+     * Checks if the timer is paused.
+     */
+    public boolean isPaused() {
+        return isPaused;
+    }
 
     /**
      * Sets the duration of a Pomodoro session.
