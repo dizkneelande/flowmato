@@ -1,6 +1,4 @@
-# 
-
-![flowmato](/home/nell/Dropbox/uni/cab302/dev/flowmato/capture/Flowmato-17145331557172.png)
+![Flowmato-17145331557172](/home/nell/Dropbox/uni/cab302/dev/flowmato/capture/Flowmato-17145331557172.png)
 
 # Introducing Flowmato
 
