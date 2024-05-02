@@ -202,6 +202,7 @@ public class TimerController {
         currentStage++;
 
         if (currentStage % 2 == 0) {
+            pomodorosCompleted++;
             breaksTaken++;
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
@@ -211,7 +212,6 @@ public class TimerController {
                 shortBreaksTaken++;
             }
         } else {
-            pomodorosCompleted++;
             timerDuration = sessionDuration;
         }
 
