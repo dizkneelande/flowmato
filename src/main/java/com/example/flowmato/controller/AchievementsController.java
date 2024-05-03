@@ -13,8 +13,8 @@ public class AchievementsController {
     }
 
     public void checkAndAwardAchievement(int profileId, int completedPomodoros) {
-        if (completedPomodoros == 1) {  // For the first Pomodoro
-            Achievements achievement = new Achievements(profileId, "First Pomodoro", LocalDateTime.now());
+        if (completedPomodoros == 1) {  //first pomoforo
+            Achievements achievement = new Achievements(profileId, "first tomato!", LocalDateTime.now());
             dao.saveAchievement(achievement);
         }
         //add more once we've decided on achievements

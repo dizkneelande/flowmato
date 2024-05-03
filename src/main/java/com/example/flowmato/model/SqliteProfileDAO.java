@@ -118,8 +118,6 @@ public class SqliteProfileDAO {
         return null;  //if not user found
     }
 
-
-
     public void saveAchievement(Achievements achievement) {
         String sql = "INSERT INTO achievements (profile_id, achievement_type, achieved_on) VALUES (?, ?, ?)";
         try (Connection conn = this.connect();
