@@ -1,5 +1,6 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -148,7 +149,10 @@ public class MainApplicationController {
 
     @FXML
     public void initialize() {
-        timer = new TimerController();
+        AchievementsController achievementsController = null;
+        timer = new TimerController(achievementsController);
+        SqliteProfileDAO dao = new SqliteProfileDAO();
+        achievementsController = new AchievementsController(dao);
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())
