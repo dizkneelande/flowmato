@@ -14,35 +14,19 @@ public class Achievements {
         this.achievedOn = achievedOn;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public int getProfileId() {
-        return profileId;
-    }
+    public int getProfileId() { return profileId; }
 
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
-    }
+    public void setProfileId(int profileId) { this.profileId = profileId; }
 
-    public String getAchievementType() {
-        return achievementType;
-    }
+    public String getAchievementType() { return achievementType; }
 
-    public void setAchievementType(String achievementType) {
-        this.achievementType = achievementType;
-    }
+    public void setAchievementType(String achievementType) { this.achievementType = achievementType; }
 
-    public LocalDateTime getAchievedOn() {
-        return achievedOn;
-    }
+    public LocalDateTime getAchievedOn() { return achievedOn; }
 
-    public void setAchievedOn(LocalDateTime achievedOn) {
-        this.achievedOn = achievedOn;
-    }
+    public void setAchievedOn(LocalDateTime achievedOn) { this.achievedOn = achievedOn; }
 }
