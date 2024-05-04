@@ -9,7 +9,7 @@ import java.sql.*;
 
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles_";
-    private final String db_version = "v1.0.0";
+    private final String db_version = "v1.1.0";
     Integer raw_db_version;
     String old_db_version;
     Integer raw_old_db_version;
@@ -68,11 +68,22 @@ public class SqliteProfileDAO {
 
     public void initialiseDatabase() {
         checkVersion();
-        // NOTE: If you are updating anything in the below string or changing how the database is created, ensure you increment the db_version String
-        String sql = "CREATE TABLE IF NOT EXISTS profiles (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL, preferred_name TEXT);";
+        String profilesSql = "CREATE TABLE IF NOT EXISTS profiles (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "email TEXT NOT NULL, " +
+                "password TEXT NOT NULL, " +
+                "preferred_name TEXT);";
+        String achievementsSql = "CREATE TABLE IF NOT EXISTS achievements (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "profile_id INTEGER, " +
+                "achievement_type TEXT NOT NULL, " +
+                "achieved_on DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                "FOREIGN KEY(profile_id) REFERENCES profiles(id));";
         try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.execute();
+             PreparedStatement pstmt1 = conn.prepareStatement(profilesSql);
+             PreparedStatement pstmt2 = conn.prepareStatement(achievementsSql)) {
+            pstmt1.execute();
+            pstmt2.execute();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -91,20 +102,33 @@ public class SqliteProfileDAO {
         }
     }
 
-    public boolean validateLogin(String email, String password) {
-        String sql = "SELECT id FROM profiles WHERE email = ? AND password = ?";
+    public Profile validateLogin(String email, String password) {
+        String sql = "SELECT id, email, preferred_name FROM profiles WHERE email = ? AND password = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, email);
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
-            //if rs not empty then login successful
-            return rs.next();
+
+            if (rs.next()) {
+                return new Profile(rs.getInt("id"), rs.getString("email"), password, rs.getString("preferred_name"));
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return false;
         }
+        return null;  //if not user found
     }
 
-
+    public void saveAchievement(Achievements achievement) {
+        String sql = "INSERT INTO achievements (profile_id, achievement_type, achieved_on) VALUES (?, ?, ?)";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, achievement.getProfileId());
+            pstmt.setString(2, achievement.getAchievementType());
+            pstmt.setString(3, achievement.getAchievedOn().toString());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

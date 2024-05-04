@@ -1,5 +1,7 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.model.Profile;
+import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -24,11 +26,12 @@ public class LoginController {
 
     @FXML
     protected void Login(ActionEvent event) {
-        SqliteProfileDAO profileDAO = new SqliteProfileDAO(); //maybe use dependency injection like in week8 reading
-        boolean isValid = profileDAO.validateLogin(emailField.getText(), passwordField.getText());
+        SqliteProfileDAO profileDAO = new SqliteProfileDAO();
+        Profile user = profileDAO.validateLogin(emailField.getText(), passwordField.getText());
 
-        if (isValid) {
-            //System.out.println("login successful");
+        if (user != null) { //login successful
+            SessionManager.getInstance().login(user);   //set current user in sessionmanager
+
             try {
                 Parent mainAppRoot = FXMLLoader.load(getClass().getResource("/com/example/flowmato/main-application-view.fxml"));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -38,11 +41,12 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            // System.out.println("invalid credentials");
+            //invalid
             errorLabel.setText("Invalid credentials, please try again.");
             errorLabel.setVisible(true);
         }
     }
+
     @FXML
     private void clearErrorMessage() {
         errorLabel.setVisible(false);

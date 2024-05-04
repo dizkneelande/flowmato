@@ -1,5 +1,8 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.model.SessionManager;
+import com.example.flowmato.model.SqliteProfileDAO;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
@@ -24,11 +27,12 @@ public class TimerController {
     private TimerTask task;
     private Instant startTime;
     private Instant pauseTime;
+    private AchievementsController achievementsController;
 
     /**
      * A method that initialises the TimerController variables.
      */
-    public TimerController() {
+    public TimerController(AchievementsController achievementsController) {
         // The following values should be removed once user settings persistency has been added
         sessionDuration = 1500;
         shortBreakDuration = 300;
@@ -42,6 +46,9 @@ public class TimerController {
         timer = new Timer();
 
         isPaused = true;
+
+        this.achievementsController = new AchievementsController(new SqliteProfileDAO());
+
     }
 
     /**
@@ -213,6 +220,12 @@ public class TimerController {
         } else {
             pomodorosCompleted++;
             timerDuration = sessionDuration;
+        }
+
+        // Retrieve the profileId from the SessionManager
+        Integer profileId = SessionManager.getInstance().getCurrentUserId();
+        if (profileId != null) {
+            achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted);
         }
 
         resume();

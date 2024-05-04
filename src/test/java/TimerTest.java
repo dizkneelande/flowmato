@@ -1,13 +1,25 @@
+import com.example.flowmato.controller.AchievementsController;
 import com.example.flowmato.controller.TimerController;
+import com.example.flowmato.model.SqliteProfileDAO;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TimerTest {
 
+    private TimerController timerController;
+
+    @BeforeEach
+    public void setUp() {
+        //initialise necessary dependencies here
+        SqliteProfileDAO dao = new SqliteProfileDAO();
+        AchievementsController achievementsController = new AchievementsController(dao);
+        timerController = new TimerController(achievementsController);  //pass to timercontroller
+    }
+
+
     @Test
     public void testStartTimer(){
-        TimerController timerController = new TimerController();
-
         // start the timer
         timerController.resume();
         try{
@@ -22,8 +34,6 @@ public class TimerTest {
 
     @Test
     public void testStopTimer(){
-        TimerController timerController = new TimerController();
-
         // start the timer
         timerController.resume();
         // let it run
@@ -41,8 +51,6 @@ public class TimerTest {
 
     @Test
     public void testPauseTimer(){
-        TimerController timerController = new TimerController();
-
         // Start the timer
         timerController.resume();
 
