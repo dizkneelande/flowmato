@@ -9,7 +9,7 @@ import java.sql.*;
 
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles_";
-    private final String db_version = "v1.0.0";
+    private final String db_version = "v1.1.0";
     Integer raw_db_version;
     String old_db_version;
     Integer raw_old_db_version;
@@ -67,6 +67,7 @@ public class SqliteProfileDAO {
     }
 
     public void initialiseDatabase() {
+        checkVersion();
         String profilesSql = "CREATE TABLE IF NOT EXISTS profiles (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "email TEXT NOT NULL, " +
