@@ -1,7 +1,10 @@
 package com.example.flowmato;
 
+import com.example.flowmato.controller.NotificationController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.example.flowmato.model.SqliteProfileDAO;
@@ -10,6 +13,8 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     public static final String TITLE = "Flowmato";
+
+    public static NotificationController notificationController;
 
     @Override
     public void start(Stage stage) throws IOException {

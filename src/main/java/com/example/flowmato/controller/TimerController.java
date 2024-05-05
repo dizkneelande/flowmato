@@ -1,5 +1,8 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
+import com.example.flowmato.model.Notification;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
@@ -25,6 +28,8 @@ public class TimerController {
     private Instant startTime;
     private Instant pauseTime;
 
+    NotificationController notificationController;
+
     /**
      * A method that initialises the TimerController variables.
      */
@@ -40,6 +45,7 @@ public class TimerController {
         timerDuration = sessionDuration;
 
         timer = new Timer();
+        notificationController = HelloApplication.notificationController;
 
         isPaused = true;
     }
@@ -203,6 +209,7 @@ public class TimerController {
 
         if (currentStage % 2 == 0) {
             pomodorosCompleted++;
+            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             breaksTaken++;
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
@@ -212,6 +219,11 @@ public class TimerController {
                 shortBreaksTaken++;
             }
         } else {
+            if (breaksTaken % 4 == 0) {
+                notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
+            } else {
+                notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
+            }
             timerDuration = sessionDuration;
         }
 

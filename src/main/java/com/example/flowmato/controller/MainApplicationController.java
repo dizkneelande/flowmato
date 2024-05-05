@@ -1,7 +1,10 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
+import com.example.flowmato.model.Notification;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainApplicationController {
 
@@ -37,6 +41,8 @@ public class MainApplicationController {
 
     @FXML
     private VBox sidebar;
+
+    NotificationController notificationController;
 
     /**
      * Switches the users account.
@@ -149,6 +155,11 @@ public class MainApplicationController {
     @FXML
     public void initialize() {
         timer = new TimerController();
+
+        notificationController = HelloApplication.notificationController;
+
+        //notificationController.notify(new Notification("alert", "MESSAGE", "TOP_LEFT", 5000));
+        notificationController.notify(new Notification("alert", "MESSAGE", "TOP_LEFT", 5000), new Notification("alert", "MESSAGE2", "TOP_LEFT", 5000), new Notification("alert", "MESSAGE3", "TOP_LEFT", 5000));
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())
