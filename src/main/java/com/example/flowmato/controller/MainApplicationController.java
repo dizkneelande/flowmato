@@ -44,6 +44,8 @@ public class MainApplicationController {
 
     NotificationController notificationController;
 
+    boolean transitionNotified;
+
     /**
      * Switches the users account.
      * @param event The component's event of the user's action
@@ -126,6 +128,11 @@ public class MainApplicationController {
      */
     protected void updateTime() {
         int seconds = getTime();
+
+        if (seconds < 60) {
+            timer.notifyOfTransition();
+        }
+
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;
 

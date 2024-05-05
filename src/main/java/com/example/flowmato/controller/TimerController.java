@@ -27,6 +27,8 @@ public class TimerController {
     private TimerTask task;
     private Instant startTime;
     private Instant pauseTime;
+    private boolean transitionNotified;
+    private int stageNotifiedOfTransition;
 
     NotificationController notificationController;
 
@@ -228,5 +230,13 @@ public class TimerController {
         }
 
         resume();
+    }
+
+    public void notifyOfTransition() {
+        if (stageNotifiedOfTransition != currentStage) {
+            notificationController.notify(new Notification("banner", "60 Seconds Remaining in the Current Stage!", 2500));
+            transitionNotified = true;
+            stageNotifiedOfTransition = currentStage;
+        }
     }
 }

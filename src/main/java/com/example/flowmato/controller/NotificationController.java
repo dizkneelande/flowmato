@@ -122,6 +122,8 @@
             timelineDuration = 0;
             currentKeyframe = 0;
 
+            int queueSize = notifications.size();
+
             for (Notification notification : notifications) {
                 timelineDuration += notification.displayTime;
                 String message = notification.message;
@@ -138,7 +140,15 @@
             timeline.setOnFinished(e -> {
                 banner.setVisible(false);
                 queueRunning = false;
-                clearQueue();
+
+                // If the number of notifications has changed since we created the timeline, we remove the notifications
+                // that have already been shown and rerun the queue.
+                if (queueSize != notifications.size()) {
+                    notifications.subList(0, queueSize).clear();
+                    runQueue();
+                } else {
+                    clearQueue();
+                }
             });
 
             timeline.play();
