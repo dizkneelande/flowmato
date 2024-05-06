@@ -13,6 +13,7 @@ public class SqliteProfileDAO {
     Integer raw_db_version;
     String old_db_version;
     Integer raw_old_db_version;
+    Integer latest_found_db_version = 0;
     File old_db;
 
     private Connection connect() {
@@ -30,6 +31,7 @@ public class SqliteProfileDAO {
      */
     private void checkVersion() {
         Path directory = Paths.get("");
+        boolean[] foundExistingDB = {false};
 
         try {
             Files.list(directory)
@@ -37,18 +39,22 @@ public class SqliteProfileDAO {
                         if (path.getFileName() != null) {
                             String fileName = String.valueOf(path.getFileName());
                             if (fileName.equals("profiles_" + db_version + ".db")) {
+                                foundExistingDB[0] = true;
                                 return;
                             }
                             if (fileName.startsWith("profiles_")) {
                                 String substring = fileName.substring(9, fileName.length() - 3);
-                                old_db = path.toFile();
-                                old_db_version = substring;
-                                raw_old_db_version = Integer.parseInt(substring.replaceAll("[^0-9]", ""));
+                                int dbVersionFound = Integer.parseInt(substring.replaceAll("[^0-9]", ""));
+                                if (dbVersionFound > latest_found_db_version) {
+                                    old_db = path.toFile();
+                                    old_db_version = substring;
+                                    raw_old_db_version = dbVersionFound;
+                                }
                             }
                         }
                     });
 
-            if (raw_old_db_version == null) {
+            if (foundExistingDB[0]) {
                 return;
             }
 
