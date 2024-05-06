@@ -1,5 +1,6 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Profile;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ public class SignUpController {
     private TextField preferredNameField;
 
     private SqliteProfileDAO profileDAO = new SqliteProfileDAO();
+    private NotificationController notificationController;
 
     @FXML
     protected void SignUpSubmit(ActionEvent event) {
@@ -49,5 +51,10 @@ public class SignUpController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void initialize() {
+        notificationController = HelloApplication.notificationController;
     }
 }

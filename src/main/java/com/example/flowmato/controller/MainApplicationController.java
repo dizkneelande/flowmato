@@ -1,5 +1,7 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
+import com.example.flowmato.model.Notification;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -38,6 +40,8 @@ public class MainApplicationController {
 
     @FXML
     private VBox sidebar;
+
+    private NotificationController notificationController;
 
     /**
      * Switches the users account.
@@ -121,6 +125,11 @@ public class MainApplicationController {
      */
     protected void updateTime() {
         int seconds = getTime();
+
+        if (seconds < 60) {
+            timer.notifyOfTransition();
+        }
+
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;
 
@@ -153,6 +162,8 @@ public class MainApplicationController {
         timer = new TimerController(achievementsController);
         SqliteProfileDAO dao = new SqliteProfileDAO();
         achievementsController = new AchievementsController(dao);
+
+        notificationController = HelloApplication.notificationController;
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())

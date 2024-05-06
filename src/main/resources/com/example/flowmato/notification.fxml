@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.NotificationController">
+   <AnchorPane fx:id="notificationContainer" pickOnBounds="false" prefHeight="360" prefWidth="640">
+      <StackPane fx:id="toast_top_right" layoutX="426.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="toastTopRightText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+      <StackPane fx:id="toast_top_left" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="toastTopLeftText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+      <StackPane fx:id="banner" layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="bannerText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor></Button>
+         </children>
+      </StackPane>
+      <StackPane fx:id="banner_bottom" layoutX="10.0" layoutY="289.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="bannerBottomText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </StackPane>
+      <StackPane fx:id="toast_bottom_right" layoutX="426.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="toastBottomRightText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+      <StackPane fx:id="toast_bottom_left" layoutX="14.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #dadada;" visible="false">
+         <children>
+            <Label fx:id="toastBottomLeftText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font size="6.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+   </AnchorPane>
+</Group>

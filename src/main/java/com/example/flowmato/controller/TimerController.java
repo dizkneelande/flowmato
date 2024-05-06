@@ -1,5 +1,8 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
+import com.example.flowmato.model.Notification;
+
 import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
 
@@ -27,6 +30,10 @@ public class TimerController {
     private TimerTask task;
     private Instant startTime;
     private Instant pauseTime;
+    private boolean transitionNotified;
+    private int stageNotifiedOfTransition;
+
+    NotificationController notificationController;
     private AchievementsController achievementsController;
 
     /**
@@ -44,6 +51,7 @@ public class TimerController {
         timerDuration = sessionDuration;
 
         timer = new Timer();
+        notificationController = HelloApplication.notificationController;
 
         isPaused = true;
 
@@ -209,6 +217,8 @@ public class TimerController {
         currentStage++;
 
         if (currentStage % 2 == 0) {
+            pomodorosCompleted++;
+            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             breaksTaken++;
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
@@ -218,7 +228,11 @@ public class TimerController {
                 shortBreaksTaken++;
             }
         } else {
-            pomodorosCompleted++;
+            if (breaksTaken % 4 == 0) {
+                notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
+            } else {
+                notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
+            }
             timerDuration = sessionDuration;
         }
 
@@ -229,5 +243,13 @@ public class TimerController {
         }
 
         resume();
+    }
+
+    public void notifyOfTransition() {
+        if (stageNotifiedOfTransition != currentStage) {
+            notificationController.notify(new Notification("banner", "60 Seconds Remaining in the Current Stage!", 2500));
+            transitionNotified = true;
+            stageNotifiedOfTransition = currentStage;
+        }
     }
 }

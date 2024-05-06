@@ -1,5 +1,6 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
@@ -16,6 +17,7 @@ public class SettingsController {
     @FXML Spinner longBreakDurationSpinner;
 
     private TimerController timer;
+    private NotificationController notificationController;
 
     /**
      * Initialises the Settings page with properties from the provided timer.
@@ -44,5 +46,10 @@ public class SettingsController {
 
         Stage stage = (Stage) GoBackButton.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void initialize() {
+        notificationController = HelloApplication.notificationController;
     }
 }
