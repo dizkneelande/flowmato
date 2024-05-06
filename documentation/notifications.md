@@ -66,7 +66,7 @@ public void notifyError() {
 
 ```java
 public void notifyUpdate() {
-    Notification updateNotification = new Notification("alert", "Your version of Flowmato is out of date", "TOP", 5000);
+    Notification updateNotification = new Notification("banner", "Your version of Flowmato is out of date", "TOP", 5000);
     updateNotification.notify(updateNotification);
 }
 ```
