@@ -1,5 +1,6 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -9,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class OptionsController {
+
+    private NotificationController notificationController;
 
     @FXML
     protected void CreateNewProfile(javafx.event.ActionEvent event) throws IOException {
@@ -24,5 +27,10 @@ public class OptionsController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(loginRoot));
         stage.show();
+    }
+
+    @FXML
+    public void initialize() {
+        notificationController = HelloApplication.notificationController;
     }
 }

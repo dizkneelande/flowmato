@@ -5,117 +5,120 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.Group?>
 
-<StackPane prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.MainApplicationController">
-    <VBox alignment="CENTER" spacing="20">
-   
-                             <HBox alignment="CENTER" spacing="15">
-            <Label fx:id="pomodorosCompleted" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Pomodoros Completed: 0" />
-            <Label fx:id="shortBreaksTaken" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Short Breaks Taken: 0" />
-            <Label fx:id="longBreaksTaken" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Long Breaks Taken: 0" />
-        </HBox>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <Circle radius="87.0" strokeType="OUTSIDE">
-               <fill>
-                  <LinearGradient endX="0.10688836104513066" endY="1.0" startX="0.4228028503562945" startY="0.09026128266033254">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.006711409395973154">
-                           <color>
-                              <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.8963414634146339">
-                           <color>
-                              <Color red="0.44426169991493225" green="0.6710526347160339" blue="0.659713089466095" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.9451219512195123">
-                           <color>
-                              <Color red="0.6979166865348816" green="0.75" blue="0.7473958134651184" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.7163742780685425" green="0.7894737124443054" blue="0.7858186960220337" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-               <stroke>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.006711409395973154">
-                           <color>
-                              <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.896341463414634">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.9451219512195123">
-                           <color>
-                              <Color red="0.9605262875556946" green="0.9605262875556946" blue="0.9605262875556946" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </stroke>
-            </Circle>
-              <Label fx:id="currentTime" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="128.0" style="-fx-font-size: 35pt; -fx-text-fill: white;" text="25:00" />
-         </children>
-      </StackPane>
-        <HBox alignment="CENTER" spacing="15">
-            <Button fx:id="TimerButton" onAction="#toggleTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Start Timer">
-            <padding>
-               <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
-            </padding>
-            <HBox.margin>
-               <Insets right="20.0" />
-            </HBox.margin></Button>
-            <Button onAction="#stopTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Stop Timer">
-            <padding>
-               <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
-            </padding></Button>
-        </HBox>
-    </VBox>
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.MainApplicationController">
+    <StackPane prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%);">
+        <VBox alignment="CENTER" spacing="20">
+
+            <HBox alignment="CENTER" spacing="15">
+                <Label fx:id="pomodorosCompleted" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Pomodoros Completed: 0" />
+                <Label fx:id="shortBreaksTaken" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Short Breaks Taken: 0" />
+                <Label fx:id="longBreaksTaken" style="-fx-font-size: 12pt; -fx-text-fill: white;" text="Long Breaks Taken: 0" />
+            </HBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+                <children>
+                    <Circle radius="87.0" strokeType="OUTSIDE">
+                        <fill>
+                            <LinearGradient endX="0.10688836104513066" endY="1.0" startX="0.4228028503562945" startY="0.09026128266033254">
+                                <stops>
+                                    <Stop>
+                                        <color>
+                                            <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                        <color>
+                                            <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.8963414634146339">
+                                        <color>
+                                            <Color red="0.44426169991493225" green="0.6710526347160339" blue="0.659713089466095" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.9451219512195123">
+                                        <color>
+                                            <Color red="0.6979166865348816" green="0.75" blue="0.7473958134651184" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                        <color>
+                                            <Color red="0.7163742780685425" green="0.7894737124443054" blue="0.7858186960220337" />
+                                        </color>
+                                    </Stop>
+                                </stops>
+                            </LinearGradient>
+                        </fill>
+                        <stroke>
+                            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                <stops>
+                                    <Stop>
+                                        <color>
+                                            <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                        <color>
+                                            <Color red="0.5607843399047852" green="0.7372549176216125" blue="0.7333333492279053" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.896341463414634">
+                                        <color>
+                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="0.9451219512195123">
+                                        <color>
+                                            <Color red="0.9605262875556946" green="0.9605262875556946" blue="0.9605262875556946" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                        <color>
+                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                        </color>
+                                    </Stop>
+                                </stops>
+                            </RadialGradient>
+                        </stroke>
+                    </Circle>
+                    <Label fx:id="currentTime" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="128.0" style="-fx-font-size: 35pt; -fx-text-fill: white;" text="25:00" />
+                </children>
+            </StackPane>
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="TimerButton" onAction="#toggleTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Start Timer">
+                    <padding>
+                        <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin></Button>
+                <Button onAction="#stopTimer" style="-fx-background-color: #8FBCBB; -fx-text-fill: white; -fx-background-radius: 30; -fx-font-size: 14pt;" text="Stop Timer">
+                    <padding>
+                        <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                    </padding></Button>
+            </HBox>
+        </VBox>
 
 
-    <!-- Hamburger icon to toggle the sidebar -->
-    <Button fx:id="hamburgerButton" onAction="#toggleSidebar" style="-fx-font-size: 20pt; -fx-background-radius: 0; -fx-background-color: transparent; -fx-text-fill: white;" text="☰" StackPane.alignment="TOP_LEFT" />
+        <!-- Hamburger icon to toggle the sidebar -->
+        <Button fx:id="hamburgerButton" onAction="#toggleSidebar" style="-fx-font-size: 20pt; -fx-background-radius: 0; -fx-background-color: transparent; -fx-text-fill: white;" text="☰" StackPane.alignment="TOP_LEFT" />
 
-    <VBox fx:id="sidebar" alignment="TOP_LEFT" maxWidth="160" minWidth="160" spacing="10" style="-fx-background-color: white; -fx-padding: 20;" translateX="-160" StackPane.alignment="TOP_LEFT">
-        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14pt;" text="✖" translateX="-10.0" translateY="-10.0" />
-        <Pane prefHeight="50">
-         <children>
-              <Label layoutY="-3.0" style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
-         </children></Pane>
-        <Pane prefHeight="20" />
-        <!-- Menu items -->
-        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
-        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
-        <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Rewards" />
-        <Button onAction="#openSettings" style="-fx-background-color: transparent; -fx-text-fill: black;" text="⚙ Settings" />
-        <Button onAction="#switchAccount" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🔄 Switch Account" />
-        <Pane prefHeight="50" />
-    </VBox>
+        <VBox fx:id="sidebar" alignment="TOP_LEFT" maxWidth="160" minWidth="160" spacing="10" style="-fx-background-color: white; -fx-padding: 20;" translateX="-160" StackPane.alignment="TOP_LEFT">
+            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14pt;" text="✖" translateX="-10.0" translateY="-10.0" />
+            <Pane prefHeight="50">
+                <children>
+                    <Label layoutY="-3.0" style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
+                </children></Pane>
+            <Pane prefHeight="20" />
+            <!-- Menu items -->
+            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
+            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
+            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Rewards" />
+            <Button onAction="#openSettings" style="-fx-background-color: transparent; -fx-text-fill: black;" text="⚙ Settings" />
+            <Button onAction="#switchAccount" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🔄 Switch Account" />
+            <Pane prefHeight="50" />
+        </VBox>
+    </StackPane>
     <fx:include source="notification.fxml" />
-</StackPane>
+</Group>

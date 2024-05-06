@@ -1,5 +1,6 @@
 package com.example.flowmato.controller;
 
+import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -21,6 +22,7 @@ public class LoginController {
     private PasswordField passwordField;
     @FXML
     private Label errorLabel;
+    private NotificationController notificationController;
 
     @FXML
     protected void Login(ActionEvent event) {
@@ -58,5 +60,10 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void initialize() {
+        notificationController = HelloApplication.notificationController;
     }
 }

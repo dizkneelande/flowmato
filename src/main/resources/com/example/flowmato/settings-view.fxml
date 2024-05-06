@@ -4,44 +4,48 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
 
-<StackPane prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
-   <StackPane prefHeight="360.0" prefWidth="254.0">
-      <children>
-          <Spinner fx:id="sessionDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
+    <StackPane prefHeight="360" prefWidth="640">
+        <StackPane prefHeight="360.0" prefWidth="254.0">
+            <children>
+                <Spinner fx:id="sessionDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="200.0" />
+                    </StackPane.margin>
+                </Spinner>
+                <Spinner fx:id="shortBreakDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="200.0" top="30.0" />
+                    </StackPane.margin>
+                </Spinner>
+                <Spinner fx:id="longBreakDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="200.0" top="60.0" />
+                    </StackPane.margin>
+                </Spinner>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Session Duration" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="25.0" top="3.0" />
+                    </StackPane.margin>
+                </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Short Break Duration" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="25.0" top="33.0" />
+                    </StackPane.margin>
+                </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Long Break Duration" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets left="25.0" top="63.0" />
+                    </StackPane.margin>
+                </Text>
+            </children>
             <StackPane.margin>
-               <Insets left="200.0" />
+                <Insets top="130.0" />
             </StackPane.margin>
-          </Spinner>
-          <Spinner fx:id="shortBreakDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="200.0" top="30.0" />
-            </StackPane.margin>
-          </Spinner>
-          <Spinner fx:id="longBreakDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="200.0" top="60.0" />
-            </StackPane.margin>
-          </Spinner>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Session Duration" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="25.0" top="3.0" />
-            </StackPane.margin>
-         </Text>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Short Break Duration" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="25.0" top="33.0" />
-            </StackPane.margin>
-         </Text>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Long Break Duration" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="25.0" top="63.0" />
-            </StackPane.margin>
-         </Text>
-      </children>
-      <StackPane.margin>
-         <Insets top="130.0" />
-      </StackPane.margin>
-   </StackPane>
-    <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
-</StackPane>
+        </StackPane>
+        <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
+    </StackPane>
+    <fx:include source="notification.fxml" />
+</Group>

@@ -40,7 +40,7 @@ public class MainApplicationController {
     @FXML
     private VBox sidebar;
 
-    NotificationController notificationController;
+    private NotificationController notificationController;
 
     /**
      * Switches the users account.
