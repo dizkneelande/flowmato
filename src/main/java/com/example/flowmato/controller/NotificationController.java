@@ -28,6 +28,12 @@
         @FXML
         public Label bannerText;
 
+        @FXML
+        public Label toastTopLeftText;
+
+        @FXML
+        public Label toastTopRightText;
+
         private Timeline timeline;
 
         private int currentKeyframe;
@@ -48,8 +54,6 @@
         public NotificationController () {
             queueRunning = false;
             notifications = new ArrayList<>();
-
-            System.out.println("CREATING NOTIFICATION CONTROLLER");
         }
 
         /**
@@ -72,6 +76,10 @@
             runQueue();
         }
 
+        /**
+         * Adds an alert notification to the queue
+         * @param notification the alert notification to be added to the queue
+         */
         private void addAlert(Notification notification) {
             if (notifications.isEmpty()) {
                 notifications.add(notification);
@@ -116,7 +124,6 @@
             }
 
             queueRunning = true;
-            banner.setVisible(true);
 
             timeline = new Timeline();
             timelineDuration = 0;
@@ -126,9 +133,8 @@
 
             for (Notification notification : notifications) {
                 timelineDuration += notification.displayTime;
-                String message = notification.message;
                 KeyFrame keyFrame = new KeyFrame(Duration.millis(timelineDuration - notification.displayTime), e -> {
-                    bannerText.setText(message);
+                    updateNotificationUI(notification);
                     currentTime += timelineDuration - notification.displayTime;
                     currentKeyframe++;
                 });
@@ -138,7 +144,7 @@
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(timelineDuration)));
 
             timeline.setOnFinished(e -> {
-                banner.setVisible(false);
+                hideUI();
                 queueRunning = false;
 
                 // If the number of notifications has changed since we created the timeline, we remove the notifications
@@ -154,6 +160,46 @@
             timeline.play();
         }
 
+        /**
+         * Updates the notification UI with the data from the supplied notification.
+         * @param notification the notification to be displayed on the UI
+         */
+        private void updateNotificationUI(Notification notification) {
+            hideUI();
+
+            String message = notification.message;
+            switch (notification.type) {
+                case "alert":
+                    banner.setStyle("-fx-background-color: red;");
+                case "banner":
+                    banner.setVisible(true);
+                    bannerText.setText(message);
+                    break;
+                case "toast":
+                    if (notification.position.equals("TOP_LEFT")) {
+                        toast_top_left.setVisible(true);
+                        toastTopLeftText.setText(message);
+                    } else {
+                        toast_top_right.setVisible(true);
+                        toastTopRightText.setText(message);
+                    }
+                    break;
+            }
+            notification.beenDisplayed = true;
+        }
+
+        /**
+         * Hides the UI container elements for the notifications
+         */
+        private void hideUI() {
+            banner.setVisible(false);
+            toast_top_right.setVisible(false);
+            toast_top_left.setVisible(false);
+        }
+
+        /**
+         * Closes the notification by jumping to the next keyframe in the timeline.
+         */
         @FXML private void closeNotification() {
             if (currentKeyframe == notifications.size()) {
                 timeline.jumpTo(Duration.millis(timelineDuration));

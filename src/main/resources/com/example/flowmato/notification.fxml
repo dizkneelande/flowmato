@@ -9,7 +9,7 @@
 <AnchorPane pickOnBounds="false" prefHeight="360" prefWidth="640" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.NotificationController">
    <StackPane fx:id="toast_top_right" layoutX="426.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: blue;" visible="false">
       <children>
-          <Label style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+          <Label fx:id="toastTopRightText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
          <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
             <font>
                <Font size="6.0" />
@@ -22,7 +22,7 @@
    </StackPane>
    <StackPane fx:id="toast_top_left" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: blue;" visible="false">
       <children>
-         <Label style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
+         <Label fx:id="toastTopLeftText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
          <Button mnemonicParsing="false" onAction="#closeNotification" text="X" StackPane.alignment="TOP_RIGHT">
             <font>
                <Font size="6.0" />

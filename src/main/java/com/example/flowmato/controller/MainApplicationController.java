@@ -166,7 +166,7 @@ public class MainApplicationController {
         notificationController = HelloApplication.notificationController;
 
         //notificationController.notify(new Notification("alert", "MESSAGE", "TOP_LEFT", 5000));
-        notificationController.notify(new Notification("alert", "MESSAGE", "TOP_LEFT", 5000), new Notification("alert", "MESSAGE2", "TOP_LEFT", 5000), new Notification("alert", "MESSAGE3", "TOP_LEFT", 5000));
+        notificationController.notify(new Notification("toast", "MESSAGE", "TOP_LEFT", 5000), new Notification("alert", "MESSAGE2", "TOP_LEFT", 5000), new Notification("toast", "MESSAGE3", "TOP_RIGHT", 5000));
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())
