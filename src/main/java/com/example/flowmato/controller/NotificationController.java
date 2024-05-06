@@ -43,15 +43,6 @@
         private int timelineDuration;
         private int currentTime;
         private int queueSize;
-
-        /*
-            REQUIREMENTS:
-                - Notification for Session End
-                - Notification of Pomodoro Completion
-                - Notification for Short Break Completion
-                - Notification for Long Break Completion
-                - Pre-Alert Notification for Transition
-            *  */
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
