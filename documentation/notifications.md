@@ -56,7 +56,7 @@ Alert notifications supersede all other notifications in terms of which notifica
 
 ```java
 public void notifyError() {
-    Notification errorNotification = new Notification("alert", "An error occured", "BOTTOM", 5000);
+    Notification errorNotification = new Notification("alert", "An error occurred", "BOTTOM", 5000);
     notificationController.notify(errorNotification);
 }
 ```

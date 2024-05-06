@@ -3,6 +3,9 @@ package com.example.flowmato.controller;
 import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Notification;
 
+import com.example.flowmato.model.SessionManager;
+import com.example.flowmato.model.SqliteProfileDAO;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
@@ -31,11 +34,12 @@ public class TimerController {
     private int stageNotifiedOfTransition;
 
     NotificationController notificationController;
+    private AchievementsController achievementsController;
 
     /**
      * A method that initialises the TimerController variables.
      */
-    public TimerController() {
+    public TimerController(AchievementsController achievementsController) {
         // The following values should be removed once user settings persistency has been added
         sessionDuration = 1500;
         shortBreakDuration = 300;
@@ -50,6 +54,9 @@ public class TimerController {
         notificationController = HelloApplication.notificationController;
 
         isPaused = true;
+
+        this.achievementsController = new AchievementsController(new SqliteProfileDAO());
+
     }
 
     /**
@@ -227,6 +234,12 @@ public class TimerController {
                 notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
             }
             timerDuration = sessionDuration;
+        }
+
+        // Retrieve the profileId from the SessionManager
+        Integer profileId = SessionManager.getInstance().getCurrentUserId();
+        if (profileId != null) {
+            achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted);
         }
 
         resume();
