@@ -54,7 +54,7 @@ public class SqliteProfileDAO {
                         }
                     });
 
-            if (foundExistingDB[0]) {
+            if (foundExistingDB[0] || raw_old_db_version == null) {
                 return;
             }
 
