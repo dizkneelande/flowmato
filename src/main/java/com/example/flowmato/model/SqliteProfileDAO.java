@@ -108,6 +108,22 @@ public class SqliteProfileDAO {
         }
     }
 
+    /**
+     * checks if email already in database
+     */
+    public boolean emailExists(String email) {
+        String sql = "SELECT 1 FROM profiles WHERE email = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next(); //return true if at least 1 row exists
+        } catch (SQLException e) {
+            System.out.println("error checking for existing email: " + e.getMessage());
+            return false;
+        }
+    }
+
     public Profile validateLogin(String email, String password) {
         String sql = "SELECT id, email, preferred_name FROM profiles WHERE email = ? AND password = ?";
         try (Connection conn = this.connect();
