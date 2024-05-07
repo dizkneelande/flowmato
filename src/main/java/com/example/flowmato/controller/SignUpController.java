@@ -45,7 +45,7 @@ public class SignUpController {
         Profile newProfile = new Profile(email, password, preferredName);
         profileDAO.saveNewProfile(newProfile);
 
-        notificationController.notify(new Notification("toast", "Profile created successfully!", 3000));
+        notificationController.notify(new Notification("toast", "Profile created successfully!","TOP", 3000));
         clearFields();
     }
     //check valid signup input
