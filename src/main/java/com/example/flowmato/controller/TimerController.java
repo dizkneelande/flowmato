@@ -216,7 +216,7 @@ public class TimerController {
 
         //currentStage++;
 
-        if (currentStage % 2 == 0) { //check if current stage is a break?
+        if (currentStage % 2 == 0) { //check if current stage is a break
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
                 notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
