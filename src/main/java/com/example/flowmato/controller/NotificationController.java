@@ -185,12 +185,17 @@
                 case "alert":
                     banner.setStyle("-fx-background-color: " + alertColor + ";");
                 case "banner":
-                    banner.setVisible(true);
-                    bannerText.setText(message);
+                    switch (notification.position) {
+                        case "BOTTOM":
+                            banner_bottom.setVisible(true);
+                            bannerBottomText.setText(message);
+                            break;
+                        case "TOP":
+                            banner.setVisible(true);
+                            bannerText.setText(message);
+                            break;
+                    }
                     break;
-                case "banner_bottom":
-                    banner_bottom.setVisible(true);
-                    bannerBottomText.setText(message);
                 case "toast":
                     switch (notification.position) {
                         case "TOP_LEFT":
