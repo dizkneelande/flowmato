@@ -33,12 +33,17 @@ public class SignUpController {
         String preferredName = preferredNameField.getText();
 
         if (!isValidEmail(email)) {
-            notificationController.notify(new Notification("alert", "Invalid email format", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", 3000));
             return;
         }
 
         if (!isValidPassword(password)) {
-            notificationController.notify(new Notification("alert", "Password must be at least 6 characters", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Password must be at least 6 characters.", "TOP", 3000));
+            return;
+        }
+
+        if (profileDAO.emailExists(email)) {
+            notificationController.notify(new Notification("alert", "Email already in use. Please use a different email.", "TOP", 3000));
             return;
         }
 
