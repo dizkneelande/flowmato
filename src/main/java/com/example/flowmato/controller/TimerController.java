@@ -214,27 +214,27 @@ public class TimerController {
     private void nextStage() {
         reset();
 
-        currentStage++;
+        //currentStage++;
 
-        if (currentStage % 2 == 0) {
-            pomodorosCompleted++;
-            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
-            breaksTaken++;
+        if (currentStage % 2 == 0) { //check if current stage is a break?
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
+                notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
                 longBreaksTaken++;
             } else {
                 timerDuration = shortBreakDuration;
+                notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
                 shortBreaksTaken++;
             }
-        } else {
-            if (breaksTaken % 4 == 0) {
-                notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
-            } else {
-                notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
-            }
+        }
+        else{
+            pomodorosCompleted++;
+            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             timerDuration = sessionDuration;
         }
+        currentStage++;
+        breaksTaken = currentStage/2;
+
 
         // Retrieve the profileId from the SessionManager
         Integer profileId = SessionManager.getInstance().getCurrentUserId();
