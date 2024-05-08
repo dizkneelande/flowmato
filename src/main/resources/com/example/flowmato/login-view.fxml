@@ -8,33 +8,33 @@
 <?import javafx.scene.text.*?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.LoginController">
-    <BorderPane maxHeight="374.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="374.0" prefWidth="640">
+    <BorderPane maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360.0" prefWidth="640">
         <left>
             <Pane prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
                 <children>
-                    <VBox prefHeight="370.0" prefWidth="218.0">
+                    <VBox prefHeight="360.0" prefWidth="218.0">
                         <children>
-                            <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="36.0" translateY="8.0">
+                            <ImageView fitHeight="70.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="36.0" translateY="8.0">
                                 <image>
                                     <Image url="@../../../images/Flowmato.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="125.0">
+                            <ImageView fitHeight="70.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="125.0">
                                 <image>
                                     <Image url="@../../../images/Flowmato.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="27.0" translateY="-8.0">
+                            <ImageView fitHeight="70.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="27.0" translateY="-8.0">
                                 <image>
                                     <Image url="@../../../images/Flowmato.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="125.0" translateY="-20.0">
+                            <ImageView fitHeight="70.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="125.0" translateY="-20.0">
                                 <image>
                                     <Image url="@../../../images/Flowmato.png" />
                                 </image>
                             </ImageView>
-                            <ImageView fitHeight="74.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" translateX="21.0" translateY="-41.0">
+                            <ImageView fitHeight="70.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="21.0" translateY="-41.0">
                                 <image>
                                     <Image url="@../../../images/Flowmato.png" />
                                 </image>
@@ -60,14 +60,8 @@
                             </padding>
                         </Label>
                     </children>
-                    <VBox.margin>
-                        <Insets top="5.0" />
-                    </VBox.margin></Pane>
-                <TextField fx:id="emailField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
+                </Pane>
+                <TextField fx:id="emailField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0" />
                 <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0" />
                 <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-font-size: 12pt;" text="Sign In" translateY="-32.0">
                     <VBox.margin>
@@ -79,3 +73,4 @@
     </BorderPane>
     <fx:include source="notification.fxml" />
 </Group>
+
