@@ -46,9 +46,9 @@
         </left>
         <center>
             <VBox alignment="CENTER" spacing="20" style="-fx-padding: 50 20 20 20; -fx-background-color: white;">
-                <Pane prefHeight="100">
+                <Pane prefHeight="100" translateY="5.0">
                     <children>
-                        <Button alignment="TOP_LEFT" layoutY="-17.0" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: black; -fx-background-radius: 20; -fx-font-size: 10pt;" text="&lt; Back" translateX="-8.0" translateY="-26.0" />
+                        <Button alignment="TOP_LEFT" layoutY="-17.0" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: black; -fx-background-radius: 20; -fx-font-size: 10pt;" text="&lt; Back" translateX="-8.0" translateY="-15.0" />
                         <Label layoutX="66.0" layoutY="2.0" style="-fx-font-size: 27; -fx-text-fill: black; -fx-font-weight: bold;" text="Welcome back friend!" translateX="-68.0">
                             <font>
                                 <Font name="System Bold" size="24.0" />
@@ -61,16 +61,15 @@
                         </Label>
                     </children>
                 </Pane>
-                <TextField fx:id="emailField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0" />
-                <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-20.0" />
-                <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-font-size: 12pt;" text="Sign In" translateY="-32.0">
+                <TextField fx:id="emailField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" />
+                <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #8FBCBB; -fx-border-radius: 5;" translateY="-5.0" />
+                <Button onAction="#Login" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #8FBCBB; -fx-font-size: 12pt;" text="Sign In" translateY="-10.0">
                     <VBox.margin>
                         <Insets top="14.0" />
                     </VBox.margin></Button>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: #2C73EB; -fx-font-size: 10pt;" text="Don't have an account? Sign Up here" translateY="-34.0" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: #ffffff; -fx-text-fill: #2C73EB; -fx-font-size: 10pt;" text="Don't have an account? Sign Up here" translateY="-15.0" />
             </VBox>
         </center>
     </BorderPane>
     <fx:include source="notification.fxml" />
 </Group>
-
