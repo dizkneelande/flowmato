@@ -51,6 +51,11 @@
             </StackPane.margin>
         </StackPane>
         <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateY="-8.0" StackPane.alignment="TOP_RIGHT" />
+      <Label text="Feel free to change the timer settings!" translateY="-150.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
     </StackPane>
     <fx:include source="notification.fxml" />
 </Group>
