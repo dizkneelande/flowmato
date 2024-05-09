@@ -46,6 +46,7 @@
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
+        String bannerBaseColor = "#dadada";
 
         public NotificationController () {
             queueRunning = false;
@@ -183,8 +184,12 @@
             String message = notification.message;
             switch (notification.type) {
                 case "alert":
-                    banner.setStyle("-fx-background-color: " + alertColor + ";");
                 case "banner":
+                    if (notification.type.equals("alert")) {
+                        banner.setStyle("-fx-background-color: " + alertColor + ";");
+                    } else {
+                        banner.setStyle("-fx-background-color: " + bannerBaseColor + ";");
+                    }
                     switch (notification.position) {
                         case "BOTTOM":
                             banner_bottom.setVisible(true);
