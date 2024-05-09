@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.Group?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
-    <StackPane prefHeight="360" prefWidth="640">
+    <StackPane maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
         <StackPane prefHeight="360.0" prefWidth="254.0">
             <children>
                 <Spinner fx:id="sessionDurationSpinner" editable="true" StackPane.alignment="TOP_LEFT">
@@ -45,7 +45,7 @@
                 <Insets top="130.0" />
             </StackPane.margin>
         </StackPane>
-        <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="71.0" prefWidth="118.0" text="Back" StackPane.alignment="BOTTOM_RIGHT" />
+        <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateY="-8.0" StackPane.alignment="TOP_RIGHT" />
     </StackPane>
     <fx:include source="notification.fxml" />
 </Group>
