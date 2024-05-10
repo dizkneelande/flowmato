@@ -40,7 +40,7 @@
          </children>
       </StackPane>
       <!-- Center Banner Notification Box -->
-      <StackPane fx:id="banner" layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff;">
+      <StackPane fx:id="banner" layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);">
          <children>
             <Label fx:id="bannerText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
