@@ -12,7 +12,7 @@
 <Group xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.NotificationController">
    <AnchorPane fx:id="notificationContainer" pickOnBounds="false" prefHeight="360" prefWidth="640">
       <!-- Top Right Notification Box -->
-      <StackPane fx:id="toast_top_right" layoutX="426.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+      <StackPane fx:id="toast_top_right" layoutX="426.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);">
          <children>
             <Label fx:id="toastTopRightText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
@@ -26,7 +26,7 @@
          </children>
       </StackPane>
       <!-- Top Left Notification Box -->
-      <StackPane fx:id="toast_top_left" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+      <StackPane fx:id="toast_top_left" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);">
          <children>
             <Label fx:id="toastTopLeftText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
@@ -40,7 +40,7 @@
          </children>
       </StackPane>
       <!-- Center Banner Notification Box -->
-      <StackPane fx:id="banner" layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);">
+      <StackPane fx:id="banner" layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);" visible="false">
          <children>
             <Label fx:id="bannerText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
@@ -57,7 +57,7 @@
          </children>
       </StackPane>
       <!-- Bottom Banner Notification Box -->
-      <StackPane fx:id="banner_bottom" layoutX="10.0" layoutY="289.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #8FBCBB, white);">
+      <StackPane fx:id="banner_bottom" layoutX="10.0" layoutY="289.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 10, 0, 0, 5);" visible="false">
          <children>
             <Label fx:id="bannerBottomText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
@@ -74,7 +74,7 @@
          </children>
       </StackPane>
       <!-- Bottom Right Notification Box -->
-      <StackPane fx:id="toast_bottom_right" layoutX="426.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #8FBCBB, white);" visible="false">
+      <StackPane fx:id="toast_bottom_right" layoutX="426.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);" visible="false">
          <children>
             <Label fx:id="toastBottomRightText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
@@ -88,7 +88,7 @@
          </children>
       </StackPane>
       <!-- Bottom Left Notification Box -->
-      <StackPane fx:id="toast_bottom_left" layoutX="14.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #8FBCBB, white);" visible="false">
+      <StackPane fx:id="toast_bottom_left" layoutX="14.0" layoutY="292.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);" visible="false">
          <children>
             <Label fx:id="toastBottomLeftText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
