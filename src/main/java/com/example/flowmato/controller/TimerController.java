@@ -42,9 +42,9 @@ public class TimerController {
      */
     public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
         // The following values should be removed once user settings persistency has been added
-        sessionDuration = 15;
-        shortBreakDuration = 15;
-        longBreakDuration = 15;
+        sessionDuration = 1500;
+        shortBreakDuration = 300;
+        longBreakDuration = 1200;
         // =================== //
         currentStage = 1;
         timeElapsed = 0;
@@ -79,6 +79,8 @@ public class TimerController {
         longBreaksTaken = 0;
         pomodorosCompleted = 0;
         transitionNotified = false;
+
+        audioController.stopMusic();
     }
 
     /**
@@ -197,7 +199,7 @@ public class TimerController {
             return false;
         }
 
-        audioController.playMusic();
+        audioController.unPauseMusic();
 
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);

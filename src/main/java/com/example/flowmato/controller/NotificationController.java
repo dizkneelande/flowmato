@@ -61,6 +61,7 @@
             if (HelloApplication.audioController == null) {
                 this.audioController = new AudioController();
                 this.audioController.muteSounds();
+                this.audioController.muteMusic();
             } else {
                 this.audioController = HelloApplication.audioController;
             }

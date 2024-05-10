@@ -4,13 +4,15 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
+import java.util.Random;
 
 public class AudioController {
     private final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
     private final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
     private final MediaPlayer longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
     MediaPlayer musicPlayer;
-    int trackBeingPlayed = 1;
+    Random random = new Random();
+    int trackBeingPlayed = random.nextInt(4 - 1 + 1) + 1;
 
     public boolean playingAudio;
     public boolean playingMusic;
@@ -78,16 +80,16 @@ public class AudioController {
             return;
         }
 
-        if (musicPlayer == null) {
-            Media track = new Media(new File("media/track" + trackBeingPlayed + ".mp3").toURI().toString());
-            musicPlayer = new MediaPlayer(track);
-        }
+        Media track = new Media(new File("media/track" + trackBeingPlayed + ".mp3").toURI().toString());
+        musicPlayer = new MediaPlayer(track);
 
         musicPlayer.setOnEndOfMedia(() -> {
             trackBeingPlayed++;
             if (trackBeingPlayed > 4) {
                 trackBeingPlayed = 1;
             }
+            musicPlayer.stop();
+            musicPlayer.dispose();
             playMusic();
         });
 
@@ -97,6 +99,15 @@ public class AudioController {
     public void stopMusic() {
         if (musicPlayer != null) {
             musicPlayer.stop();
+            musicPlayer.dispose();
+            musicPlayer = null;
+
+            // Get new track between 1-4, that isn't the same as the track that was previously played
+            int newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
+            while (trackBeingPlayed == newTrackToPlay) {
+                newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
+            }
+            trackBeingPlayed = newTrackToPlay;
         }
     }
 
@@ -134,6 +145,15 @@ public class AudioController {
         if (musicPlayer != null) {
             musicPlayer.pause();
             playingMusic = false;
+        }
+    }
+
+    public void unPauseMusic() {
+        if (musicPlayer != null) {
+            musicPlayer.play();
+            playingMusic = true;
+        } else {
+            playMusic();
         }
     }
 }
