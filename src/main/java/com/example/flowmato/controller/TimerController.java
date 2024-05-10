@@ -18,6 +18,7 @@ import java.util.TimerTask;
  * A controller class that controls a timer.
  */
 public class TimerController {
+    private AudioController audioController;
     public int timerDuration;
     int sessionDuration;
     int shortBreakDuration;
@@ -35,7 +36,6 @@ public class TimerController {
     private Instant pauseTime;
     private boolean transitionNotified;
     private int stageNotifiedOfTransition;
-    //private final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
 
     NotificationController notificationController;
     private AchievementsController achievementsController;
@@ -56,6 +56,13 @@ public class TimerController {
 
         timer = new Timer();
         this.notificationController = notificationController;
+
+        if (HelloApplication.audioController == null) {
+            this.audioController = new AudioController();
+            this.audioController.mute();
+        } else {
+            this.audioController = HelloApplication.audioController;
+        }
 
         isPaused = true;
 
@@ -227,8 +234,10 @@ public class TimerController {
             breaksTaken++;
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
+                audioController.playLongBreak();
             } else {
                 timerDuration = shortBreakDuration;
+                audioController.playShortBreak();
             }
         } else {
             if (breaksTaken % 4 == 0) {

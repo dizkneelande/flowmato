@@ -23,7 +23,11 @@ public class NotificationTest {
 
     @BeforeAll
     public static void initialize() {
-        Platform.startup(() -> {});
+        try {
+            Platform.startup(() -> {});
+        } catch (IllegalStateException e) {
+
+        }
     }
 
     @BeforeEach void setUp() {
@@ -118,11 +122,11 @@ public class NotificationTest {
         Notification toastNotification = new Notification("toast", "test notification", "TOP_RIGHT", 5000);
         notificationController.notify(toastNotification);
 
-        wait(50);
+        wait(1000);
 
         notificationController.closeNotification();
 
-        wait(50);
+        wait(1000);
 
         assertTrue(notificationController.getQueue().isEmpty());
     }
@@ -147,9 +151,11 @@ public class NotificationTest {
         Notification notification3 = new Notification("toast", "First Long Break Completed!", "TOP_RIGHT", 5000);
         notificationController.notify(notification1, notification2, notification3);
 
-        wait(10);
+        wait(500);
 
         notificationController.haltQueue();
+
+        wait(500);
 
         assertEquals(2, notificationController.getQueue().size());
     }

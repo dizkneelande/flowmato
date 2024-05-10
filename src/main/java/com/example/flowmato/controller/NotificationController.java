@@ -50,15 +50,23 @@
         private int queueSize;
         private boolean indefiniteNotificationDisplayed;
         private Notification indefiniteNotification;
-        //private final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
+        private AudioController audioController;
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
         String bannerBaseColor = "#dadada";
 
+
         public NotificationController () {
             queueRunning = false;
             notifications = new ArrayList<>();
+
+            if (HelloApplication.audioController == null) {
+                this.audioController = new AudioController();
+                this.audioController.mute();
+            } else {
+                this.audioController = HelloApplication.audioController;
+            }
         }
 
         /**
@@ -193,7 +201,7 @@
                 }
             });
 
-            //notificationSound.play();
+            audioController.playNotification();
 
             timeline.play();
         }

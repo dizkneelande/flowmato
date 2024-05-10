@@ -22,7 +22,11 @@ public class TimerTest {
 
     @BeforeAll
     public static void initialize() {
-        Platform.startup(() -> {});
+        try {
+            Platform.startup(() -> {});
+        } catch (IllegalStateException e) {
+
+        }
     }
 
     @BeforeEach

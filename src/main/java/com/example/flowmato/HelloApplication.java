@@ -1,5 +1,6 @@
 package com.example.flowmato;
 
+import com.example.flowmato.controller.AudioController;
 import com.example.flowmato.controller.NotificationController;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -15,6 +16,7 @@ public class HelloApplication extends Application {
     public static final String TITLE = "Flowmato";
 
     public static NotificationController notificationController;
+    public static AudioController audioController;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,6 +27,8 @@ public class HelloApplication extends Application {
         stage.show();
         SqliteProfileDAO dao = new SqliteProfileDAO();
         dao.initialiseDatabase();
+
+        audioController = new AudioController();
     }
 
     public static void main(String[] args) {
