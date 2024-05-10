@@ -159,11 +159,11 @@ public class MainApplicationController {
     @FXML
     public void initialize() {
         AchievementsController achievementsController = null;
-        timer = new TimerController(achievementsController);
         SqliteProfileDAO dao = new SqliteProfileDAO();
         achievementsController = new AchievementsController(dao);
 
         notificationController = HelloApplication.notificationController;
+        timer = new TimerController(achievementsController, notificationController);
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.1), event -> refreshUI())

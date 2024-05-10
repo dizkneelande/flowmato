@@ -1,6 +1,9 @@
 import com.example.flowmato.controller.AchievementsController;
+import com.example.flowmato.controller.NotificationController;
 import com.example.flowmato.controller.TimerController;
 import com.example.flowmato.model.SqliteProfileDAO;
+import javafx.application.Platform;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,12 +12,25 @@ public class TimerTest {
 
     private TimerController timerController;
 
+    private void wait(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @BeforeAll
+    public static void initialize() {
+        Platform.startup(() -> {});
+    }
+
     @BeforeEach
     public void setUp() {
         //initialise necessary dependencies here
         SqliteProfileDAO dao = new SqliteProfileDAO();
         AchievementsController achievementsController = new AchievementsController(dao);
-        timerController = new TimerController(achievementsController);  //pass to timercontroller
+        timerController = new TimerController(achievementsController, new NotificationController());  //pass to timercontroller
     }
 
 
@@ -22,11 +38,8 @@ public class TimerTest {
     public void testStartTimer(){
         // start the timer
         timerController.resume();
-        try{
-            Thread.sleep(1);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+
+        wait(1);
 
         // Assert that timer has started
         assertTrue(timerController.getTimeElapsed() > 0);
@@ -37,11 +50,7 @@ public class TimerTest {
         // start the timer
         timerController.resume();
         // let it run
-        try{
-            Thread.sleep(1);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        wait(1);
         // test the stop function
         timerController.stop();
 
@@ -55,16 +64,38 @@ public class TimerTest {
         timerController.resume();
 
         // Let it run
-        try{
-            Thread.sleep(1);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        wait(1);
 
         // pause the timer
         timerController.pause();
 
         assertTrue(timerController.isPaused());
 
+    }
+
+    @Test
+    public void testDurations() {
+        timerController.pause();
+        timerController.setSessionDuration(1);
+        timerController.setShortBreakDuration(2);
+        timerController.setLongBreakDuration(3);
+
+        timerController.resume();
+
+        assertEquals(1, timerController.timerDuration);
+
+        wait(1500);
+
+        assertEquals(2, timerController.timerDuration);
+
+        wait (2500);
+
+        assertEquals(1, timerController.timerDuration);
+
+        timerController.breaksTaken = 3;
+
+        wait(1500);
+
+        assertEquals(3, timerController.timerDuration);
     }
 }

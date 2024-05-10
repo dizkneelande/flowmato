@@ -2,6 +2,7 @@ module com.example.addressbook {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires javafx.media;
 
 
     opens com.example.flowmato to javafx.fxml;

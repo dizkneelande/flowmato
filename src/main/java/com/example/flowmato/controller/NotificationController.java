@@ -8,7 +8,10 @@
     import javafx.scene.control.Label;
     import javafx.scene.layout.StackPane;
     import javafx.util.Duration;
+    import javafx.scene.media.Media;
+    import javafx.scene.media.MediaPlayer;
 
+    import java.io.File;
     import java.util.ArrayList;
     import java.util.Objects;
     import java.util.stream.Stream;
@@ -47,6 +50,7 @@
         private int queueSize;
         private boolean indefiniteNotificationDisplayed;
         private Notification indefiniteNotification;
+        //private final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
@@ -188,6 +192,8 @@
                     clearQueue();
                 }
             });
+
+            //notificationSound.play();
 
             timeline.play();
         }

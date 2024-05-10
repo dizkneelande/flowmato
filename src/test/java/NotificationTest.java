@@ -22,11 +22,11 @@ public class NotificationTest {
     }
 
     @BeforeAll
-    public static void setUp() {
+    public static void initialize() {
         Platform.startup(() -> {});
     }
 
-    @BeforeEach void initialize() {
+    @BeforeEach void setUp() {
         this.notificationController = new NotificationController();
     }
 
@@ -142,15 +142,15 @@ public class NotificationTest {
 
     @Test
     public void testHaltQueue(){
-        Notification notification1 = new Notification("toast", "First Pomodoro Completed!", "TOP_RIGHT", 10);
-        Notification notification2 = new Notification("toast", "First Short Break Completed!", "TOP_RIGHT", 1000);
-        Notification notification3 = new Notification("toast", "First Long Break Completed!", "TOP", 1000);
+        Notification notification1 = new Notification("toast", "First Pomodoro Completed!", "TOP_RIGHT", 5000);
+        Notification notification2 = new Notification("toast", "First Short Break Completed!", "TOP_RIGHT", 5000);
+        Notification notification3 = new Notification("toast", "First Long Break Completed!", "TOP_RIGHT", 5000);
         notificationController.notify(notification1, notification2, notification3);
 
-        wait(100);
+        wait(10);
 
         notificationController.haltQueue();
 
-        assertEquals(1, notificationController.getQueue().size());
+        assertEquals(2, notificationController.getQueue().size());
     }
 }
