@@ -72,8 +72,20 @@
          </children>
       </StackPane>
       <!-- Bottom Banner Notification Box -->
-      <StackPane fx:id="banner_bottom" layoutX="10.0" layoutY="289.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 10, 0, 0, 5);" visible="false">
+      <StackPane fx:id="banner_bottom" layoutX="10.0" layoutY="289.0" prefHeight="54.0" prefWidth="614.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10,0,0,2);">
          <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/Flowmato.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="17.0" top="6.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
             <Label fx:id="bannerBottomText" style="-fx-font-size: 12pt;" text="Notification text here" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#closeNotification" style="-fx-background-color: transparent;" text="✖" translateX="8.0" translateY="-6.0" StackPane.alignment="TOP_RIGHT">
                <StackPane.margin>
