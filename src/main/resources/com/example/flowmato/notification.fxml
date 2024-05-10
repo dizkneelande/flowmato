@@ -47,12 +47,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="70.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
+                  <ImageView fitHeight="65.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
                      <image>
                         <Image url="@../../../images/Flowmato.png" />
                      </image>
                      <HBox.margin>
-                        <Insets left="17.0" />
+                        <Insets bottom="3.0" left="17.0" top="8.0" />
                      </HBox.margin>
                   </ImageView>
                </children>
