@@ -7,6 +7,7 @@
     - [Banner Notification](#banner-notification)
     - [Toast Notification](#toast-notification)
     - [Displaying Multiple Notifications](#displaying-multiple-notifications)
+    - [Indefinite Notifications](#indefinite-notifications)
 
 ### Setting up Notifications
 
@@ -90,3 +91,14 @@ public void notifyAchievements() {
     notificationController.notify(notification1, notification2, notification3);
 }
 ```
+
+#### Indefinite Notifications
+
+You can make notifications last "forever" (in the current implementation the max time is 166 minutes) by setting the notification
+**displayTime** to one of the below values:
+
+- **0** - Displays the notification until the next notification is called (or 166 minutes elapse)
+- **-1 and below** - Displays the notification until 166 minutes has elapsed
+  - ***CAUTION:*** Setting a notification to this value will result in all subsequent notifications being stacked
+  in the queue until this notification is closed, which depending on how long the user leaves the notification up, can result in a massive queue size,
+  it is recommended to avoid setting this as the value. (It's main use is for testing indefinite notifications)

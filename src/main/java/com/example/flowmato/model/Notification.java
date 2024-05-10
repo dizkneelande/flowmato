@@ -17,6 +17,7 @@ public class Notification {
     * */
     public int displayTime;
     public boolean beenDisplayed;
+    public boolean allowOverride;
 
     /**
      * Creates a notification with the supplied parameters
@@ -29,7 +30,11 @@ public class Notification {
         this.type = type;
         this.message = message;
         this.position = position;
-        this.displayTime = displayTime;
+        this.displayTime = displayTime / 1000;
+
+        if (displayTime == 0) {
+            this.allowOverride = true;
+        }
     }
 
     /**
@@ -46,6 +51,18 @@ public class Notification {
         }
         this.type = type;
         this.message = message;
-        this.displayTime = displayTime;
+        this.displayTime = displayTime / 1000;
+
+        if (displayTime == 0) {
+            this.allowOverride = true;
+        }
+    }
+
+    /**
+     * Sets the notifications display time.
+     * @param displayTime the amount of time to display the notification for (in millis)
+     */
+    public void setDisplayTime(int displayTime) {
+        this.displayTime = displayTime / 1000;
     }
 }

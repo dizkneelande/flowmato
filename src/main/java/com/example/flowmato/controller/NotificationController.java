@@ -45,6 +45,8 @@
         private int timelineDuration;
         private int currentTime;
         private int queueSize;
+        private boolean indefiniteNotificationDisplayed;
+        private Notification indefiniteNotification;
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
@@ -61,7 +63,20 @@
          * @param notifications any amount of notifications to be displayed, comma-separated
          */
         public void notify(Notification... notifications) {
+            if (indefiniteNotificationDisplayed && indefiniteNotification.allowOverride) {
+                haltQueue();
+            }
+
             for (Notification notification : notifications) {
+                if (notification.displayTime <= 0) {
+                    if (notifications.length > 1) {
+                        return;
+                    }
+
+                    notification.setDisplayTime(10000 * 1000);
+                    indefiniteNotificationDisplayed = true;
+                    indefiniteNotification = notification;
+                }
                 switch (notification.type) {
                     case "alert":
                         addAlert(notification);
@@ -149,7 +164,8 @@
 
             for (Notification notification : notifications) {
                 timelineDuration += notification.displayTime;
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(timelineDuration - notification.displayTime), e -> {
+                Duration keyframeLength = Duration.seconds(timelineDuration - notification.displayTime);
+                KeyFrame keyFrame = new KeyFrame(keyframeLength, e -> {
                     updateNotificationUI(notification);
                     currentTime += timelineDuration - notification.displayTime;
                     currentKeyframe++;
@@ -157,7 +173,7 @@
                 timeline.getKeyFrames().add(keyFrame);
             }
 
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(timelineDuration)));
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(timelineDuration)));
 
             timeline.setOnFinished(e -> {
                 hideUI();
@@ -251,10 +267,10 @@
          * Closes the notification by jumping to the next keyframe in the timeline.
          */
         @FXML public void closeNotification() {
-            if (currentKeyframe == notifications.size()) {
-                timeline.jumpTo(Duration.millis(timelineDuration));
+            if (currentKeyframe == notifications.size() || indefiniteNotificationDisplayed) {
+                timeline.jumpTo(Duration.seconds(timelineDuration));
             } else {
-                timeline.jumpTo(Duration.millis(currentTime - notifications.get(currentKeyframe).displayTime));
+                timeline.jumpTo(Duration.seconds(currentTime - notifications.get(currentKeyframe).displayTime));
             }
         }
 
