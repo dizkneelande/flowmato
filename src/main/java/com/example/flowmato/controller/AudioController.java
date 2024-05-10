@@ -18,6 +18,9 @@ public class AudioController {
     public boolean playingMusic;
     public boolean notificationPlaying;
 
+    /**
+     * Plays the notification sound
+     */
     public void playNotification() {
         if (playingAudio) {
             return;
@@ -37,6 +40,9 @@ public class AudioController {
         notificationSound.play();
     }
 
+    /**
+     * Plays the Long Break sound
+     */
     public void playLongBreak() {
         if (playingAudio && !notificationPlaying) {
             return;
@@ -56,6 +62,9 @@ public class AudioController {
         longBreakSound.play();
     }
 
+    /**
+     * Plays the Short Break Sound
+     */
     public void playShortBreak() {
         if (playingAudio && !notificationPlaying) {
             return;
@@ -75,9 +84,16 @@ public class AudioController {
         shortBreakSound.play();
     }
 
+    /**
+     * Plays the Background Music
+     */
     public void playMusic() {
         if (playingMusic) {
             return;
+        }
+
+        if (trackBeingPlayed < 1 || trackBeingPlayed > 4) {
+            trackBeingPlayed = 1;
         }
 
         Media track = new Media(new File("media/track" + trackBeingPlayed + ".mp3").toURI().toString());
@@ -96,6 +112,9 @@ public class AudioController {
         musicPlayer.play();
     }
 
+    /**
+     * Stops the Background Music
+     */
     public void stopMusic() {
         if (musicPlayer != null) {
             musicPlayer.stop();
@@ -111,36 +130,55 @@ public class AudioController {
         }
     }
 
+    /**
+     * Mutes sound effects
+     */
     public void muteSounds() {
         shortBreakSound.setVolume(0.0);
         longBreakSound.setVolume(0.0);
         notificationSound.setVolume(0.0);
     }
 
+    /**
+     * Unmutes sound effects
+     */
     public void unmuteSounds() {
         shortBreakSound.setVolume(1.0);
         longBreakSound.setVolume(1.0);
         notificationSound.setVolume(1.0);
     }
 
+    /**
+     * Mutes background music
+     */
     public void muteMusic() {
         if (musicPlayer != null) {
             musicPlayer.setVolume(0.0);
         }
     }
 
+    /**
+     * Unmutes background music
+     */
     public void unmuteMusic() {
         if (musicPlayer != null) {
             musicPlayer.setVolume(1.0);
         }
     }
 
+    /**
+     * Sets the background music's volume
+     * @param musicVolume the volume to set the music to
+     */
     public void setMusicVolume(double musicVolume) {
         if (musicPlayer != null) {
             musicPlayer.setVolume(musicVolume);
         }
     }
 
+    /**
+     * Pauses the background music
+     */
     public void pauseMusic() {
         if (musicPlayer != null) {
             musicPlayer.pause();
@@ -148,7 +186,10 @@ public class AudioController {
         }
     }
 
-    public void unPauseMusic() {
+    /**
+     * Resumes the background music
+     */
+    public void resumeMusic() {
         if (musicPlayer != null) {
             musicPlayer.play();
             playingMusic = true;

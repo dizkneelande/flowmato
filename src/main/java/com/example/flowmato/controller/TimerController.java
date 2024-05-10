@@ -199,7 +199,7 @@ public class TimerController {
             return false;
         }
 
-        audioController.unPauseMusic();
+        audioController.resumeMusic();
 
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
@@ -253,7 +253,6 @@ public class TimerController {
             timerDuration = sessionDuration;
         }
 
-
         // Retrieve the profileId from the SessionManager
         Integer profileId = SessionManager.getInstance().getCurrentUserId();
         if (profileId != null) {
@@ -263,6 +262,9 @@ public class TimerController {
         resume();
     }
 
+    /**
+     * Sends a notification of an upcoming transition, if one has yet to be sent for the current stage.
+     */
     public void notifyOfTransition() {
         if (stageNotifiedOfTransition != currentStage) {
             notificationController.notify(new Notification("banner", "60 Seconds Remaining in the Current Stage!", 2500));
