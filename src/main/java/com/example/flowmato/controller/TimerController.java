@@ -5,10 +5,7 @@ import com.example.flowmato.model.Notification;
 
 import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
-import java.io.File;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
@@ -45,9 +42,9 @@ public class TimerController {
      */
     public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
         // The following values should be removed once user settings persistency has been added
-        sessionDuration = 1500;
-        shortBreakDuration = 300;
-        longBreakDuration = 1200;
+        sessionDuration = 15;
+        shortBreakDuration = 15;
+        longBreakDuration = 15;
         // =================== //
         currentStage = 1;
         timeElapsed = 0;
@@ -59,7 +56,7 @@ public class TimerController {
 
         if (HelloApplication.audioController == null) {
             this.audioController = new AudioController();
-            this.audioController.mute();
+            this.audioController.muteSounds();
         } else {
             this.audioController = HelloApplication.audioController;
         }
@@ -109,6 +106,8 @@ public class TimerController {
         if (isPaused) {
             return;
         }
+
+        audioController.pauseMusic();
 
         isPaused = true;
 
@@ -197,6 +196,8 @@ public class TimerController {
         if (task != null && !isPaused) {
             return false;
         }
+
+        audioController.playMusic();
 
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);

@@ -9,14 +9,12 @@ public class AudioController {
     private final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
     private final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
     private final MediaPlayer longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
+    MediaPlayer musicPlayer;
+    int trackBeingPlayed = 1;
 
     public boolean playingAudio;
-
+    public boolean playingMusic;
     public boolean notificationPlaying;
-
-    public AudioController() {
-
-    }
 
     public void playNotification() {
         if (playingAudio) {
@@ -27,7 +25,10 @@ public class AudioController {
         notificationSound.setOnEndOfMedia(() -> {
             playingAudio = false;
             notificationPlaying = false;
+            unmuteMusic();
         });
+
+        setMusicVolume(0.1);
 
         notificationPlaying = true;
         playingAudio = true;
@@ -44,7 +45,10 @@ public class AudioController {
 
         longBreakSound.setOnEndOfMedia(() -> {
             playingAudio = false;
+            unmuteMusic();
         });
+
+        setMusicVolume(0.1);
 
         playingAudio = true;
         longBreakSound.play();
@@ -60,21 +64,76 @@ public class AudioController {
 
         shortBreakSound.setOnEndOfMedia(() -> {
             playingAudio = false;
+            unmuteMusic();
         });
+
+        setMusicVolume(0.1);
 
         playingAudio = true;
         shortBreakSound.play();
     }
 
-    public void mute() {
+    public void playMusic() {
+        if (playingMusic) {
+            return;
+        }
+
+        if (musicPlayer == null) {
+            Media track = new Media(new File("media/track" + trackBeingPlayed + ".mp3").toURI().toString());
+            musicPlayer = new MediaPlayer(track);
+        }
+
+        musicPlayer.setOnEndOfMedia(() -> {
+            trackBeingPlayed++;
+            if (trackBeingPlayed > 4) {
+                trackBeingPlayed = 1;
+            }
+            playMusic();
+        });
+
+        musicPlayer.play();
+    }
+
+    public void stopMusic() {
+        if (musicPlayer != null) {
+            musicPlayer.stop();
+        }
+    }
+
+    public void muteSounds() {
         shortBreakSound.setVolume(0.0);
         longBreakSound.setVolume(0.0);
         notificationSound.setVolume(0.0);
     }
 
-    public void unmute() {
+    public void unmuteSounds() {
         shortBreakSound.setVolume(1.0);
         longBreakSound.setVolume(1.0);
         notificationSound.setVolume(1.0);
+    }
+
+    public void muteMusic() {
+        if (musicPlayer != null) {
+            musicPlayer.setVolume(0.0);
+        }
+    }
+
+    public void unmuteMusic() {
+        if (musicPlayer != null) {
+            musicPlayer.setVolume(1.0);
+        }
+    }
+
+    public void setMusicVolume(double musicVolume) {
+        if (musicPlayer != null) {
+            musicPlayer.setVolume(musicVolume);
+        }
+    }
+
+    public void pauseMusic() {
+        if (musicPlayer != null) {
+            musicPlayer.pause();
+            playingMusic = false;
+        }
     }
 }

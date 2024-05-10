@@ -8,10 +8,7 @@
     import javafx.scene.control.Label;
     import javafx.scene.layout.StackPane;
     import javafx.util.Duration;
-    import javafx.scene.media.Media;
-    import javafx.scene.media.MediaPlayer;
 
-    import java.io.File;
     import java.util.ArrayList;
     import java.util.Objects;
     import java.util.stream.Stream;
@@ -63,7 +60,7 @@
 
             if (HelloApplication.audioController == null) {
                 this.audioController = new AudioController();
-                this.audioController.mute();
+                this.audioController.muteSounds();
             } else {
                 this.audioController = HelloApplication.audioController;
             }
