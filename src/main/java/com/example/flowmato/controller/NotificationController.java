@@ -10,6 +10,8 @@
     import javafx.util.Duration;
 
     import java.util.ArrayList;
+    import java.util.Objects;
+    import java.util.stream.Stream;
 
     public class NotificationController {
         @FXML
@@ -179,6 +181,10 @@
          * @param notification the notification to be displayed on the UI
          */
         private void updateNotificationUI(Notification notification) {
+            if (Stream.of(banner, banner_bottom, toast_top_right, toast_top_left, toast_bottom_left, toast_bottom_right).anyMatch(Objects::isNull)) {
+                return;
+            }
+
             hideUI();
 
             String message = notification.message;
@@ -229,6 +235,10 @@
          * Hides the UI container elements for the notifications
          */
         private void hideUI() {
+            if (Stream.of(banner, banner_bottom, toast_top_right, toast_top_left, toast_bottom_left, toast_bottom_right).anyMatch(Objects::isNull)) {
+                return;
+            }
+
             banner.setVisible(false);
             banner_bottom.setVisible(false);
             toast_top_right.setVisible(false);
@@ -240,7 +250,7 @@
         /**
          * Closes the notification by jumping to the next keyframe in the timeline.
          */
-        @FXML private void closeNotification() {
+        @FXML public void closeNotification() {
             if (currentKeyframe == notifications.size()) {
                 timeline.jumpTo(Duration.millis(timelineDuration));
             } else {
