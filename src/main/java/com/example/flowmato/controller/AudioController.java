@@ -1,7 +1,11 @@
 package com.example.flowmato.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.Random;
@@ -13,6 +17,7 @@ public class AudioController {
     MediaPlayer musicPlayer;
     Random random = new Random();
     int trackBeingPlayed = random.nextInt(4 - 1 + 1) + 1;
+    double volume = 1.0;
 
     public boolean playingAudio;
     public boolean playingMusic;
@@ -30,10 +35,10 @@ public class AudioController {
         notificationSound.setOnEndOfMedia(() -> {
             playingAudio = false;
             notificationPlaying = false;
-            unmuteMusic();
+            fadeVolume(musicPlayer, false);
         });
 
-        setMusicVolume(0.1);
+        fadeVolume(musicPlayer, true);
 
         notificationPlaying = true;
         playingAudio = true;
@@ -53,10 +58,10 @@ public class AudioController {
 
         longBreakSound.setOnEndOfMedia(() -> {
             playingAudio = false;
-            unmuteMusic();
+            fadeVolume(musicPlayer, false);
         });
 
-        setMusicVolume(0.1);
+        fadeVolume(musicPlayer, true);
 
         playingAudio = true;
         longBreakSound.play();
@@ -75,10 +80,10 @@ public class AudioController {
 
         shortBreakSound.setOnEndOfMedia(() -> {
             playingAudio = false;
-            unmuteMusic();
+            fadeVolume(musicPlayer, false);
         });
 
-        setMusicVolume(0.1);
+        fadeVolume(musicPlayer, true);
 
         playingAudio = true;
         shortBreakSound.play();
@@ -143,9 +148,9 @@ public class AudioController {
      * Unmutes sound effects
      */
     public void unmuteSounds() {
-        shortBreakSound.setVolume(1.0);
-        longBreakSound.setVolume(1.0);
-        notificationSound.setVolume(1.0);
+        shortBreakSound.setVolume(volume);
+        longBreakSound.setVolume(volume);
+        notificationSound.setVolume(volume);
     }
 
     /**
@@ -162,7 +167,7 @@ public class AudioController {
      */
     public void unmuteMusic() {
         if (musicPlayer != null) {
-            musicPlayer.setVolume(1.0);
+            musicPlayer.setVolume(volume);
         }
     }
 
@@ -170,10 +175,46 @@ public class AudioController {
      * Sets the background music's volume
      * @param musicVolume the volume to set the music to
      */
-    public void setMusicVolume(double musicVolume) {
+    private void setMusicVolume(double musicVolume) {
         if (musicPlayer != null) {
             musicPlayer.setVolume(musicVolume);
         }
+    }
+
+    /**
+     * Sets the volume of the AudioController
+     * @param volume the volume to set the AudioController to (between 0.0 and 1.0)
+     * @return <b>true</b> if the volume was modified, <b>false</b> if it wasn't
+     */
+    public boolean setVolume(double volume) {
+        if (volume > 1.0 || volume < 0.0) {
+            return false;
+        }
+
+        this.volume = volume;
+        return true;
+    }
+
+    /**
+     * Fades the volume of the provided MediaPlayer
+     * @param mediaPlayer the MediaPlayer to fade the volume of
+     * @param fadeDown whether to fade down or fade up the volume
+     */
+    private void fadeVolume(MediaPlayer mediaPlayer, boolean fadeDown) {
+        Timeline timeline;
+        if (fadeDown) {
+            timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), new KeyValue(mediaPlayer.volumeProperty(), volume)),
+                new KeyFrame(Duration.seconds(0.3), new KeyValue(mediaPlayer.volumeProperty(), volume * 0.1))
+            );
+        } else {
+            timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), new KeyValue(mediaPlayer.volumeProperty(), volume * 0.1)),
+                new KeyFrame(Duration.seconds(2.5), new KeyValue(mediaPlayer.volumeProperty(), volume))
+            );
+        }
+
+        timeline.play();
     }
 
     /**

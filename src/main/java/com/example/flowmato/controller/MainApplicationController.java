@@ -43,6 +43,8 @@ public class MainApplicationController {
 
     private NotificationController notificationController;
 
+    private AudioController audioController;
+
     /**
      * Switches the users account.
      * @param event The component's event of the user's action
@@ -50,6 +52,7 @@ public class MainApplicationController {
     @FXML protected void switchAccount(ActionEvent event) {
         // This currently just goes back to the login screen, no additional logic for "signing out" at this stage.
         try {
+            audioController.stopMusic();
             Parent mainAppRoot = FXMLLoader.load(getClass().getResource("/com/example/flowmato/login-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(mainAppRoot));
@@ -68,7 +71,7 @@ public class MainApplicationController {
             Parent settingsRoot = loader.load();
 
             SettingsController settingsController = loader.getController();
-            settingsController.setupSettings(timer);
+            settingsController.setupSettings(timer, TimerButton);
 
             Stage settingsStage = new Stage();
             settingsStage.setScene(new Scene(settingsRoot));
@@ -115,7 +118,7 @@ public class MainApplicationController {
      * Stops the timer (i.e. cancels it and resets it back to initialisation values)
      */
     @FXML
-    protected void stopTimer() {
+    public void stopTimer() {
         timer.stop();
         TimerButton.setText("Start Timer");
     }
@@ -163,6 +166,7 @@ public class MainApplicationController {
         achievementsController = new AchievementsController(dao);
 
         notificationController = HelloApplication.notificationController;
+        audioController = HelloApplication.audioController;
         timer = new TimerController(achievementsController, notificationController);
 
         Timeline timeline = new Timeline(

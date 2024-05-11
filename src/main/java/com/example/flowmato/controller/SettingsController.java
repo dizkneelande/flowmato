@@ -18,13 +18,17 @@ public class SettingsController {
 
     private TimerController timer;
     private NotificationController notificationController;
+    private Button timerButton;
 
     /**
      * Initialises the Settings page with properties from the provided timer.
+     *
      * @param timer The timer object of the settings to modify.
+     * @param timerButton the button to pause/unpause the timer.
      */
-    public void setupSettings(TimerController timer) {
+    public void setupSettings(TimerController timer, Button timerButton) {
         this.timer = timer;
+        this.timerButton = timerButton;
 
         int sessionDuration = timer.sessionDuration / 60;
         int shortBreakDuration = timer.shortBreakDuration / 60;
@@ -40,6 +44,7 @@ public class SettingsController {
      */
     @FXML protected void goBack() {
         timer.stop();
+        timerButton.setText("Start Timer");
         timer.setSessionDuration((Integer) sessionDurationSpinner.getValue() * 60);
         timer.setShortBreakDuration((Integer) shortBreakDurationSpinner.getValue() * 60);
         timer.setLongBreakDuration((Integer) longBreakDurationSpinner.getValue() * 60);
