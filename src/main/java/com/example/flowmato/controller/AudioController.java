@@ -201,6 +201,10 @@ public class AudioController {
      * @param fadeDown whether to fade down or fade up the volume
      */
     private void fadeVolume(MediaPlayer mediaPlayer, boolean fadeDown) {
+        if (mediaPlayer == null) {
+            return;
+        }
+
         Timeline timeline;
         if (fadeDown) {
             timeline = new Timeline(
