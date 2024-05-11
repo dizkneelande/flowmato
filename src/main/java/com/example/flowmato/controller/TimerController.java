@@ -42,9 +42,9 @@ public class TimerController {
      */
     public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
         // The following values should be removed once user settings persistency has been added
-        sessionDuration = 1500;
-        shortBreakDuration = 300;
-        longBreakDuration = 1200;
+        sessionDuration = 30;
+        shortBreakDuration = 30;
+        longBreakDuration = 30;
         // =================== //
         currentStage = 1;
         timeElapsed = 0;

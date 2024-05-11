@@ -105,15 +105,11 @@ public class AudioController {
         musicPlayer = new MediaPlayer(track);
 
         musicPlayer.setOnEndOfMedia(() -> {
-            trackBeingPlayed++;
-            if (trackBeingPlayed > 4) {
-                trackBeingPlayed = 1;
-            }
-            musicPlayer.stop();
-            musicPlayer.dispose();
+            stopMusic();
             playMusic();
         });
 
+        playingMusic = true;
         musicPlayer.play();
     }
 
@@ -122,6 +118,7 @@ public class AudioController {
      */
     public void stopMusic() {
         if (musicPlayer != null) {
+            playingMusic = false;
             musicPlayer.stop();
             musicPlayer.dispose();
             musicPlayer = null;
@@ -241,6 +238,10 @@ public class AudioController {
      * Resumes the background music
      */
     public void resumeMusic() {
+        if (playingMusic) {
+            return;
+        }
+
         if (musicPlayer != null) {
             musicPlayer.play();
             playingMusic = true;
