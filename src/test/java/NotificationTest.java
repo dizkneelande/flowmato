@@ -159,4 +159,38 @@ public class NotificationTest {
 
         assertEquals(2, notificationController.getQueue().size());
     }
+
+    @Test
+    public void testIndefiniteNotification(){
+        Notification indefiniteNotification = new Notification("banner", "test notification", "TOP", 0);
+        notificationController.notify(indefiniteNotification);
+
+        wait(100);
+
+        assertFalse(notificationController.getQueue().isEmpty());
+
+        Notification replacementNotification = new Notification("banner", "test notification", "TOP", 50);
+        notificationController.notify(replacementNotification);
+
+        wait(10);
+
+        assertEquals(1, notificationController.getQueue().size());
+    }
+
+    @Test
+    public void testPermanentNotification(){
+        Notification permanentNotification = new Notification("banner", "test notification", "TOP", -1);
+        notificationController.notify(permanentNotification);
+
+        wait(100);
+
+        assertFalse(notificationController.getQueue().isEmpty());
+
+        Notification replacementNotification = new Notification("banner", "test notification", "TOP", 50);
+        notificationController.notify(replacementNotification);
+
+        wait(10);
+
+        assertEquals(2, notificationController.getQueue().size());
+    }
 }
