@@ -24,8 +24,6 @@ public class TimerTest {
 
     @BeforeAll
     public static void initialize() {
-        System.setProperty("java.awt.headless", "true");
-
         try {
             Platform.startup(() -> {});
         } catch (IllegalStateException e) {
