@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<Group xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.NotificationController">
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.NotificationController">
    <AnchorPane fx:id="notificationContainer" pickOnBounds="false" prefHeight="360" prefWidth="640">
       <!-- Top Right Notification Box -->
       <StackPane fx:id="toast_top_right" layoutX="426.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);" visible="false">

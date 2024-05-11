@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.Group?>
 
-<Group xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController">
-    <HBox maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640"> <!-- Fixing width and height -->
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SignUpController">
+    <HBox maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640">
 
         <VBox alignment="CENTER" maxHeight="360.0" minHeight="360.0" prefHeight="360.0" prefWidth="215.0" style="-fx-background-color: #8FBCBB;">
             <ImageView fitHeight="71.0" fitWidth="71.0" preserveRatio="true" translateX="50.0" translateY="70.0">
