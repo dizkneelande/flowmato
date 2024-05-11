@@ -97,7 +97,7 @@ public class AudioController {
             return;
         }
 
-        if (trackBeingPlayed < 1 || trackBeingPlayed > 4) {
+        if (trackBeingPlayed < 1 || trackBeingPlayed > 5) {
             trackBeingPlayed = 1;
         }
 
@@ -130,6 +130,12 @@ public class AudioController {
             int newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
             while (trackBeingPlayed == newTrackToPlay) {
                 newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
+            }
+
+            // Secret Rare Track (5% chance of playing)
+            int secretRandom = random.nextInt(100 - 1 + 1) + 1;
+            if (secretRandom <= 5) {
+                newTrackToPlay = 5;
             }
             trackBeingPlayed = newTrackToPlay;
         }
