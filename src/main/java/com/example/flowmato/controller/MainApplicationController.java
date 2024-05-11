@@ -1,7 +1,6 @@
 package com.example.flowmato.controller;
 
 import com.example.flowmato.HelloApplication;
-import com.example.flowmato.model.Notification;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

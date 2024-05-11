@@ -11,13 +11,13 @@ import java.io.File;
 import java.util.Random;
 
 public class AudioController {
-    private final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
-    private final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
-    private final MediaPlayer longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
-    MediaPlayer musicPlayer;
+    public final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
+    public final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
+    public final MediaPlayer longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
+    public MediaPlayer musicPlayer;
     Random random = new Random();
     int trackBeingPlayed = random.nextInt(4 - 1 + 1) + 1;
-    double volume = 1.0;
+    public double volume = 1.0;
 
     public boolean playingAudio;
     public boolean playingMusic;
@@ -178,7 +178,7 @@ public class AudioController {
      * Sets the background music's volume
      * @param musicVolume the volume to set the music to
      */
-    private void setMusicVolume(double musicVolume) {
+    public void setMusicVolume(double musicVolume) {
         if (musicPlayer != null) {
             musicPlayer.setVolume(musicVolume);
         }

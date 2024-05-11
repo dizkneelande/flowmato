@@ -2,7 +2,6 @@ package com.example.flowmato.controller;
 
 import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Notification;
-
 import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
 
@@ -42,9 +41,9 @@ public class TimerController {
      */
     public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
         // The following values should be removed once user settings persistency has been added
-        sessionDuration = 30;
-        shortBreakDuration = 30;
-        longBreakDuration = 30;
+        sessionDuration = 1500;
+        shortBreakDuration = 300;
+        longBreakDuration = 1200;
         // =================== //
         currentStage = 1;
         timeElapsed = 0;

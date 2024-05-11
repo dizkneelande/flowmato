@@ -1,8 +1,8 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.example.flowmato.model.Profile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * test class for profile (ref 7.1 reading examples)
