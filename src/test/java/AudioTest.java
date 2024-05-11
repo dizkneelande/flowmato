@@ -19,6 +19,8 @@ public class AudioTest {
 
     @BeforeAll
     public static void initialize() {
+        System.setProperty("java.awt.headless", "true");
+
         try {
             Platform.startup(() -> {});
         } catch (IllegalStateException e) {
@@ -135,7 +137,7 @@ public class AudioTest {
     public void testPlayShortBreak(){
         audioController.playShortBreak();
 
-        wait(100);
+        wait(200);
 
         assertTrue(audioController.playingAudio);
         assertEquals("PLAYING", audioController.shortBreakSound.getStatus().toString());
@@ -145,7 +147,7 @@ public class AudioTest {
     public void testPlayLongBreak(){
         audioController.playLongBreak();
 
-        wait(100);
+        wait(200);
 
         assertTrue(audioController.playingAudio);
         assertEquals("PLAYING", audioController.longBreakSound.getStatus().toString());
@@ -155,7 +157,7 @@ public class AudioTest {
     public void testPlayNotification(){
         audioController.playNotification();
 
-        wait(100);
+        wait(200);
 
         assertTrue(audioController.playingAudio);
         assertEquals("PLAYING", audioController.notificationSound.getStatus().toString());
