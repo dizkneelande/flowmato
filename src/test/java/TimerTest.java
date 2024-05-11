@@ -1,16 +1,22 @@
+import com.example.flowmato.HelloApplication;
 import com.example.flowmato.controller.AchievementsController;
 import com.example.flowmato.controller.NotificationController;
 import com.example.flowmato.controller.TimerController;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.application.Platform;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
+import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TimerTest {
+@ExtendWith(ApplicationExtension.class)
+public class TimerTest extends ApplicationTest {
 
     private TimerController timerController;
 
@@ -20,6 +26,11 @@ public class TimerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        new HelloApplication().start(stage);
     }
 
     @BeforeAll

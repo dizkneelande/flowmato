@@ -1,12 +1,16 @@
+import com.example.flowmato.HelloApplication;
 import com.example.flowmato.controller.AudioController;
-import javafx.application.Platform;
-import org.junit.jupiter.api.BeforeAll;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
+import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AudioTest {
+@ExtendWith(ApplicationExtension.class)
+public class AudioTest extends ApplicationTest {
     private AudioController audioController;
 
     private void wait(int millis) {
@@ -17,13 +21,9 @@ public class AudioTest {
         }
     }
 
-    @BeforeAll
-    public static void initialize() {
-        try {
-            Platform.startup(() -> {});
-        } catch (IllegalStateException e) {
-
-        }
+    @Override
+    public void start(Stage stage) throws Exception {
+        new HelloApplication().start(stage);
     }
 
     @BeforeEach
