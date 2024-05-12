@@ -22,8 +22,6 @@ public class LoginController {
     private TextField emailField;
     @FXML
     private PasswordField passwordField;
-    @FXML
-    private Label errorLabel;
     private NotificationController notificationController;
 
     @FXML
@@ -42,16 +40,7 @@ public class LoginController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            //invalid
-            errorLabel.setText("Invalid credentials, please try again.");
-            errorLabel.setVisible(true);
         }
-    }
-
-    @FXML
-    private void clearErrorMessage() {
-        errorLabel.setVisible(false);
     }
 
     @FXML
