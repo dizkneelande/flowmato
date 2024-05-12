@@ -9,6 +9,8 @@
 name: Java CI with Maven
 
 on:
+  push:
+    branches: [ "notifications" ]
   pull_request:
     branches: [ "main" ]
 

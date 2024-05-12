@@ -1,22 +1,21 @@
-import com.example.flowmato.HelloApplication;
+package com.tests;
+
 import com.example.flowmato.controller.AchievementsController;
 import com.example.flowmato.controller.NotificationController;
 import com.example.flowmato.controller.TimerController;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.application.Platform;
-import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(ApplicationExtension.class)
-public class TimerTest extends ApplicationTest {
+public class TimerTest {
 
     private TimerController timerController;
 
@@ -25,20 +24,6 @@ public class TimerTest extends ApplicationTest {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        new HelloApplication().start(stage);
-    }
-
-    @BeforeAll
-    public static void initialize() {
-        try {
-            Platform.startup(() -> {});
-        } catch (IllegalStateException e) {
-
         }
     }
 

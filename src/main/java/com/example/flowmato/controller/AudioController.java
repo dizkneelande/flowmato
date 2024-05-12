@@ -11,9 +11,9 @@ import java.io.File;
 import java.util.Random;
 
 public class AudioController {
-    public final MediaPlayer notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
-    public final MediaPlayer shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
-    public final MediaPlayer longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
+    public MediaPlayer notificationSound;
+    public MediaPlayer shortBreakSound;
+    public MediaPlayer longBreakSound;
     public MediaPlayer musicPlayer;
     Random random = new Random();
     int trackBeingPlayed = random.nextInt(4 - 1 + 1) + 1;
@@ -22,6 +22,12 @@ public class AudioController {
     public boolean playingAudio;
     public boolean playingMusic;
     public boolean notificationPlaying;
+
+    public AudioController() {
+        notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
+        shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
+        longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
+    }
 
     /**
      * Plays the notification sound

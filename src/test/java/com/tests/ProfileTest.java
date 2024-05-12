@@ -1,3 +1,5 @@
+package com.tests;
+
 import com.example.flowmato.model.Profile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
