@@ -54,9 +54,7 @@ public class TimerController {
         this.notificationController = notificationController;
 
         if (HelloApplication.audioController == null) {
-            this.audioController = new AudioController();
-            this.audioController.setVolume(0.0);
-            this.audioController.muteSounds();
+            this.audioController = new MockAudioController();
         } else {
             this.audioController = HelloApplication.audioController;
         }

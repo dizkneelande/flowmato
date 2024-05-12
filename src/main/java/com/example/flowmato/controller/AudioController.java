@@ -29,6 +29,10 @@ public class AudioController {
         longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
     }
 
+    public AudioController(boolean createPlayer) {
+
+    }
+
     /**
      * Plays the notification sound
      */
