@@ -11,7 +11,12 @@ import org.testfx.framework.junit5.ApplicationExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Disabled("Temporarily disabled")
+/* This Class doesn't work because for whatever reason TestFX/Monocle doesn't
+support JavaFX's MediaPlayer. These tests work in a local environment but will
+not work on a headless system/Github Actions.
+ */
+
+@Disabled("Temporarily disabled") // Remove this to test AudioController locally
 @ExtendWith(ApplicationExtension.class)
 public class AudioTest {
     private AudioController audioController;
