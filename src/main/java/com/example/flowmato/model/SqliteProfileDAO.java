@@ -73,7 +73,6 @@ public class SqliteProfileDAO {
     }
 
     public void initialiseDatabase() {
-        checkVersion();
         String profilesSql = "CREATE TABLE IF NOT EXISTS profiles (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "email TEXT NOT NULL, " +
@@ -84,7 +83,9 @@ public class SqliteProfileDAO {
                 "profile_id INTEGER, " +
                 "achievement_type TEXT NOT NULL, " +
                 "achieved_on DATETIME DEFAULT CURRENT_TIMESTAMP, " +
-                "FOREIGN KEY(profile_id) REFERENCES profiles(id));";
+                "FOREIGN KEY(profile_id) REFERENCES profiles(id), " +
+                "UNIQUE(profile_id, achievement_type));";  //unique constraint for achievements
+
         try (Connection conn = this.connect();
              PreparedStatement pstmt1 = conn.prepareStatement(profilesSql);
              PreparedStatement pstmt2 = conn.prepareStatement(achievementsSql)) {
@@ -142,13 +143,14 @@ public class SqliteProfileDAO {
     }
 
     public void saveAchievement(Achievements achievement) {
-        String sql = "INSERT INTO achievements (profile_id, achievement_type, achieved_on) VALUES (?, ?, ?)";
+        String sql = "INSERT OR IGNORE INTO achievements (profile_id, achievement_type, achieved_on) VALUES (?, ?, ?)";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, achievement.getProfileId());
             pstmt.setString(2, achievement.getAchievementType());
             pstmt.setString(3, achievement.getAchievedOn().toString());
-            pstmt.executeUpdate();
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows == 0) { System.out.println("achievement already exists for profile"); }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
