@@ -113,8 +113,8 @@
             <Pane prefHeight="20" />
             <!-- Menu items -->
             <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
-            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
-            <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Rewards" />
+            <Button onAction="#openAnalyticsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
+            <Button onAction="#openAchievementsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Achievements" />
             <Button onAction="#openSettings" style="-fx-background-color: transparent; -fx-text-fill: black;" text="⚙ Settings" />
             <Button onAction="#switchAccount" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🔄 Switch Account" />
             <Pane prefHeight="50" />

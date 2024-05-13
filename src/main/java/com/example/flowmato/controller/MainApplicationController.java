@@ -189,4 +189,28 @@ public class MainApplicationController {
         sidebar.setTranslateX(newTranslateX);
     }
 
+    @FXML
+    protected void openAchievementsView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/achievements-view.fxml"));
+            Parent achievementsRoot = loader.load();
+            Stage achievementsStage = new Stage();
+            achievementsStage.setScene(new Scene(achievementsRoot, 640, 360));
+            achievementsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void openAnalyticsView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/analytics-view.fxml"));
+            Parent analyticsRoot = loader.load();
+            Stage analyticsStage = new Stage();
+            analyticsStage.setScene(new Scene(analyticsRoot,640,360));
+            analyticsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

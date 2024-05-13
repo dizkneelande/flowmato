@@ -6,6 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles_";
@@ -85,12 +88,20 @@ public class SqliteProfileDAO {
                 "achieved_on DATETIME DEFAULT CURRENT_TIMESTAMP, " +
                 "FOREIGN KEY(profile_id) REFERENCES profiles(id), " +
                 "UNIQUE(profile_id, achievement_type));";  //unique constraint for achievements
+        String analyticsSql = "CREATE TABLE IF NOT EXISTS analytics (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "profile_id INTEGER NOT NULL UNIQUE," +
+                "completed_pomodoros INTEGER DEFAULT 0," +
+                "total_focus_time INTEGER DEFAULT 0," +
+                "total_break_time INTEGER DEFAULT 0," +
+                "last_updated DATETIME DEFAULT CURRENT_TIMESTAMP," +
+                "FOREIGN KEY(profile_id) REFERENCES profiles(id));";
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt1 = conn.prepareStatement(profilesSql);
-             PreparedStatement pstmt2 = conn.prepareStatement(achievementsSql)) {
-            pstmt1.execute();
-            pstmt2.execute();
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(profilesSql);
+            stmt.execute(achievementsSql);
+            stmt.execute(analyticsSql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -139,7 +150,7 @@ public class SqliteProfileDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return null;  //if not user found
+        return null;
     }
 
     public void saveAchievement(Achievements achievement) {
@@ -154,5 +165,82 @@ public class SqliteProfileDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void updateAnalytics(int profileId, int completedPomodoros, int focusTime, int breakTime) {
+        String updateSql = "UPDATE analytics SET " +
+                "completed_pomodoros = completed_pomodoros + ?, " +
+                "total_focus_time = total_focus_time + ?, " +
+                "total_break_time = total_break_time + ?, " +
+                "last_updated = CURRENT_TIMESTAMP " +
+                "WHERE profile_id = ?;";
+
+        String insertSql = "INSERT INTO analytics (profile_id, completed_pomodoros, total_focus_time, total_break_time, last_updated) " +
+                "SELECT ?, ?, ?, ?, CURRENT_TIMESTAMP " +
+                "WHERE NOT EXISTS (SELECT 1 FROM analytics WHERE profile_id = ?);";
+
+        try (Connection conn = this.connect();
+             PreparedStatement updateStmt = conn.prepareStatement(updateSql);
+             PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+
+            updateStmt.setInt(1, completedPomodoros);
+            updateStmt.setInt(2, focusTime);
+            updateStmt.setInt(3, breakTime);
+            updateStmt.setInt(4, profileId);
+
+            int rowsAffected = updateStmt.executeUpdate();
+
+            if (rowsAffected == 0) {
+                insertStmt.setInt(1, profileId);
+                insertStmt.setInt(2, completedPomodoros);
+                insertStmt.setInt(3, focusTime);
+                insertStmt.setInt(4, breakTime);
+                insertStmt.setInt(5, profileId);
+
+                insertStmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public Analytics getAnalytics(int profileId) {
+        String sql = "SELECT completed_pomodoros, total_focus_time, total_break_time FROM analytics WHERE profile_id = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, profileId);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return new Analytics(profileId, rs.getInt("completed_pomodoros"), rs.getInt("total_focus_time"), rs.getInt("total_break_time"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error retrieving analytics: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public List<Achievements> getAchievementsForUser(int profileId) {
+        String sql = "SELECT * FROM achievements WHERE profile_id = ?";
+        List<Achievements> achievements = new ArrayList<>();
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, profileId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String achievementType = rs.getString("achievement_type");
+                String achievedOnString = rs.getString("achieved_on");
+                LocalDateTime achievedOn = LocalDateTime.parse(achievedOnString);
+                Achievements achievement = new Achievements(profileId, achievementType, achievedOn);
+                achievement.setId(id);
+                achievements.add(achievement);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error retrieving achievements: " + e.getMessage());
+        }
+        return achievements;
     }
 }

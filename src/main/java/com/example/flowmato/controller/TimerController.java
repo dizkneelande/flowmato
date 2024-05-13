@@ -26,6 +26,8 @@ public class TimerController {
     int pomodorosCompleted;
     boolean isPaused;
     private int timeElapsed;
+    private int totalFocusTimeInSeconds;
+    private int totalBreakTimeInSeconds;
     private Timer timer;
     private TimerTask task;
     private Instant startTime;
@@ -69,6 +71,7 @@ public class TimerController {
      * Stops and resets the TimerController back to default values.
      */
     public void stop() {
+        updateElapsedTime();
         reset();
 
         currentStage = 1;
@@ -106,7 +109,7 @@ public class TimerController {
         if (isPaused) {
             return;
         }
-
+        updateElapsedTime(); //update elapsed time before pausing
         audioController.pauseMusic();
 
         isPaused = true;
@@ -200,7 +203,8 @@ public class TimerController {
         audioController.resumeMusic();
 
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
-            timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
+            //timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
+            updateElapsedTime();
             startTime = Instant.now();
         }
 
@@ -232,7 +236,11 @@ public class TimerController {
         if (currentStage % 2 == 0) {
             pomodorosCompleted++;
             notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
+            totalFocusTimeInSeconds += sessionDuration;
+            Integer profileId = SessionManager.getInstance().getCurrentUserId();
+            if (profileId != null) { achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted); }
             breaksTaken++;
+
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
                 audioController.playLongBreak();
@@ -243,20 +251,17 @@ public class TimerController {
         } else {
             if (breaksTaken % 4 == 0) {
                 notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
+                totalBreakTimeInSeconds += longBreakDuration;
                 longBreaksTaken++;
             } else {
                 notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
+                totalBreakTimeInSeconds += shortBreakDuration;
                 shortBreaksTaken++;
             }
             timerDuration = sessionDuration;
         }
 
-        // Retrieve the profileId from the SessionManager
-        Integer profileId = SessionManager.getInstance().getCurrentUserId();
-        if (profileId != null) {
-            achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted);
-        }
-
+        updateAnalytics();
         resume();
     }
 
@@ -268,6 +273,24 @@ public class TimerController {
             notificationController.notify(new Notification("banner", "60 Seconds Remaining in the Current Stage!", 2500));
             transitionNotified = true;
             stageNotifiedOfTransition = currentStage;
+        }
+    }
+
+    //update elapsed time based current state of timer
+    private void updateElapsedTime() {
+        if (startTime == null) return;
+        if (isPaused && pauseTime != null) {
+            timeElapsed += Duration.between(startTime, pauseTime).toMillis() / 1000;
+        } else {
+            timeElapsed += Duration.between(startTime, Instant.now()).toMillis() / 1000;
+        }
+    }
+    //update session analytics for user in db
+    private void updateAnalytics() {
+        Integer profileId = SessionManager.getInstance().getCurrentUserId();
+        if (profileId != null) {
+            SqliteProfileDAO dao = new SqliteProfileDAO();
+            dao.updateAnalytics(profileId, pomodorosCompleted, totalFocusTimeInSeconds, totalBreakTimeInSeconds);
         }
     }
 }
