@@ -195,7 +195,7 @@ public class MainApplicationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/achievements-view.fxml"));
             Parent achievementsRoot = loader.load();
             Stage achievementsStage = new Stage();
-            achievementsStage.setScene(new Scene(achievementsRoot, 360, 640));
+            achievementsStage.setScene(new Scene(achievementsRoot, 640, 360));
             achievementsStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
