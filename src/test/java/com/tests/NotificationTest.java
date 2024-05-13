@@ -1,20 +1,12 @@
 package com.tests;
 
-import com.example.flowmato.HelloApplication;
-import com.example.flowmato.controller.AudioController;
 import com.example.flowmato.controller.NotificationController;
 import com.example.flowmato.model.Notification;
-import com.example.flowmato.model.SqliteProfileDAO;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.framework.junit5.Start;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -72,12 +72,6 @@
       <version>17.0.10</version> <!-- jdk-9+181 for Java 9, jdk-11+26 for Java 11 -->
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.testfx</groupId>
-      <artifactId>testfx-core</artifactId>
-      <version>4.0.18</version>
-      <scope>compile</scope>
-    </dependency>
   </dependencies>
 
   <build>

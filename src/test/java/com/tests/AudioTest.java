@@ -1,8 +1,6 @@
 package com.tests;
 
 import com.example.flowmato.controller.AudioController;
-import javafx.application.Platform;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -11,12 +9,12 @@ import org.testfx.framework.junit5.ApplicationExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/* This Class doesn't work because for whatever reason TestFX/Monocle doesn't
+/* This Class doesn't work in Github Actions because for whatever reason TestFX/Monocle doesn't
 support JavaFX's MediaPlayer. These tests work in a local environment but will
 not work on a headless system/Github Actions.
  */
 
-@Disabled("Temporarily disabled") // Remove this to test AudioController locally
+@Disabled("Temporarily disabled") // Remove this to test AudioController locally (or just run this file separately)
 @ExtendWith(ApplicationExtension.class)
 public class AudioTest {
     private AudioController audioController;

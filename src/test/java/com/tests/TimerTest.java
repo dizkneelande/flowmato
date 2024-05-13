@@ -4,8 +4,6 @@ import com.example.flowmato.controller.AchievementsController;
 import com.example.flowmato.controller.NotificationController;
 import com.example.flowmato.controller.TimerController;
 import com.example.flowmato.model.SqliteProfileDAO;
-import javafx.application.Platform;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
