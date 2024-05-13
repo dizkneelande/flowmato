@@ -6,6 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SqliteProfileDAO {
     private final String url = "jdbc:sqlite:profiles_";
@@ -223,5 +226,27 @@ public class SqliteProfileDAO {
             System.out.println("Error retrieving analytics: " + e.getMessage());
         }
         return null;
+    }
+
+    public List<Achievements> getAchievementsForUser(int profileId) {
+        String sql = "SELECT * FROM achievements WHERE profile_id = ?";
+        List<Achievements> achievements = new ArrayList<>();
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, profileId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String achievementType = rs.getString("achievement_type");
+                LocalDateTime achievedOn = rs.getTimestamp("achieved_on").toLocalDateTime();
+                Achievements achievement = new Achievements(profileId, achievementType, achievedOn);
+                achievement.setId(id);
+                achievements.add(achievement);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error retrieving achievements: " + e.getMessage());
+        }
+        return achievements;
     }
 }
