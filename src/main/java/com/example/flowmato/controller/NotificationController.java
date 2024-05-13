@@ -10,6 +10,8 @@
     import javafx.util.Duration;
 
     import java.util.ArrayList;
+    import java.util.Objects;
+    import java.util.stream.Stream;
 
     public class NotificationController {
         @FXML
@@ -43,13 +45,24 @@
         private int timelineDuration;
         private int currentTime;
         private int queueSize;
+        private boolean indefiniteNotificationDisplayed;
+        private Notification indefiniteNotification;
+        private AudioController audioController;
         ArrayList<Notification> notifications;
         boolean queueRunning;
         String alertColor = "red";
+        String bannerBaseColor = "#dadada";
+
 
         public NotificationController () {
             queueRunning = false;
             notifications = new ArrayList<>();
+
+            if (HelloApplication.audioController == null) {
+                this.audioController = new MockAudioController();
+            } else {
+                this.audioController = HelloApplication.audioController;
+            }
         }
 
         /**
@@ -58,7 +71,20 @@
          * @param notifications any amount of notifications to be displayed, comma-separated
          */
         public void notify(Notification... notifications) {
+            if (indefiniteNotificationDisplayed && indefiniteNotification.allowOverride) {
+                haltQueue();
+            }
+
             for (Notification notification : notifications) {
+                if (notification.displayTime <= 0) {
+                    if (notifications.length > 1) {
+                        return;
+                    }
+
+                    notification.setDisplayTime(10000 * 1000);
+                    indefiniteNotificationDisplayed = true;
+                    indefiniteNotification = notification;
+                }
                 switch (notification.type) {
                     case "alert":
                         addAlert(notification);
@@ -146,7 +172,8 @@
 
             for (Notification notification : notifications) {
                 timelineDuration += notification.displayTime;
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(timelineDuration - notification.displayTime), e -> {
+                Duration keyframeLength = Duration.seconds(timelineDuration - notification.displayTime);
+                KeyFrame keyFrame = new KeyFrame(keyframeLength, e -> {
                     updateNotificationUI(notification);
                     currentTime += timelineDuration - notification.displayTime;
                     currentKeyframe++;
@@ -154,7 +181,7 @@
                 timeline.getKeyFrames().add(keyFrame);
             }
 
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(timelineDuration)));
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(timelineDuration)));
 
             timeline.setOnFinished(e -> {
                 hideUI();
@@ -170,6 +197,8 @@
                 }
             });
 
+            audioController.playNotification();
+
             timeline.play();
         }
 
@@ -178,19 +207,32 @@
          * @param notification the notification to be displayed on the UI
          */
         private void updateNotificationUI(Notification notification) {
+            if (Stream.of(banner, banner_bottom, toast_top_right, toast_top_left, toast_bottom_left, toast_bottom_right).anyMatch(Objects::isNull)) {
+                return;
+            }
+
             hideUI();
 
             String message = notification.message;
             switch (notification.type) {
                 case "alert":
-                    banner.setStyle("-fx-background-color: " + alertColor + ";");
                 case "banner":
-                    banner.setVisible(true);
-                    bannerText.setText(message);
+                    if (notification.type.equals("alert")) {
+                        banner.setStyle("-fx-background-color: " + alertColor + ";");
+                    } else {
+                        banner.setStyle("-fx-background-color: " + bannerBaseColor + ";");
+                    }
+                    switch (notification.position) {
+                        case "BOTTOM":
+                            banner_bottom.setVisible(true);
+                            bannerBottomText.setText(message);
+                            break;
+                        case "TOP":
+                            banner.setVisible(true);
+                            bannerText.setText(message);
+                            break;
+                    }
                     break;
-                case "banner_bottom":
-                    banner_bottom.setVisible(true);
-                    bannerBottomText.setText(message);
                 case "toast":
                     switch (notification.position) {
                         case "TOP_LEFT":
@@ -219,6 +261,10 @@
          * Hides the UI container elements for the notifications
          */
         private void hideUI() {
+            if (Stream.of(banner, banner_bottom, toast_top_right, toast_top_left, toast_bottom_left, toast_bottom_right).anyMatch(Objects::isNull)) {
+                return;
+            }
+
             banner.setVisible(false);
             banner_bottom.setVisible(false);
             toast_top_right.setVisible(false);
@@ -230,11 +276,11 @@
         /**
          * Closes the notification by jumping to the next keyframe in the timeline.
          */
-        @FXML private void closeNotification() {
-            if (currentKeyframe == notifications.size()) {
-                timeline.jumpTo(Duration.millis(timelineDuration));
+        @FXML public void closeNotification() {
+            if (currentKeyframe == notifications.size() || indefiniteNotificationDisplayed) {
+                timeline.jumpTo(Duration.seconds(timelineDuration));
             } else {
-                timeline.jumpTo(Duration.millis(currentTime - notifications.get(currentKeyframe).displayTime));
+                timeline.jumpTo(Duration.seconds(currentTime - notifications.get(currentKeyframe).displayTime));
             }
         }
 

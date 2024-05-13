@@ -2,7 +2,6 @@ package com.example.flowmato.controller;
 
 import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Notification;
-
 import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
 
@@ -15,14 +14,15 @@ import java.util.TimerTask;
  * A controller class that controls a timer.
  */
 public class TimerController {
-    int timerDuration;
+    private AudioController audioController;
+    public int timerDuration;
     int sessionDuration;
     int shortBreakDuration;
     int longBreakDuration;
     int currentStage;
     int shortBreaksTaken;
     int longBreaksTaken;
-    int breaksTaken;
+    public int breaksTaken;
     int pomodorosCompleted;
     boolean isPaused;
     private int timeElapsed;
@@ -39,7 +39,7 @@ public class TimerController {
     /**
      * A method that initialises the TimerController variables.
      */
-    public TimerController(AchievementsController achievementsController) {
+    public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
         // The following values should be removed once user settings persistency has been added
         sessionDuration = 1500;
         shortBreakDuration = 300;
@@ -51,7 +51,13 @@ public class TimerController {
         timerDuration = sessionDuration;
 
         timer = new Timer();
-        notificationController = HelloApplication.notificationController;
+        this.notificationController = notificationController;
+
+        if (HelloApplication.audioController == null) {
+            this.audioController = new MockAudioController();
+        } else {
+            this.audioController = HelloApplication.audioController;
+        }
 
         isPaused = true;
 
@@ -70,6 +76,9 @@ public class TimerController {
         shortBreaksTaken = 0;
         longBreaksTaken = 0;
         pomodorosCompleted = 0;
+        transitionNotified = false;
+
+        audioController.stopMusic();
     }
 
     /**
@@ -97,6 +106,8 @@ public class TimerController {
         if (isPaused) {
             return;
         }
+
+        audioController.pauseMusic();
 
         isPaused = true;
 
@@ -186,6 +197,8 @@ public class TimerController {
             return false;
         }
 
+        audioController.resumeMusic();
+
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
             timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
             startTime = Instant.now();
@@ -214,27 +227,29 @@ public class TimerController {
     private void nextStage() {
         reset();
 
-        //currentStage++;
+        currentStage++;
 
-        if (currentStage % 2 == 0) { //check if current stage is a break
+        if (currentStage % 2 == 0) {
+            pomodorosCompleted++;
+            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
+            breaksTaken++;
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
+                audioController.playLongBreak();
+            } else {
+                timerDuration = shortBreakDuration;
+                audioController.playShortBreak();
+            }
+        } else {
+            if (breaksTaken % 4 == 0) {
                 notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
                 longBreaksTaken++;
             } else {
-                timerDuration = shortBreakDuration;
                 notificationController.notify(new Notification("banner", "Short Break Completed!", 2500));
                 shortBreaksTaken++;
             }
-        }
-        else{
-            pomodorosCompleted++;
-            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             timerDuration = sessionDuration;
         }
-        currentStage++;
-        breaksTaken = currentStage/2;
-
 
         // Retrieve the profileId from the SessionManager
         Integer profileId = SessionManager.getInstance().getCurrentUserId();
@@ -245,6 +260,9 @@ public class TimerController {
         resume();
     }
 
+    /**
+     * Sends a notification of an upcoming transition, if one has yet to be sent for the current stage.
+     */
     public void notifyOfTransition() {
         if (stageNotifiedOfTransition != currentStage) {
             notificationController.notify(new Notification("banner", "60 Seconds Remaining in the Current Stage!", 2500));
