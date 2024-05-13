@@ -24,13 +24,9 @@ public class AchievementsController implements Initializable {
     @FXML
     private VBox achievementsContainer;
 
-    public AchievementsController() {
-        // Default constructor for FXMLLoader
-    }
+    public AchievementsController() {}
 
-    public AchievementsController(SqliteProfileDAO dao) {
-        this.dao = dao;
-    }
+    public AchievementsController(SqliteProfileDAO dao) { this.dao = dao; }
 
     public void checkAndAwardAchievement(int profileId, int completedPomodoros) {
         if (completedPomodoros == 1) {  //first pomodoro
@@ -46,7 +42,7 @@ public class AchievementsController implements Initializable {
         Integer currentUserId = SessionManager.getInstance().getCurrentUserId();
         if (currentUserId != null) {
             List<Achievements> achievements = dao.getAchievementsForUser(currentUserId);
-            System.out.println("achievements retrieved: " + achievements); //error parsing time stamp...
+            System.out.println("achievements retrieved: " + achievements);
             displayAchievements(achievements);
         }
     }
@@ -61,19 +57,6 @@ public class AchievementsController implements Initializable {
                 Label achievementLabel = new Label(achievement.getAchievementType() + " - " + achievement.getAchievedOn());
                 achievementsContainer.getChildren().add(achievementLabel);
             }
-        }
-    }
-
-    public void openAchievementsView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/achievements-view.fxml"));
-            Parent achievementsRoot = loader.load();
-
-            Stage achievementsStage = new Stage();
-            achievementsStage.setScene(new Scene(achievementsRoot));
-            achievementsStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

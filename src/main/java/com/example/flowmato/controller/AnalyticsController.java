@@ -44,8 +44,4 @@ public class AnalyticsController implements Initializable {
         totalFocusTimeLabel.setText("Total Focus Time (seconds): " + totalFocusTime);
         totalBreakTimeLabel.setText("Total Break Time (seconds): " + totalBreakTime);
     }
-
-    public void openAnalyticsView() {
-        // Code to open the Analytics view (similar to openAchievementsView method)
-    }
 }
