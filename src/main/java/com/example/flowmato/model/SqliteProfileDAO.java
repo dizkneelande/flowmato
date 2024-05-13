@@ -85,12 +85,20 @@ public class SqliteProfileDAO {
                 "achieved_on DATETIME DEFAULT CURRENT_TIMESTAMP, " +
                 "FOREIGN KEY(profile_id) REFERENCES profiles(id), " +
                 "UNIQUE(profile_id, achievement_type));";  //unique constraint for achievements
+        String analyticsSql = "CREATE TABLE IF NOT EXISTS analytics (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "profile_id INTEGER NOT NULL UNIQUE," +
+                "completed_pomodoros INTEGER DEFAULT 0," +
+                "total_focus_time INTEGER DEFAULT 0," +
+                "total_break_time INTEGER DEFAULT 0," +
+                "last_updated DATETIME DEFAULT CURRENT_TIMESTAMP," +
+                "FOREIGN KEY(profile_id) REFERENCES profiles(id));";
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt1 = conn.prepareStatement(profilesSql);
-             PreparedStatement pstmt2 = conn.prepareStatement(achievementsSql)) {
-            pstmt1.execute();
-            pstmt2.execute();
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(profilesSql);
+            stmt.execute(achievementsSql);
+            stmt.execute(analyticsSql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
