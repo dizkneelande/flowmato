@@ -42,10 +42,11 @@ public class AchievementsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dao = new SqliteProfileDAO(); // Initialize the dao instance here
+        dao = new SqliteProfileDAO();
         Integer currentUserId = SessionManager.getInstance().getCurrentUserId();
         if (currentUserId != null) {
             List<Achievements> achievements = dao.getAchievementsForUser(currentUserId);
+            System.out.println("achievements retrieved: " + achievements); //error parsing time stamp...
             displayAchievements(achievements);
         }
     }
@@ -53,7 +54,7 @@ public class AchievementsController implements Initializable {
     private void displayAchievements(List<Achievements> achievements) {
         achievementsContainer.getChildren().clear();
         if (achievements.isEmpty()) {
-            Label noAchievementsLabel = new Label("No achievements earned yet.");
+            Label noAchievementsLabel = new Label("no achievements u r a loser");
             achievementsContainer.getChildren().add(noAchievementsLabel);
         } else {
             for (Achievements achievement : achievements) {

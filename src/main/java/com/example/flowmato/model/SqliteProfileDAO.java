@@ -168,7 +168,6 @@ public class SqliteProfileDAO {
     }
 
     public void updateAnalytics(int profileId, int completedPomodoros, int focusTime, int breakTime) {
-        // SQL statement to update the existing row if the profile_id already exists
         String updateSql = "UPDATE analytics SET " +
                 "completed_pomodoros = completed_pomodoros + ?, " +
                 "total_focus_time = total_focus_time + ?, " +
@@ -176,7 +175,6 @@ public class SqliteProfileDAO {
                 "last_updated = CURRENT_TIMESTAMP " +
                 "WHERE profile_id = ?;";
 
-        // SQL statement to insert a new row if the profile_id does not exist
         String insertSql = "INSERT INTO analytics (profile_id, completed_pomodoros, total_focus_time, total_break_time, last_updated) " +
                 "SELECT ?, ?, ?, ?, CURRENT_TIMESTAMP " +
                 "WHERE NOT EXISTS (SELECT 1 FROM analytics WHERE profile_id = ?);";
@@ -185,31 +183,26 @@ public class SqliteProfileDAO {
              PreparedStatement updateStmt = conn.prepareStatement(updateSql);
              PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
 
-            // Set parameters for the update statement
             updateStmt.setInt(1, completedPomodoros);
             updateStmt.setInt(2, focusTime);
             updateStmt.setInt(3, breakTime);
             updateStmt.setInt(4, profileId);
 
-            // Execute the update statement
             int rowsAffected = updateStmt.executeUpdate();
 
             if (rowsAffected == 0) {
-                // If no rows were updated, it means the profile_id does not exist, so we perform an insert
                 insertStmt.setInt(1, profileId);
                 insertStmt.setInt(2, completedPomodoros);
                 insertStmt.setInt(3, focusTime);
                 insertStmt.setInt(4, breakTime);
                 insertStmt.setInt(5, profileId);
 
-                // Execute the insert statement
                 insertStmt.executeUpdate();
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-
 
 
     public Analytics getAnalytics(int profileId) {
@@ -239,7 +232,8 @@ public class SqliteProfileDAO {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String achievementType = rs.getString("achievement_type");
-                LocalDateTime achievedOn = rs.getTimestamp("achieved_on").toLocalDateTime();
+                String achievedOnString = rs.getString("achieved_on");
+                LocalDateTime achievedOn = LocalDateTime.parse(achievedOnString);
                 Achievements achievement = new Achievements(profileId, achievementType, achievedOn);
                 achievement.setId(id);
                 achievements.add(achievement);
