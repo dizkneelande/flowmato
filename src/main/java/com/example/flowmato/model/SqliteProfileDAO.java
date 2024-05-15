@@ -204,7 +204,6 @@ public class SqliteProfileDAO {
         }
     }
 
-
     public Analytics getAnalytics(int profileId) {
         String sql = "SELECT completed_pomodoros, total_focus_time, total_break_time FROM analytics WHERE profile_id = ?";
         try (Connection conn = this.connect();

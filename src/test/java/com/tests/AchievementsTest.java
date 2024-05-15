@@ -3,11 +3,15 @@ package com.tests;
 import com.example.flowmato.model.Achievements;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
 
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+@ExtendWith(ApplicationExtension.class)
 public class AchievementsTest {
     private Achievements achievements;
     private LocalDateTime testDate;
