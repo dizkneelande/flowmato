@@ -3,9 +3,7 @@ package com.example.flowmato;
 import com.example.flowmato.controller.AudioController;
 import com.example.flowmato.controller.NotificationController;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.example.flowmato.model.SqliteProfileDAO;
@@ -27,7 +25,6 @@ public class HelloApplication extends Application {
         stage.show();
         SqliteProfileDAO dao = new SqliteProfileDAO();
         dao.initialiseDatabase();
-
         audioController = new AudioController();
     }
 
