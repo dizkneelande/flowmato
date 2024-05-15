@@ -1,6 +1,7 @@
 package com.example.flowmato.controller;
 
 import com.example.flowmato.HelloApplication;
+import com.example.flowmato.model.Notification;
 import com.example.flowmato.model.Profile;
 import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
@@ -41,6 +42,9 @@ public class LoginController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else {
+            notificationController.notify(new Notification("alert", "Invalid email or password. Please try again.", "TOP", 5000));
         }
     }
 

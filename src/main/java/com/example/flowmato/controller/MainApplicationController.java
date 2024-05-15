@@ -95,7 +95,7 @@ public class MainApplicationController {
      * @return the timers current time elapsed converted to seconds.
      */
     @FXML
-    protected int getTime() {
+    protected long getTime() {
         return ((timer.timerDuration * 1000) - timer.getTimeElapsed()) / 1000;
     }
 
@@ -126,14 +126,14 @@ public class MainApplicationController {
      * Updates the FXML component that displays the time remaining.
      */
     protected void updateTime() {
-        int seconds = getTime();
+        long seconds = getTime();
 
         if (seconds < 60) {
             timer.notifyOfTransition();
         }
 
-        int minutes = seconds / 60;
-        int remainingSeconds = seconds % 60;
+        long minutes = seconds / 60;
+        long remainingSeconds = seconds % 60;
 
         String minutesString = String.format("%02d", minutes);
         String secondsString = String.format("%02d", remainingSeconds);

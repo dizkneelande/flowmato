@@ -62,7 +62,6 @@ public class TimerController {
         }
 
         isPaused = true;
-
         this.achievementsController = new AchievementsController(new SqliteProfileDAO());
 
     }
@@ -71,7 +70,7 @@ public class TimerController {
      * Stops and resets the TimerController back to default values.
      */
     public void stop() {
-        updateElapsedTime();
+        //updateElapsedTime();
         reset();
 
         currentStage = 1;
@@ -109,7 +108,6 @@ public class TimerController {
         if (isPaused) {
             return;
         }
-        updateElapsedTime(); //update elapsed time before pausing
         audioController.pauseMusic();
 
         isPaused = true;
@@ -203,8 +201,7 @@ public class TimerController {
         audioController.resumeMusic();
 
         if ((pauseTime != null) && (pauseTime.isAfter(startTime))) {
-            //timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
-            updateElapsedTime();
+            timeElapsed = (int) (Duration.between(startTime, pauseTime).toMillis() + timeElapsed);
             startTime = Instant.now();
         }
 
@@ -230,7 +227,6 @@ public class TimerController {
      */
     private void nextStage() {
         reset();
-
         currentStage++;
 
         if (currentStage % 2 == 0) {
@@ -276,15 +272,6 @@ public class TimerController {
         }
     }
 
-    //update elapsed time based current state of timer
-    private void updateElapsedTime() {
-        if (startTime == null) return;
-        if (isPaused && pauseTime != null) {
-            timeElapsed += Duration.between(startTime, pauseTime).toMillis() / 1000;
-        } else {
-            timeElapsed += Duration.between(startTime, Instant.now()).toMillis() / 1000;
-        }
-    }
     //update session analytics for user in db
     private void updateAnalytics() {
         Integer profileId = SessionManager.getInstance().getCurrentUserId();
