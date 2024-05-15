@@ -50,6 +50,4 @@ public class Profile {
     public void setPreferredName(String preferredName) {
         this.preferredName = preferredName;
     }
-
-    //more stuff to come
 }
