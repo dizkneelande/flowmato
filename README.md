@@ -15,11 +15,11 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ---
 
-<div align="center">
-  <a href="#launch"><img src="https://via.placeholder.com/100x40?text=Launch" alt="Launch" /></a>
-  <a href="#register-signin"><img src="https://via.placeholder.com/100x40?text=Register/Sign+in" alt="Register/Sign in" /></a>
-  <a href="#set-timer"><img src="https://via.placeholder.com/100x40?text=Set+timer" alt="Set timer" /></a>
-  <a href="#complete-tasks"><img src="https://via.placeholder.com/100x40?text=Complete+Tasks" alt="Complete Tasks Productively" /></a>
+<div align="center" style="margin: 20px 0;">
+  <span style="margin-right: 15px;">Launch</span>
+  <span style="margin-right: 15px;">Register/Sign in</span>
+  <span style="margin-right: 15px;">Set timer</span>
+  <span>Complete Tasks Productively</span>
 </div>
 
 ---
