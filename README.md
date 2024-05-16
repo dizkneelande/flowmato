@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e" width="300" height="300"/>
+  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e"/>
 </p>
 
 # Introducing Flowmato
@@ -14,12 +14,14 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Tomatoes**: For maximum efficiency.
 
 ---
+
 <div align="center">
-  <a href="#launch" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Launch</a>
-  <a href="#register-signin" style="padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 5px;">Register/Sign in</a>
-  <a href="#set-timer" style="padding: 10px 20px; background-color: #f44336; color: white; text-decoration: none; border-radius: 5px;">Set timer</a>
-  <a href="#complete-tasks" style="padding: 10px 20px; background-color: #e7e7e7; color: black; text-decoration: none; border-radius: 5px;">Complete Tasks Productively</a>
+  <a href="#launch" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Launch</a>
+  <a href="#register-signin" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 5px;">Register/Sign in</a>
+  <a href="#set-timer" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #f44336; color: white; text-decoration: none; border-radius: 5px;">Set timer</a>
+  <a href="#complete-tasks" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #e7e7e7; color: black; text-decoration: none; border-radius: 5px;">Complete Tasks Productively</a>
 </div>
+
 ---
 
 ## Important Links
