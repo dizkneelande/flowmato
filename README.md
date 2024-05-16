@@ -16,10 +16,10 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 ---
 
 <div align="center">
-  <a href="#launch" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Launch</a>
-  <a href="#register-signin" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 5px;">Register/Sign in</a>
-  <a href="#set-timer" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #f44336; color: white; text-decoration: none; border-radius: 5px;">Set timer</a>
-  <a href="#complete-tasks" style="display: block; margin: 10px 0; padding: 10px 20px; background-color: #e7e7e7; color: black; text-decoration: none; border-radius: 5px;">Complete Tasks Productively</a>
+  <a href="#launch"><img src="https://via.placeholder.com/100x40?text=Launch" alt="Launch" /></a>
+  <a href="#register-signin"><img src="https://via.placeholder.com/100x40?text=Register/Sign+in" alt="Register/Sign in" /></a>
+  <a href="#set-timer"><img src="https://via.placeholder.com/100x40?text=Set+timer" alt="Set timer" /></a>
+  <a href="#complete-tasks"><img src="https://via.placeholder.com/100x40?text=Complete+Tasks" alt="Complete Tasks Productively" /></a>
 </div>
 
 ---
