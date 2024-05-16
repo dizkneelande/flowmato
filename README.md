@@ -14,12 +14,12 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Tomatoes**: For maximum efficiency.
 
 ---
-
-**[<kbd> <br> Launch <br> </kbd>][Launch]** 
-**[<kbd> <br> Register/Sign In <br> </kbd>][Register/Sign In]** 
-**[<kbd> <br> Set Timer <br> </kbd>][Set Timer]** 
-**[<kbd> <br> Complete Tasks Productively <br> </kbd>][Complete Tasks Productively]**
-
+<div align="center">
+  <a href="#launch" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Launch</a>
+  <a href="#register-signin" style="padding: 10px 20px; background-color: #008CBA; color: white; text-decoration: none; border-radius: 5px;">Register/Sign in</a>
+  <a href="#set-timer" style="padding: 10px 20px; background-color: #f44336; color: white; text-decoration: none; border-radius: 5px;">Set timer</a>
+  <a href="#complete-tasks" style="padding: 10px 20px; background-color: #e7e7e7; color: black; text-decoration: none; border-radius: 5px;">Complete Tasks Productively</a>
+</div>
 ---
 
 ## Important Links
