@@ -31,8 +31,8 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ## Color Palette
 
-- ![#8FBCBB](https://placehold.co/15x15/8FBCBB/8FBCBB.png) `#8FBCBB`
-- ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `#FFFFFF`
+- ![8FBCBB](https://via.placeholder.com/15x15/8FBCBB/8FBCBB.png?text=+) `#8FBCBB`
+- ![FFFFFF](https://via.placeholder.com/15x15/FFFFFF/FFFFFF.png?text=+) `#FFFFFF`
 
 ## Important Links
 
