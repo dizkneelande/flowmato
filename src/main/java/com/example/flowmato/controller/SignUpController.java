@@ -4,6 +4,7 @@ import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Notification;
 import com.example.flowmato.model.Profile;
 import com.example.flowmato.model.SqliteProfileDAO;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +52,15 @@ public class SignUpController {
 
         notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", 3000));
         clearFields();
+        Platform.runLater(() -> {
+            try {
+                Thread.sleep(1000); // Sleep for 10 milliseconds
+                ToSignIn(event); // Navigate to sign-in screen
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
     //check valid signup input
     private boolean isValidEmail(String email) {
@@ -90,6 +100,7 @@ public class SignUpController {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void initialize() {
