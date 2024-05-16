@@ -15,11 +15,8 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ---
 
-<div align="center" style="margin: 20px 0;">
-  <span style="margin-right: 15px;">Launch</span>
-  <span style="margin-right: 15px;">Register/Sign in</span>
-  <span style="margin-right: 15px;">Set timer</span>
-  <span>Complete Tasks Productively</span>
+<div align="center">
+  Launch → Register/Sign in → Set timer → Complete Tasks Productively
 </div>
 
 ---
