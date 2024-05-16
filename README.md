@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e"/>
+  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e" width="750" height="300"/>
 </p>
 
 # Introducing Flowmato
@@ -12,6 +12,15 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
 - **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
 - **Tomatoes**: For maximum efficiency.
+
+---
+
+**[<kbd> <br> Launch <br> </kbd>][Install]** 
+**[<kbd> <br> Register/Sign In <br> </kbd>][Quick Start]** 
+**[<kbd> <br> Set Timer <br> </kbd>][Configure]** 
+**[<kbd> <br> Complete Tasks Productively <br> </kbd>][Contribute]**
+
+---
 
 ## Important Links
 
