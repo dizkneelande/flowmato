@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e" width="750" height="300"/>
+  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e" width="300" height="300"/>
 </p>
 
 # Introducing Flowmato
@@ -15,10 +15,10 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ---
 
-**[<kbd> <br> Launch <br> </kbd>][Install]** 
-**[<kbd> <br> Register/Sign In <br> </kbd>][Quick Start]** 
-**[<kbd> <br> Set Timer <br> </kbd>][Configure]** 
-**[<kbd> <br> Complete Tasks Productively <br> </kbd>][Contribute]**
+**[<kbd> <br> Launch <br> </kbd>][Launch]** 
+**[<kbd> <br> Register/Sign In <br> </kbd>][Register/Sign In]** 
+**[<kbd> <br> Set Timer <br> </kbd>][Set Timer]** 
+**[<kbd> <br> Complete Tasks Productively <br> </kbd>][Complete Tasks Productively]**
 
 ---
 
