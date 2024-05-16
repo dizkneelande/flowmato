@@ -26,8 +26,7 @@ public class SignUpController {
     private SqliteProfileDAO profileDAO = new SqliteProfileDAO();
     private NotificationController notificationController;
 
-    private int  displayTime = 3000;
-    private int waitTime = 2000;
+
 
     @FXML
     protected void SignUpSubmit(ActionEvent event) {
@@ -35,6 +34,7 @@ public class SignUpController {
         String password = passwordField.getText();
         String preferredName = preferredNameField.getText();
 
+        int displayTime = 3000;
         if (!isValidEmail(email)) {
             notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", displayTime));
             return;
@@ -55,11 +55,11 @@ public class SignUpController {
 
         // set up notification and sleep times
 
-        notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", 3000));
+        notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", displayTime));
         clearFields();
         Platform.runLater(() -> {
             try {
-                Thread.sleep(waitTime); // Sleep for 10 milliseconds
+                Thread.sleep(displayTime); // Sleep for 10 milliseconds
                 ToSignIn(event); // Navigate to sign-in screen
             } catch (InterruptedException e) {
                 e.printStackTrace();
