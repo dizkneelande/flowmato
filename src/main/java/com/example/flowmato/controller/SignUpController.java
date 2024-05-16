@@ -4,6 +4,7 @@ import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.Notification;
 import com.example.flowmato.model.Profile;
 import com.example.flowmato.model.SqliteProfileDAO;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,32 +26,46 @@ public class SignUpController {
     private SqliteProfileDAO profileDAO = new SqliteProfileDAO();
     private NotificationController notificationController;
 
+
+
     @FXML
     protected void SignUpSubmit(ActionEvent event) {
         String email = emailField.getText();
         String password = passwordField.getText();
         String preferredName = preferredNameField.getText();
 
+        int displayTime = 3000;
         if (!isValidEmail(email)) {
-            notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", displayTime));
             return;
         }
 
         if (!isValidPassword(password)) {
-            notificationController.notify(new Notification("alert", "Password must be at least 6 characters.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Password must be at least 6 characters.", "TOP", displayTime));
             return;
         }
 
         if (profileDAO.emailExists(email)) {
-            notificationController.notify(new Notification("alert", "Email already in use. Please use a different email.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Email already in use. Please use a different email.", "TOP", displayTime));
             return;
         }
 
         Profile newProfile = new Profile(email, password, preferredName);
         profileDAO.saveNewProfile(newProfile);
 
-        notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", 3000));
+        // set up notification and sleep times
+
+        notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", displayTime));
         clearFields();
+        Platform.runLater(() -> {
+            try {
+                Thread.sleep(displayTime); // Sleep for 10 milliseconds
+                ToSignIn(event); // Navigate to sign-in screen
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
     //check valid signup input
     private boolean isValidEmail(String email) {
@@ -90,6 +105,8 @@ public class SignUpController {
             e.printStackTrace();
         }
     }
+
+
 
     @FXML
     public void initialize() {
