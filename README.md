@@ -9,8 +9,8 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 ## Flowmato objectives
 
 - **Enhance Productivity**: Utilise the Pomodoro technique to help users focus on tasks in short bursts, leading to increased productivity.
-- **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
-- **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
+- **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised.
+- **Boosts Focus**: Breaks tasks into intervals with breaks to prevent mental fatigue, eye strain etc...
 - **Tomatoes**: For maximum efficiency.
 
 ---
@@ -20,6 +20,19 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 </div>
 
 ---
+
+## Flowmato Features
+
+- **Minimal Colour Palette**: A soothing teal and white gradient enhances focus and tranquility, perfect for the Pomodoro Technique.
+<div style="display: flex; gap: 10px;">
+  <div style="width: 50px; height: 50px; background-color: #8FBCBB; border: 1px solid #000;"></div>
+  <div style="width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></div>
+</div>
+- **Easy customisation**: Allows user to adjust time of pomodoro session, short breaks and long breaks.
+- **Focus Music**: Features ambient, originally composed tunes that promote concentration and focus.
+- **Tomoato Analytics**: Be able to track completed pomodoros, total focus and short break time for insights on user patterns.
+- **Achievements**: Users can achieve certain badges based on different milestones.
+
 
 ## Important Links
 
