@@ -37,9 +37,9 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 ## Flowmato App Preview
 
 <p float="left">
-  <img src="assets/Desktop - 3.png" />
-  <img src="https://github.com/The-Percolators/flowmato/assets/Sign_Up_View" width="100" /> 
-  <img src="https://github.com/The-Percolators/flowmato/assets/Main Timer View.png" width="100" />
+  <img src="assets/Desktop - 3.png" width="300" />
+  <img src="assets/Sign_Up_View.png" width="300" /> 
+  <img src="assets/Main Timer View.png" width="300" />
 </p>
 
 
