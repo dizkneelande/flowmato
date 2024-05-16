@@ -8,29 +8,94 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class AudioController {
+    /* !!! IMPORTANT !!!
+     * Any time you update this class in any capacity you should manually run the AudioTest file (make sure to directly
+     * run the file or temporarily remove the @Disabled line) to ensure that AudioController functionality remains unbroken.
+     * These tests cannot be run via GitHub Actions or headless systems, which is why it's important to run them manually.
+     * !!!!!!!!!!!!!!!!!
+     */
     public MediaPlayer notificationSound;
     public MediaPlayer shortBreakSound;
     public MediaPlayer longBreakSound;
     public MediaPlayer musicPlayer;
     Random random = new Random();
-    int trackBeingPlayed = random.nextInt(4 - 1 + 1) + 1;
+    int trackBeingPlayed;
     public double volume = 1.0;
-
     public boolean playingAudio;
     public boolean playingMusic;
     public boolean notificationPlaying;
+    public int numberOfTracks;
+    public int numberOfSecretTracks;
+    boolean secretTrackQueued;
+    boolean secretPlayed;
+    List<Integer> tracksPlayed = new ArrayList<>();
 
     public AudioController() {
-        notificationSound = new MediaPlayer(new Media(new File("media/notification.mp3").toURI().toString()));
-        shortBreakSound = new MediaPlayer(new Media(new File("media/shortbreak.mp3").toURI().toString()));
-        longBreakSound = new MediaPlayer(new Media(new File("media/longbreak.mp3").toURI().toString()));
+        File musicDirectory = new File("media/music");
+        File secretDirectory = new File("media/secret");
+
+        File[] musicFiles = musicDirectory.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
+        File[] secretFiles = secretDirectory.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
+
+        if (musicFiles != null) {
+            numberOfTracks = musicFiles.length;
+        }
+
+        if (secretFiles != null) {
+            numberOfSecretTracks = secretFiles.length;
+        }
+
+        setRandomTrack();
+
+        notificationSound = new MediaPlayer(new Media(new File("media/sfx/notification.mp3").toURI().toString()));
+        shortBreakSound = new MediaPlayer(new Media(new File("media/sfx/shortbreak.mp3").toURI().toString()));
+        longBreakSound = new MediaPlayer(new Media(new File("media/sfx/longbreak.mp3").toURI().toString()));
     }
 
     public AudioController(boolean createPlayer) {
+        // This constructor is deliberately left empty so that when MockAudioController uses it there is no MediaPlayer initialisations
+    }
 
+    /**
+     * Sets the AudioController's tracKBeingPlayed to a new random track
+     */
+    private void setRandomTrack() {
+        // If all tracks have been played (exc. secret tracks) we reset the list of played tracks
+        if (tracksPlayed.size() == numberOfTracks) {
+            tracksPlayed = new ArrayList<>();
+            secretPlayed = false;
+            if (!secretTrackQueued) {
+                // Add the previously played track, so we don't get a repeat track after resetting the list
+                tracksPlayed.add(trackBeingPlayed);
+            }
+        }
+
+        // Get new track between 1-numberOfTracks, that hasn't been played yet
+        int newTrackToPlay = random.nextInt(numberOfTracks - 1 + 1) + 1;
+        while (tracksPlayed.contains(newTrackToPlay)) {
+            newTrackToPlay = random.nextInt(numberOfTracks - 1 + 1) + 1;
+        }
+
+        // Secret Rare Track(s)
+        int secretRandom = random.nextInt(100 - 1 + 1) + 1;
+        if (secretRandom <= 5) {
+            newTrackToPlay = random.nextInt(numberOfSecretTracks - 1 + 1) + 1;
+            secretTrackQueued = true;
+            secretPlayed = true;
+        } else {
+            secretTrackQueued = false;
+        }
+
+        if (!secretTrackQueued) {
+            tracksPlayed.add(newTrackToPlay);
+        }
+
+        trackBeingPlayed = newTrackToPlay;
     }
 
     /**
@@ -107,11 +172,14 @@ public class AudioController {
             return;
         }
 
-        if (trackBeingPlayed < 1 || trackBeingPlayed > 5) {
-            trackBeingPlayed = 1;
+        Media track;
+
+        if (secretTrackQueued) {
+            track = new Media(new File("media/secret/track" + trackBeingPlayed + ".mp3").toURI().toString());
+        } else {
+            track = new Media(new File("media/music/track" + trackBeingPlayed + ".mp3").toURI().toString());
         }
 
-        Media track = new Media(new File("media/track" + trackBeingPlayed + ".mp3").toURI().toString());
         musicPlayer = new MediaPlayer(track);
 
         musicPlayer.setOnEndOfMedia(() -> {
@@ -133,18 +201,7 @@ public class AudioController {
             musicPlayer.dispose();
             musicPlayer = null;
 
-            // Get new track between 1-4, that isn't the same as the track that was previously played
-            int newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
-            while (trackBeingPlayed == newTrackToPlay) {
-                newTrackToPlay = random.nextInt(4 - 1 + 1) + 1;
-            }
-
-            // Secret Rare Track (5% chance of playing)
-            int secretRandom = random.nextInt(100 - 1 + 1) + 1;
-            if (secretRandom <= 5) {
-                newTrackToPlay = 5;
-            }
-            trackBeingPlayed = newTrackToPlay;
+            setRandomTrack();
         }
     }
 
