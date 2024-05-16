@@ -1,4 +1,7 @@
 ![image](https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e)
+<p align="center">
+  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e"/>
+</p>
 
 # Introducing Flowmato
 
