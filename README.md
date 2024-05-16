@@ -38,8 +38,8 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 <p float="left">
   <img src="assets/Desktop - 3.png" width="300" />
-  <img src="assets/Sign_Up_View.png" width="300" /> 
-  <img src="assets/Main Timer View.png" width="300" />
+  <img src="assets/Sign_Up_View.png" width="500" /> 
+  <img src="assets/Main Timer View.png" width="500" />
 </p>
 
 
