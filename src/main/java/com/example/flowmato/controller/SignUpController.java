@@ -26,6 +26,9 @@ public class SignUpController {
     private SqliteProfileDAO profileDAO = new SqliteProfileDAO();
     private NotificationController notificationController;
 
+    private int  displayTime = 3000;
+    private int waitTime = 2000;
+
     @FXML
     protected void SignUpSubmit(ActionEvent event) {
         String email = emailField.getText();
@@ -33,22 +36,24 @@ public class SignUpController {
         String preferredName = preferredNameField.getText();
 
         if (!isValidEmail(email)) {
-            notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Invalid email format.", "TOP", displayTime));
             return;
         }
 
         if (!isValidPassword(password)) {
-            notificationController.notify(new Notification("alert", "Password must be at least 6 characters.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Password must be at least 6 characters.", "TOP", displayTime));
             return;
         }
 
         if (profileDAO.emailExists(email)) {
-            notificationController.notify(new Notification("alert", "Email already in use. Please use a different email.", "TOP", 3000));
+            notificationController.notify(new Notification("alert", "Email already in use. Please use a different email.", "TOP", displayTime));
             return;
         }
 
         Profile newProfile = new Profile(email, password, preferredName);
         profileDAO.saveNewProfile(newProfile);
+
+        // set up notification and sleep times
 
         notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", 3000));
         clearFields();
@@ -101,7 +106,7 @@ public class SignUpController {
         }
     }
 
-    private int waitTime = 2000;
+
 
     @FXML
     public void initialize() {
