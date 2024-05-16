@@ -31,12 +31,11 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ## Color Palette
 
-<div style="display: flex; gap: 10px; align-items: center;">
-  <div style="width: 50px; height: 50px; background-color: #008080; border: 1px solid #000;"></div> <span>Teal</span>
-  <div style="width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></div> <span>White</span>
-  <div style="width: 50px; height: 50px; background-color: #f0f0f0; border: 1px solid #000;"></div> <span>Light Gray</span>
-  <div style="width: 50px; height: 50px; background-color: #cccccc; border: 1px solid #000;"></div> <span>Gray</span>
-</div>
+<span style="display: inline-block; width: 50px; height: 50px; background-color: #008080; border: 1px solid #000;"></span>
+<span style="display: inline-block; width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></span>
+<span style="display: inline-block; width: 50px; height: 50px; background-color: #f0f0f0; border: 1px solid #000;"></span>
+<span style="display: inline-block; width: 50px; height: 50px; background-color: #cccccc; border: 1px solid #000;"></span>
+
 
 
 ## Important Links
