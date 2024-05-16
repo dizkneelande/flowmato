@@ -115,6 +115,7 @@
             <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
             <Button onAction="#openAnalyticsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
             <Button onAction="#openAchievementsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Achievements" />
+            <Button onAction="#openGuideView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 User Guide" />
             <Button onAction="#openSettings" style="-fx-background-color: transparent; -fx-text-fill: black;" text="⚙ Settings" />
             <Button onAction="#switchAccount" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🔄 Switch Account" />
             <Pane prefHeight="50" />
