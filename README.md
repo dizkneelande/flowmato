@@ -31,10 +31,9 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 
 ## Color Palette
 
-<span style="display: inline-block; width: 50px; height: 50px; background-color: #008080; border: 1px solid #000;"></span>
-<span style="display: inline-block; width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></span>
-<span style="display: inline-block; width: 50px; height: 50px; background-color: #f0f0f0; border: 1px solid #000;"></span>
-<span style="display: inline-block; width: 50px; height: 50px; background-color: #cccccc; border: 1px solid #000;"></span>
+- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
+- ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) `#c5f015`
+- ![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) `#1589F0`
 
 
 
