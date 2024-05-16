@@ -8,29 +8,31 @@
 <?import javafx.scene.text.*?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
-    <StackPane maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
-        <Button fx:id="GoBackButton" onAction="#goBack" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateY="-8.0" StackPane.alignment="TOP_RIGHT" />
+    <StackPane layoutX="-36.0" layoutY="-2.0" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
         <Label text="Welcome to the User Guide" translateY="-150.0">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
+
         <StackPane alignment="TOP_CENTER" prefHeight="337.0" prefWidth="640.0">
             <children>
                 <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" translateX="250.0" translateY="40.0">
                     <image>
                         <Image url="@../../../images/Flowmato.png" />
                     </image></ImageView>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" StackPane.alignment="TOP_LEFT">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="3.0" />
                     </StackPane.margin>
+
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="Short Break Duration" StackPane.alignment="TOP_LEFT">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="33.0" />
                     </StackPane.margin>
                 </Text>
+                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
             </children>
             <StackPane.margin>
                 <Insets top="130.0" />
