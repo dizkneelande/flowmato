@@ -24,14 +24,19 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 ## Flowmato Features
 
 - **Minimal Colour Palette**: A soothing teal and white gradient enhances focus and tranquility, perfect for the Pomodoro Technique.
-<div style="display: flex; gap: 10px;">
-  <div style="width: 50px; height: 50px; background-color: #8FBCBB; border: 1px solid #000;"></div>
-  <div style="width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></div>
-</div>
 - **Easy customisation**: Allows user to adjust time of pomodoro session, short breaks and long breaks.
 - **Focus Music**: Features ambient, originally composed tunes that promote concentration and focus.
 - **Tomoato Analytics**: Be able to track completed pomodoros, total focus and short break time for insights on user patterns.
 - **Achievements**: Users can achieve certain badges based on different milestones.
+
+## Color Palette
+
+<div style="display: flex; gap: 10px; align-items: center;">
+  <div style="width: 50px; height: 50px; background-color: #008080; border: 1px solid #000;"></div> <span>Teal</span>
+  <div style="width: 50px; height: 50px; background-color: #ffffff; border: 1px solid #000;"></div> <span>White</span>
+  <div style="width: 50px; height: 50px; background-color: #f0f0f0; border: 1px solid #000;"></div> <span>Light Gray</span>
+  <div style="width: 50px; height: 50px; background-color: #cccccc; border: 1px solid #000;"></div> <span>Gray</span>
+</div>
 
 
 ## Important Links
