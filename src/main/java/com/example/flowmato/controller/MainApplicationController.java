@@ -215,12 +215,8 @@ public class MainApplicationController {
     }
     @FXML protected void openGuideView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/settings-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/guide-view.fxml"));
             Parent guideRoot = loader.load();
-
-            SettingsController settingsController = loader.getController();
-            settingsController.setupSettings(timer, TimerButton);
-
             Stage guideStage = new Stage();
             guideStage.setScene(new Scene(guideRoot));
             guideStage.showAndWait();
