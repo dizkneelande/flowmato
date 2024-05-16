@@ -54,7 +54,7 @@ public class SignUpController {
         clearFields();
         Platform.runLater(() -> {
             try {
-                Thread.sleep(1000); // Sleep for 10 milliseconds
+                Thread.sleep(waitTime); // Sleep for 10 milliseconds
                 ToSignIn(event); // Navigate to sign-in screen
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -101,6 +101,7 @@ public class SignUpController {
         }
     }
 
+    private int waitTime = 2000;
 
     @FXML
     public void initialize() {
