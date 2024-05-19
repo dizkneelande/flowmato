@@ -76,15 +76,15 @@ public class AudioController {
         }
 
         // Get new track between 1-numberOfTracks, that hasn't been played yet
-        int newTrackToPlay = random.nextInt(numberOfTracks - 1 + 1) + 1;
+        int newTrackToPlay = random.nextInt(numberOfTracks) + 1;
         while (tracksPlayed.contains(newTrackToPlay)) {
-            newTrackToPlay = random.nextInt(numberOfTracks - 1 + 1) + 1;
+            newTrackToPlay = random.nextInt(numberOfTracks) + 1;
         }
 
         // Secret Rare Track(s)
-        int secretRandom = random.nextInt(100 - 1 + 1) + 1;
+        int secretRandom = random.nextInt(100) + 1;
         if (secretRandom <= 5) {
-            newTrackToPlay = random.nextInt(numberOfSecretTracks - 1 + 1) + 1;
+            newTrackToPlay = random.nextInt(numberOfSecretTracks) + 1;
             secretTrackQueued = true;
             secretPlayed = true;
         } else {
