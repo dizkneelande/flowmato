@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
+<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">
     <StackPane layoutX="37.0" layoutY="-3.0" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="606.0" prefHeight="360" prefWidth="606.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
         <Label text="Welcome to the User Guide" translateY="-150.0">
             <font>
@@ -39,6 +39,7 @@
                 <Insets top="130.0" />
             </StackPane.margin>
         </StackPane>
+        <Button fx:id="exitGuideButton" onAction="#exitGuide" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateY="-8.0" StackPane.alignment="TOP_RIGHT" />
     </StackPane>
     <fx:include source="notification.fxml" />
 </Group>
