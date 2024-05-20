@@ -57,9 +57,9 @@ public class SignUpController {
 
         notificationController.notify(new Notification("banner", "Profile created successfully!","TOP", displayTime));
         clearFields();
-        Platform.runLater(() -> {
+        Platform.runLater(() -> { // async function so that notification still plays
             try {
-                Thread.sleep(displayTime); // Sleep for 10 milliseconds
+                Thread.sleep(displayTime); //
                 ToSignIn(event); // Navigate to sign-in screen
             } catch (InterruptedException e) {
                 e.printStackTrace();

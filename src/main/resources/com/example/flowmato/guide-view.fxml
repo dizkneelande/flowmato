@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.SettingsController">
-    <StackPane layoutX="-36.0" layoutY="-2.0" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="640.0" prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
+    <StackPane layoutX="37.0" layoutY="-3.0" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="606.0" prefHeight="360" prefWidth="606.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
         <Label text="Welcome to the User Guide" translateY="-150.0">
             <font>
                 <Font name="System Bold" size="20.0" />
@@ -21,18 +21,19 @@
                     <image>
                         <Image url="@../../../images/Flowmato.png" />
                     </image></ImageView>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="3.0" />
                     </StackPane.margin>
 
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" StackPane.alignment="TOP_LEFT">
+                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?" translateY="20.0" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="33.0" />
                     </StackPane.margin>
                 </Text>
-                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
+                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Flowmato is the new study solution offered by the Percolators based on the Pomodoro technique. Customise, Optimise and Trivialise any study routine with this dynamic application" translateX="22.0" translateY="80.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
             </children>
             <StackPane.margin>
                 <Insets top="130.0" />
