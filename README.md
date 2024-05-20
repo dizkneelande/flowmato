@@ -1,4 +1,6 @@
-![image](https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e)
+<p align="center">
+  <img src="https://github.com/The-Percolators/flowmato/assets/105323825/1abfcee1-5ce2-4555-a9df-1a078918385e"/>
+</p>
 
 # Introducing Flowmato
 
@@ -7,9 +9,39 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 ## Flowmato objectives
 
 - **Enhance Productivity**: Utilise the Pomodoro technique to help users focus on tasks in short bursts, leading to increased productivity.
-- **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised, restricting access to certain websites (User Specified?).
-- **Focus-Boosting Features**: Include key features such as, ambient non-instrusive sounds, reminders to drink water/fix posture.
+- **Minimise Distractions**: During each Pomodoro, ensure that distractions are minimised.
+- **Boosts Focus**: Breaks tasks into intervals with breaks to prevent mental fatigue, eye strain etc...
 - **Tomatoes**: For maximum efficiency.
+
+---
+
+<div align="center">
+  Launch → Register/Sign in → Set timer → Complete Tasks Productively
+</div>
+
+---
+
+## Flowmato Features
+
+- **Minimal Colour Palette**: A soothing teal and white gradient enhances focus and tranquility, perfect for the Pomodoro Technique.
+- **Easy customisation**: Allows user to adjust time of pomodoro session, short breaks and long breaks.
+- **Focus Music**: Features ambient, originally composed tunes that promote concentration and focus.
+- **Tomoato Analytics**: Be able to track completed pomodoros, total focus and short break time for insights on user patterns.
+- **Achievements**: Users can achieve certain badges based on different milestones.
+
+## Color Palette
+
+- ![8FBCBB](https://via.placeholder.com/15x15/8FBCBB/8FBCBB.png?text=+) `#8FBCBB`
+- ![FFFFFF](https://via.placeholder.com/15x15/FFFFFF/FFFFFF.png?text=+) `#FFFFFF`
+
+## Flowmato App Preview
+
+<p float="left">
+  <img src="assets/Desktop - 3.png" width="300" height="200" />
+  <img src="assets/Sign_Up_View.png" width="350" /> 
+  <img src="assets/Main Timer View.png" width="350" />
+</p>
+
 
 ## Important Links
 
