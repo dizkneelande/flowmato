@@ -40,8 +40,9 @@ public class AnalyticsController implements Initializable {
         int totalFocusTime = analytics.getTotalFocusTime();
         int totalBreakTime = analytics.getTotalBreakTime();
 
-        completedPomodorosLabel.setText("Completed Pomodoros: " + completedPomodoros);
-        totalFocusTimeLabel.setText("Total Focus Time (seconds): " + totalFocusTime);
-        totalBreakTimeLabel.setText("Total Break Time (seconds): " + totalBreakTime);
+        // Updated display for new analytics page
+        completedPomodorosLabel.setText(String.valueOf(completedPomodoros));
+        totalFocusTimeLabel.setText(String.format("%dh %dm", totalFocusTime / 3600, (totalFocusTime % 3600) / 60));
+        totalBreakTimeLabel.setText(String.format("%dh %dm", totalBreakTime / 3600, (totalBreakTime % 3600) / 60));
     }
 }
