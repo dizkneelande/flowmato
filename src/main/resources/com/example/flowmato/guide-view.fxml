@@ -8,14 +8,14 @@
 <?import javafx.scene.text.*?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">
-    <StackPane layoutX="37.0" layoutY="-3.0" maxHeight="360.0" maxWidth="640.0" minHeight="360.0" minWidth="606.0" prefHeight="360" prefWidth="606.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
+    <StackPane maxHeight="388.0" maxWidth="648.0" minHeight="357.0" minWidth="542.0" prefHeight="381.0" prefWidth="648.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
         <Label text="Welcome to the User Guide" translateY="-150.0">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
 
-        <StackPane alignment="TOP_CENTER" prefHeight="337.0" prefWidth="640.0">
+        <StackPane alignment="TOP_CENTER" prefHeight="258.0" prefWidth="721.0">
             <children>
                 <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" translateX="250.0" translateY="40.0">
                     <image>
