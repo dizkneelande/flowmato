@@ -26,7 +26,7 @@ Effectively managing time and maintaining focus are challenges that resonate wit
 - **Minimal Colour Palette**: A soothing teal and white gradient enhances focus and tranquility, perfect for the Pomodoro Technique.
 - **Easy customisation**: Allows user to adjust time of pomodoro session, short breaks and long breaks.
 - **Focus Music**: Features ambient, originally composed tunes that promote concentration and focus.
-- **Tomoato Analytics**: Be able to track completed pomodoros, total focus and short break time for insights on user patterns.
+- **Tomato Analytics**: Be able to track completed pomodoros, total focus and short break time for insights on user patterns.
 - **Achievements**: Users can achieve certain badges based on different milestones.
 
 ## Color Palette
