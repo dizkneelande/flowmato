@@ -21,14 +21,14 @@
                     <image>
                         <Image url="@../../../images/Flowmato.png" />
                     </image></ImageView>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333;" text="What is a Pomodoro?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="3.0" />
                     </StackPane.margin>
 
                 </Text>
                 <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?" translateY="20.0" StackPane.alignment="TOP_LEFT">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333;" text="What is Flowmato?" translateY="20.0" StackPane.alignment="TOP_LEFT">
                     <StackPane.margin>
                         <Insets left="25.0" top="33.0" />
                     </StackPane.margin>
