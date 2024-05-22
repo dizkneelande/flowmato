@@ -86,6 +86,7 @@ public class SqliteProfileDAO {
                 "profile_id INTEGER, " +
                 "achievement_type TEXT NOT NULL, " +
                 "achieved_on DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                "icon_path TEXT, " +
                 "FOREIGN KEY(profile_id) REFERENCES profiles(id), " +
                 "UNIQUE(profile_id, achievement_type));";  //unique constraint for achievements
         String analyticsSql = "CREATE TABLE IF NOT EXISTS analytics (" +
@@ -115,9 +116,31 @@ public class SqliteProfileDAO {
             pstmt.setString(2, profile.getPassword());
             pstmt.setString(3, profile.getPreferredName());
             pstmt.executeUpdate();
+
+            ResultSet generatedKeys = pstmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int profileId = generatedKeys.getInt(1);
+
+                createMockAchievements(profileId);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    // ---- mock achievements ------------ //
+    private void createMockAchievements(int profileId) {
+        Achievements firstTomato = new Achievements(profileId, "First Tomato", LocalDateTime.now().minusDays(5), getClass().getResource("/images/firstmato.png").toString());
+        Achievements overgrown = new Achievements(profileId, "Overgrown", LocalDateTime.now().minusMinutes(10), getClass().getResource("/images/weed.png").toString());
+        Achievements procrastinator = new Achievements(profileId, "Procrastinator", LocalDateTime.now().minusDays(1), getClass().getResource("/images/sriracha.png").toString());
+        Achievements lateNightHero = new Achievements(profileId, "Late Night Hero", LocalDateTime.now().minusDays(2).withHour(0).withMinute(30), getClass().getResource("/images/moist.png").toString());
+        Achievements speedrunner = new Achievements(profileId, "Speedrunner", LocalDateTime.now().minusDays(4), getClass().getResource("/images/rat.png").toString());
+
+        saveAchievement(firstTomato);
+        saveAchievement(overgrown);
+        saveAchievement(procrastinator);
+        saveAchievement(lateNightHero);
+        saveAchievement(speedrunner);
     }
 
     /**
@@ -154,12 +177,13 @@ public class SqliteProfileDAO {
     }
 
     public void saveAchievement(Achievements achievement) {
-        String sql = "INSERT OR IGNORE INTO achievements (profile_id, achievement_type, achieved_on) VALUES (?, ?, ?)";
+        String sql = "INSERT OR IGNORE INTO achievements (profile_id, achievement_type, achieved_on, icon_path) VALUES (?, ?, ?, ?)";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, achievement.getProfileId());
             pstmt.setString(2, achievement.getAchievementType());
             pstmt.setString(3, achievement.getAchievedOn().toString());
+            pstmt.setString(4, achievement.getIconPath());
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows == 0) { System.out.println("achievement already exists for profile"); }
         } catch (SQLException e) {
@@ -233,7 +257,8 @@ public class SqliteProfileDAO {
                 String achievementType = rs.getString("achievement_type");
                 String achievedOnString = rs.getString("achieved_on");
                 LocalDateTime achievedOn = LocalDateTime.parse(achievedOnString);
-                Achievements achievement = new Achievements(profileId, achievementType, achievedOn);
+                String iconPath = rs.getString("icon_path");
+                Achievements achievement = new Achievements(profileId, achievementType, achievedOn, iconPath);
                 achievement.setId(id);
                 achievements.add(achievement);
             }

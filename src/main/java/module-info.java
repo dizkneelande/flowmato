@@ -5,6 +5,7 @@ module com.example.addressbook {
     requires javafx.media;
     requires javafx.graphics;
     requires java.base;
+    requires java.desktop;
 
     opens com.example.flowmato to javafx.fxml;
     exports com.example.flowmato;

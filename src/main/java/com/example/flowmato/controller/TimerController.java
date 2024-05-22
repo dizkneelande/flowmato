@@ -234,7 +234,7 @@ public class TimerController {
             notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             totalFocusTimeInSeconds += sessionDuration;
             Integer profileId = SessionManager.getInstance().getCurrentUserId();
-            if (profileId != null) { achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted); }
+            //if (profileId != null) { achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted); }
             breaksTaken++;
 
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
