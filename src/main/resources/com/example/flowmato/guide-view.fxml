@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%); -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">
+    <children>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20 0;">
+            <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: black;" text="User Guide" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #495054;" text="Here are some useful tips on how to use Flowmato!" translateX="65.0" />
+            <Button fx:id="exitGuideButton" onAction="#exitGuide" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateX="65.0" translateY="-50.0" StackPane.alignment="TOP_RIGHT" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../../images/Flowmato.png" />
+                </image>
+            </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" prefHeight="251.0" prefWidth="670.0" spacing="20" style="-fx-padding: 20;">
+            <VBox alignment="CENTER" prefHeight="211.0" prefWidth="217.0" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label prefHeight="30.0" prefWidth="421.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;" text="What is a Pomodoro?" translateY="-16.0" wrapText="false" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Put simply, A Pomodoro is a time management technique which follows three key rules: work 25 minutes, rest 5 minutes, repeat." translateY="-18.0" wrapText="true" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;" text="What is Flowmato?" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Flowmato is the new study solution offered by the Percolators based on the Pomodoro technique. Customise, Optimise and Trivialise any study routine with this dynamic application." wrapText="true" />
+
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;" text="How do I Start?" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Simply use the preset settings to follow the traditional Pomodoro technique or navigate to the settings page through the sidebar to customise your own Pomodoro session!" wrapText="true" />
+
+            </VBox>
+        </HBox>
+    </children>
+</VBox>

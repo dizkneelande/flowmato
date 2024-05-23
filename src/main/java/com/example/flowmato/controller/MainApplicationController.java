@@ -2,6 +2,7 @@ package com.example.flowmato.controller;
 
 import com.example.flowmato.HelloApplication;
 import com.example.flowmato.model.SqliteProfileDAO;
+import com.example.flowmato.model.Profile;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -33,6 +34,8 @@ public class MainApplicationController {
 
     @FXML
     private Label pomodorosCompleted;
+    @FXML
+    private Label userName;
 
     @FXML
     private Button TimerButton;
@@ -43,6 +46,8 @@ public class MainApplicationController {
     private NotificationController notificationController;
 
     private AudioController audioController;
+
+    private Profile user;
 
     /**
      * Switches the users account.
@@ -175,6 +180,7 @@ public class MainApplicationController {
         timeline.play();
     }
 
+
     /**
      * Calls the methods necessary to open sidebar in main app
      */
@@ -209,6 +215,17 @@ public class MainApplicationController {
             Stage analyticsStage = new Stage();
             analyticsStage.setScene(new Scene(analyticsRoot,640,360));
             analyticsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML protected void openGuideView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/flowmato/guide-view.fxml"));
+            Parent guideRoot = loader.load();
+            Stage guideStage = new Stage();
+            guideStage.setScene(new Scene(guideRoot));
+            guideStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }

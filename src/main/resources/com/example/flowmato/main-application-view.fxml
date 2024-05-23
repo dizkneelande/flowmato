@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
-<?import javafx.scene.Group?>
 
 <Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.MainApplicationController">
     <StackPane prefHeight="360" prefWidth="640" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%);">
@@ -108,13 +108,14 @@
             <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14pt;" text="✖" translateX="-10.0" translateY="-10.0" />
             <Pane prefHeight="50">
                 <children>
-                    <Label layoutY="-3.0" style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
+                    <Label fx:id="userName" layoutY="-3.0" style="-fx-font-size: 16pt; -fx-text-fill: black;" text="Hello User!" />
                 </children></Pane>
             <Pane prefHeight="20" />
             <!-- Menu items -->
             <Button onAction="#toggleSidebar" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏠 Home" />
             <Button onAction="#openAnalyticsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📊 Analytics" />
             <Button onAction="#openAchievementsView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🏆 Achievements" />
+            <Button onAction="#openGuideView" style="-fx-background-color: transparent; -fx-text-fill: black;" text="📖 User Guide" />
             <Button onAction="#openSettings" style="-fx-background-color: transparent; -fx-text-fill: black;" text="⚙ Settings" />
             <Button onAction="#switchAccount" style="-fx-background-color: transparent; -fx-text-fill: black;" text="🔄 Switch Account" />
             <Pane prefHeight="50" />
