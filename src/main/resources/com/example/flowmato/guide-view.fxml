@@ -1,45 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<Group xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">
-    <StackPane maxHeight="388.0" maxWidth="648.0" minHeight="357.0" minWidth="542.0" prefHeight="381.0" prefWidth="648.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);">
-        <Label text="Welcome to the User Guide" translateY="-150.0">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
-        </Label>
+<!--<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">-->
+<!--    <StackPane alignment="TOP_CENTER" maxHeight="388" prefHeight="258.0" prefWidth="721.0" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%);">-->
+<!--        <children>-->
+<!--            <Label text="Welcome to the User Guide">-->
+<!--                <font>-->
+<!--                    <Font name="System Bold" size="20.0" />-->
+<!--                </font>-->
+<!--            </Label>-->
+<!--            <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                <image>-->
+<!--                    <Image url="@../../../images/Flowmato.png" />-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                <image>-->
+<!--                    <Image url="@../../../images/Flowmato.png" />-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                <image>-->
+<!--                    <Image url="@../../../images/Flowmato.png" />-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <StackPane>-->
+<!--                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" translateZ="1.0" StackPane.alignment="TOP_LEFT">-->
+<!--                    <StackPane.margin>-->
+<!--                        <Insets left="25.0" top="3.0" />-->
+<!--                    </StackPane.margin>-->
+<!--                </Text>-->
+<!--            </StackPane>-->
+<!--            <StackPane>-->
+<!--                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="" translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>-->
+<!--            </StackPane>-->
+<!--            <StackPane>-->
+<!--                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?"  StackPane.alignment="TOP_LEFT">-->
+<!--                    <StackPane.margin>-->
+<!--                        <Insets left="25.0" top="33.0" />-->
+<!--                    </StackPane.margin>-->
+<!--                </Text>-->
+<!--            </StackPane>-->
+<!--            <StackPane>-->
+<!--                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Flowmato is the new study solution offered by the Percolators based on the Pomodoro technique. Customise, Optimise and Trivialise any study routine with this dynamic application" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>-->
+<!--            </StackPane>-->
+<!--            <StackPane>-->
+<!--                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="How Do I Get Started?"  StackPane.alignment="TOP_LEFT">-->
+<!--                    <StackPane.margin>-->
+<!--                        <Insets left="25.0" top="33.0" />-->
+<!--                    </StackPane.margin>-->
+<!--                </Text>-->
+<!--            </StackPane>-->
+<!--            <StackPane>-->
+<!--                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text=""  wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>-->
+<!--            </StackPane>-->
+<!--        </children>-->
+<!--        <StackPane.margin>-->
+<!--            <Insets top="130.0" />-->
+<!--        </StackPane.margin>-->
+<!--        -->
+<!--    </StackPane>-->
+<!--    <fx:include source="notification.fxml" />-->
+<!--</VBox>-->
 
-        <StackPane alignment="TOP_CENTER" prefHeight="258.0" prefWidth="721.0">
-            <children>
-                <ImageView fitHeight="115.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" translateX="250.0" translateY="40.0">
-                    <image>
-                        <Image url="@../../../images/Flowmato.png" />
-                    </image></ImageView>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is a Pomodoro?" translateX="1.0" translateY="-30.0" translateZ="1.0" StackPane.alignment="TOP_LEFT">
-                    <StackPane.margin>
-                        <Insets left="25.0" top="3.0" />
-                    </StackPane.margin>
+<VBox style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 30%, #ffffff 100%); -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flowmato.controller.GuideController">
+    <children>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20 0;">
+            <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: black;" text="User Guide" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label style="-fx-font-size: 15px; -fx-text-fill: #495054;" text="Here are some useful tips on how to use Flowmato!" translateX="65.0" />
+            <Button fx:id="exitGuideButton" onAction="#exitGuide" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateX="65.0" translateY="-50.0" StackPane.alignment="TOP_RIGHT" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../../images/Flowmato.png" />
+                </image>
+            </ImageView>
+        </HBox>
 
-                </Text>
-                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." translateX="22.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5);" text="What is Flowmato?" translateY="20.0" StackPane.alignment="TOP_LEFT">
-                    <StackPane.margin>
-                        <Insets left="25.0" top="33.0" />
-                    </StackPane.margin>
-                </Text>
-                <Text style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); -fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%);" text="Flowmato is the new study solution offered by the Percolators based on the Pomodoro technique. Customise, Optimise and Trivialise any study routine with this dynamic application" translateX="22.0" translateY="80.0" wrappingWidth="400" StackPane.alignment="TOP_LEFT"> ></Text>
-            </children>
-            <StackPane.margin>
-                <Insets top="130.0" />
-            </StackPane.margin>
-        </StackPane>
-        <Button fx:id="exitGuideButton" onAction="#exitGuide" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateY="-8.0" StackPane.alignment="TOP_RIGHT" />
-    </StackPane>
-    <fx:include source="notification.fxml" />
-</Group>
+        <HBox alignment="CENTER" prefHeight="251.0" prefWidth="670.0" spacing="20" style="-fx-padding: 20;">
+            <VBox alignment="CENTER" prefHeight="211.0" prefWidth="206.0" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label prefHeight="26.0" prefWidth="421.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="What is a Pomodoro?" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Put simply, A Pomodoro is a time management technique: work 25 minutes, rest 5 minutes, repeat." wrapText="true" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: linear-gradient(to bottom, #8FBCBB 60%, #ffffff 90%); -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="What is Flowmato?" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Flowmato is the new study solution offered by the Percolators based on the Pomodoro technique. Customise, Optimise and Trivialise any study routine with this dynamic application" wrapText="true" />
+
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.1, 0, 0); -fx-pref-width: 200;">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="How do I Start?" />
+                <Label style="-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 0,0,0.5,0.5); " text="Simply use the preset settings to follow the traditional Pomodoro technique or navigate to the settings page through the sidebar to customise your own Pomodoro session!" wrapText="true" />
+
+            </VBox>
+        </HBox>
+    </children>
+</VBox>
