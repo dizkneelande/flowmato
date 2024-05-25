@@ -70,7 +70,7 @@ public class Notification {
      * Verifies and sets the type of the notification
      * @param type the type of notification, which can be <b>"toast"</b>, <b>"banner"</b> or <b>"alert"</b>
      */
-    private void setType(String type) {
+    public void setType(String type) {
         switch (type) {
             case "banner":
             case "alert":
