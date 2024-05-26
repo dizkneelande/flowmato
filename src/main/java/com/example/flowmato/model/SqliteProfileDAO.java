@@ -131,10 +131,10 @@ public class SqliteProfileDAO {
     // ---- mock achievements ------------ //
     private void createMockAchievements(int profileId) {
         Achievements firstTomato = new Achievements(profileId, "First Tomato", LocalDateTime.now().minusDays(5), getClass().getResource("/images/firstmato.png").toString());
-        Achievements partyTime = new Achievements(profileId, "Party Time!", LocalDateTime.now().minusMinutes(10), getClass().getResource("src/main/resources/images/party.png").toString());
+        Achievements partyTime = new Achievements(profileId, "Party Time!", LocalDateTime.now().minusMinutes(10), getClass().getResource("/images/party.png").toString());
         Achievements procrastinator = new Achievements(profileId, "Procrastinator", LocalDateTime.now().minusDays(1), getClass().getResource("/images/proc.png").toString());
-        Achievements lateNightHero = new Achievements(profileId, "Late Night Hero", LocalDateTime.now().minusDays(2).withHour(0).withMinute(30), getClass().getResource("src/main/resources/images/Latenight.png").toString());
-        Achievements overgrown = new Achievements(profileId, "Overgrown", LocalDateTime.now().minusDays(4), getClass().getResource("src/main/resources/images/overgrown.png").toString());
+        Achievements lateNightHero = new Achievements(profileId, "Late Night Hero", LocalDateTime.now().minusDays(2).withHour(0).withMinute(30), getClass().getResource("/images/Latenight.png").toString());
+        Achievements overgrown = new Achievements(profileId, "Overgrown", LocalDateTime.now().minusDays(4), getClass().getResource("/images/overgrown.png").toString());
 
         saveAchievement(firstTomato);
         saveAchievement(partyTime);
