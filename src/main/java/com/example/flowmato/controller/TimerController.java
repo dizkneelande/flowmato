@@ -20,6 +20,7 @@ public class TimerController {
     int shortBreakDuration;
     int longBreakDuration;
     int currentStage;
+    String currentStageString = "Pomodoro";
     int shortBreaksTaken;
     int longBreaksTaken;
     public int breaksTaken;
@@ -42,11 +43,10 @@ public class TimerController {
      * A method that initialises the TimerController variables.
      */
     public TimerController(AchievementsController achievementsController, NotificationController notificationController) {
-        // The following values should be removed once user settings persistency has been added
         sessionDuration = 1500;
         shortBreakDuration = 300;
         longBreakDuration = 1200;
-        // =================== //
+
         currentStage = 1;
         timeElapsed = 0;
         breaksTaken = 0;
@@ -231,20 +231,22 @@ public class TimerController {
 
         if (currentStage % 2 == 0) {
             pomodorosCompleted++;
-            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
             totalFocusTimeInSeconds += sessionDuration;
-            Integer profileId = SessionManager.getInstance().getCurrentUserId();
-            //if (profileId != null) { achievementsController.checkAndAwardAchievement(profileId, pomodorosCompleted); }
             breaksTaken++;
 
             if (breaksTaken % 4 == 0 && breaksTaken != 0) {
                 timerDuration = longBreakDuration;
+                currentStageString = "Long Break";
                 audioController.playLongBreak();
             } else {
                 timerDuration = shortBreakDuration;
+                currentStageString = "Short Break";
                 audioController.playShortBreak();
             }
+
+            notificationController.notify(new Notification("banner", "Pomodoro Completed!", 2500));
         } else {
+            audioController.playStudyTime();
             if (breaksTaken % 4 == 0) {
                 notificationController.notify(new Notification("banner", "Long Break Completed!", 2500));
                 totalBreakTimeInSeconds += longBreakDuration;
@@ -255,6 +257,7 @@ public class TimerController {
                 shortBreaksTaken++;
             }
             timerDuration = sessionDuration;
+            currentStageString = "Pomodoro";
         }
 
         updateAnalytics();
@@ -279,5 +282,13 @@ public class TimerController {
             SqliteProfileDAO dao = new SqliteProfileDAO();
             dao.updateAnalytics(profileId, pomodorosCompleted, totalFocusTimeInSeconds, totalBreakTimeInSeconds);
         }
+    }
+
+    /**
+     * Gets the current stage of the timer as a String
+     * @return the current stage represented as a String
+     */
+    public String getCurrentStage() {
+        return currentStageString;
     }
 }
