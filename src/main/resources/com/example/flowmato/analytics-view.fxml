@@ -10,6 +10,7 @@
             <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: black;" text="Analytics" />
             <Pane HBox.hgrow="ALWAYS" />
             <Label style="-fx-font-size: 15px; -fx-text-fill: #495054;" text="This is a summary of your Flowmato History!" />
+            <Button fx:id="exitAnalyticsButton" onAction="#exitAnalytics" prefHeight="82.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20pt; -fx-background-radius: 0;" text="✖" translateX="65.0" translateY="-50.0" />
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../../images/Flowmato.png" />
