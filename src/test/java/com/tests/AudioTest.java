@@ -161,4 +161,24 @@ public class AudioTest {
         assertTrue(audioController.playingAudio);
         assertEquals("PLAYING", audioController.notificationSound.getStatus().toString());
     }
+
+    @Test
+    public void testPlayAlert(){
+        audioController.playAlert();
+
+        wait(500);
+
+        assertTrue(audioController.playingAudio);
+        assertEquals("PLAYING", audioController.alertSound.getStatus().toString());
+    }
+
+    @Test
+    public void testStudyTime(){
+        audioController.playStudyTime();
+
+        wait(500);
+
+        assertTrue(audioController.playingAudio);
+        assertEquals("PLAYING", audioController.studyTimeSound.getStatus().toString());
+    }
 }

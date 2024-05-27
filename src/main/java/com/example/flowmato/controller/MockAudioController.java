@@ -15,6 +15,16 @@ public class MockAudioController extends AudioController {
     }
 
     @Override
+    public void playAlert() {
+        return;
+    }
+
+    @Override
+    public void playStudyTime() {
+        return;
+    }
+
+    @Override
     public void playLongBreak() {
         return;
     }
