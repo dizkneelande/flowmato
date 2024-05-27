@@ -20,6 +20,8 @@ public class AudioController {
      * !!!!!!!!!!!!!!!!!
      */
     public MediaPlayer notificationSound;
+    public MediaPlayer alertSound;
+    public MediaPlayer studyTimeSound;
     public MediaPlayer shortBreakSound;
     public MediaPlayer longBreakSound;
     public MediaPlayer musicPlayer;
@@ -53,6 +55,8 @@ public class AudioController {
         setRandomTrack();
 
         notificationSound = new MediaPlayer(new Media(new File("media/sfx/notification.mp3").toURI().toString()));
+        alertSound = new MediaPlayer(new Media(new File("media/sfx/error.mp3").toURI().toString()));
+        studyTimeSound = new MediaPlayer(new Media(new File("media/sfx/study_time.mp3").toURI().toString()));
         shortBreakSound = new MediaPlayer(new Media(new File("media/sfx/shortbreak.mp3").toURI().toString()));
         longBreakSound = new MediaPlayer(new Media(new File("media/sfx/longbreak.mp3").toURI().toString()));
     }
@@ -118,6 +122,50 @@ public class AudioController {
         notificationPlaying = true;
         playingAudio = true;
         notificationSound.play();
+    }
+
+    /**
+     * Plays the Alert sound
+     */
+    public void playAlert() {
+        if (playingAudio) {
+            return;
+        }
+        alertSound.seek(javafx.util.Duration.ZERO);
+
+        alertSound.setOnEndOfMedia(() -> {
+            playingAudio = false;
+            notificationPlaying = false;
+            fadeVolume(musicPlayer, false);
+        });
+
+        fadeVolume(musicPlayer, true);
+
+        notificationPlaying = true;
+        playingAudio = true;
+        alertSound.play();
+    }
+
+    /**
+     * Plays the Study Time sound
+     */
+    public void playStudyTime() {
+        if (playingAudio && !notificationPlaying) {
+            return;
+        } else if (notificationPlaying) {
+            studyTimeSound.stop();
+        }
+        studyTimeSound.seek(javafx.util.Duration.ZERO);
+
+        studyTimeSound.setOnEndOfMedia(() -> {
+            playingAudio = false;
+            fadeVolume(musicPlayer, false);
+        });
+
+        fadeVolume(musicPlayer, true);
+
+        playingAudio = true;
+        studyTimeSound.play();
     }
 
     /**
@@ -311,6 +359,7 @@ public class AudioController {
 
         if (musicPlayer != null) {
             musicPlayer.play();
+            playStudyTime();
             playingMusic = true;
         } else {
             playMusic();

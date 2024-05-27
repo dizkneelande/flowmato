@@ -197,7 +197,11 @@
                 }
             });
 
-            audioController.playNotification();
+            if (notifications.get(0).type.equals("alert")) {
+                audioController.playAlert();
+            } else {
+                audioController.playNotification();
+            }
 
             timeline.play();
         }
