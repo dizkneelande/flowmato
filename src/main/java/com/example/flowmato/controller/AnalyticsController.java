@@ -5,7 +5,9 @@ import com.example.flowmato.model.SessionManager;
 import com.example.flowmato.model.SqliteProfileDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +24,13 @@ public class AnalyticsController implements Initializable {
     private Label totalBreakTimeLabel;
 
     private SqliteProfileDAO dao;
+    @FXML
+    Button exitAnalyticsButton;
+    @FXML
+    protected void exitAnalytics() {
+        Stage stage = (Stage) exitAnalyticsButton.getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
