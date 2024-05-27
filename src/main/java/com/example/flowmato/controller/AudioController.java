@@ -35,6 +35,7 @@ public class AudioController {
     public int numberOfSecretTracks;
     boolean secretTrackQueued;
     boolean secretPlayed;
+    boolean currentlyFading;
     List<Integer> tracksPlayed = new ArrayList<>();
 
     public AudioController() {
@@ -153,7 +154,7 @@ public class AudioController {
         if (playingAudio && !notificationPlaying) {
             return;
         } else if (notificationPlaying) {
-            studyTimeSound.stop();
+            notificationSound.stop();
         }
         studyTimeSound.seek(javafx.util.Duration.ZERO);
 
@@ -319,10 +320,11 @@ public class AudioController {
      * @param fadeDown whether to fade down or fade up the volume
      */
     private void fadeVolume(MediaPlayer mediaPlayer, boolean fadeDown) {
-        if (mediaPlayer == null) {
+        if (mediaPlayer == null || currentlyFading) {
             return;
         }
 
+        currentlyFading = true;
         Timeline timeline;
         if (fadeDown) {
             timeline = new Timeline(
@@ -335,6 +337,10 @@ public class AudioController {
                 new KeyFrame(Duration.seconds(2.5), new KeyValue(mediaPlayer.volumeProperty(), volume))
             );
         }
+
+        timeline.setOnFinished(event -> {
+            currentlyFading = false;
+        });
 
         timeline.play();
     }

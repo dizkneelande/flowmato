@@ -27,6 +27,9 @@ public class MainApplicationController {
     private Label currentTime;
 
     @FXML
+    public Label currentStage;
+
+    @FXML
     private Label shortBreaksTaken;
 
     @FXML
@@ -161,6 +164,7 @@ public class MainApplicationController {
     private void refreshUI() {
         updateTime();
         updateStats();
+        currentStage.setText(timer.getCurrentStage());
     }
 
     @FXML
